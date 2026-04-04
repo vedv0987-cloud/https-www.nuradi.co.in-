@@ -6,7 +6,6 @@ import { Search, MapPin, Phone, Star, Building2, Shield, Filter } from "lucide-r
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import {
   Select,
   SelectContent,
@@ -14,8 +13,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Switch } from "@/components/ui/switch";
-import { Label } from "@/components/ui/label";
 
 interface Hospital {
   id: number;
@@ -537,7 +534,7 @@ export default function HospitalsPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 p-4 rounded-lg border border-neutral-800 bg-neutral-950">
                 {/* City */}
                 <div className="space-y-2">
-                  <Label className="text-neutral-400 text-xs uppercase tracking-wider">City</Label>
+                  <span className="text-muted-foreground text-xs uppercase tracking-wider block mb-1">City</span>
                   <Select value={city} onValueChange={setCity}>
                     <SelectTrigger className="bg-neutral-900 border-neutral-700 text-white">
                       <SelectValue />
@@ -554,7 +551,7 @@ export default function HospitalsPage() {
 
                 {/* Type */}
                 <div className="space-y-2">
-                  <Label className="text-neutral-400 text-xs uppercase tracking-wider">Type</Label>
+                  <span className="text-muted-foreground text-xs uppercase tracking-wider block mb-1">Type</span>
                   <Select value={type} onValueChange={setType}>
                     <SelectTrigger className="bg-neutral-900 border-neutral-700 text-white">
                       <SelectValue />
@@ -571,7 +568,7 @@ export default function HospitalsPage() {
 
                 {/* Sort */}
                 <div className="space-y-2">
-                  <Label className="text-neutral-400 text-xs uppercase tracking-wider">Sort by</Label>
+                  <span className="text-muted-foreground text-xs uppercase tracking-wider block mb-1">Sort by</span>
                   <Select value={sortBy} onValueChange={setSortBy}>
                     <SelectTrigger className="bg-neutral-900 border-neutral-700 text-white">
                       <SelectValue />
@@ -588,13 +585,15 @@ export default function HospitalsPage() {
 
                 {/* Emergency Toggle */}
                 <div className="space-y-2">
-                  <Label className="text-neutral-400 text-xs uppercase tracking-wider">Emergency</Label>
+                  <span className="text-muted-foreground text-xs uppercase tracking-wider block mb-1">Emergency</span>
                   <div className="flex items-center gap-3 pt-1">
-                    <Switch
-                      checked={emergencyOnly}
-                      onCheckedChange={setEmergencyOnly}
-                    />
-                    <span className="text-sm text-neutral-300">24/7 Emergency only</span>
+                    <button
+                      onClick={() => setEmergencyOnly(!emergencyOnly)}
+                      className={`w-10 h-6 rounded-full transition-colors ${emergencyOnly ? "bg-red-600" : "bg-gray-300"} relative`}
+                    >
+                      <span className={`absolute top-0.5 w-5 h-5 rounded-full bg-white shadow transition-transform ${emergencyOnly ? "translate-x-4" : "translate-x-0.5"}`} />
+                    </button>
+                    <span className="text-sm text-muted-foreground">24/7 Emergency only</span>
                   </div>
                 </div>
               </div>
@@ -614,8 +613,8 @@ export default function HospitalsPage() {
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.2 }}
               >
-                <Card className="bg-neutral-950 border-neutral-800 hover:border-neutral-600 transition-colors">
-                  <CardContent className="p-5">
+                <div className="bg-card border rounded-2xl hover:shadow-md transition-all">
+                  <div className="p-5">
                     <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3">
                       {/* Left */}
                       <div className="flex-1 min-w-0 space-y-3">
@@ -684,8 +683,8 @@ export default function HospitalsPage() {
                         </div>
                       </div>
                     </div>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
