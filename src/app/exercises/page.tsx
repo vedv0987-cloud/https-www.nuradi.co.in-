@@ -104,10 +104,10 @@ export default function ExercisesPage() {
   });
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Header */}
-      <div className="border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      <div className="border-b border">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -116,19 +116,19 @@ export default function ExercisesPage() {
             <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
               Exercise & Yoga Library
             </h1>
-            <p className="mt-2 text-white/60 text-lg">
+            <p className="mt-2 text-muted-foreground text-lg">
               Browse 40 exercises across 5 categories. Click any card to see step-by-step instructions.
             </p>
           </motion.div>
 
           {/* Search */}
           <div className="mt-6 relative max-w-md">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/40" />
+            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
             <Input
               placeholder="Search exercises or muscles..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
-              className="pl-10 bg-white/5 border-white/10 text-white placeholder:text-white/30 focus:border-white/30 focus:ring-white/10"
+              className="pl-10 bg-muted border text-foreground placeholder:text-muted-foreground/50 focus:border-foreground/30 focus:ring-foreground/10"
             />
           </div>
 
@@ -143,8 +143,8 @@ export default function ExercisesPage() {
                 className={cn(
                   "gap-2 transition-all",
                   activeCategory === cat
-                    ? "bg-white text-black hover:bg-white/90"
-                    : "border-white/20 text-white/70 hover:bg-white/10 hover:text-white"
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "border-foreground/20 text-foreground/70 hover:bg-muted hover:text-foreground"
                 )}
               >
                 {categoryIcons[cat]}
@@ -156,8 +156,8 @@ export default function ExercisesPage() {
       </div>
 
       {/* Exercise Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <p className="text-white/40 text-sm mb-6">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <p className="text-muted-foreground text-sm mb-6">
           Showing {filtered.length} exercise{filtered.length !== 1 ? "s" : ""}
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
@@ -174,8 +174,8 @@ export default function ExercisesPage() {
                   transition={{ duration: 0.25 }}
                   onClick={() => setExpandedId(isExpanded ? null : ex.id)}
                   className={cn(
-                    "border border-white/10 rounded-xl p-5 cursor-pointer transition-colors hover:border-white/25 hover:bg-white/[0.03]",
-                    isExpanded && "col-span-1 sm:col-span-2 border-white/20 bg-white/[0.03]"
+                    "border border rounded-xl p-5 cursor-pointer transition-colors hover:border-foreground/25 hover:bg-muted/50",
+                    isExpanded && "col-span-1 sm:col-span-2 border-foreground/20 bg-muted/50"
                   )}
                 >
                   {/* Card Header */}
@@ -183,15 +183,15 @@ export default function ExercisesPage() {
                     <div className="flex items-center gap-3">
                       <span className="text-2xl">{ex.emoji}</span>
                       <div>
-                        <h3 className="font-semibold text-white text-base">{ex.name}</h3>
-                        <p className="text-white/40 text-xs mt-0.5">{ex.category}</p>
+                        <h3 className="font-semibold text-foreground text-base">{ex.name}</h3>
+                        <p className="text-muted-foreground text-xs mt-0.5">{ex.category}</p>
                       </div>
                     </div>
                     <motion.div
                       animate={{ rotate: isExpanded ? 180 : 0 }}
                       transition={{ duration: 0.2 }}
                     >
-                      <ChevronDown className="w-4 h-4 text-white/30" />
+                      <ChevronDown className="w-4 h-4 text-muted-foreground/50" />
                     </motion.div>
                   </div>
 
@@ -203,11 +203,11 @@ export default function ExercisesPage() {
                     >
                       {ex.difficulty}
                     </Badge>
-                    <span className="text-white/40 text-xs flex items-center gap-1">
+                    <span className="text-muted-foreground text-xs flex items-center gap-1">
                       <Clock className="w-3 h-3" />
                       {ex.duration}
                     </span>
-                    <span className="text-white/40 text-xs flex items-center gap-1">
+                    <span className="text-muted-foreground text-xs flex items-center gap-1">
                       <Flame className="w-3 h-3" />
                       {ex.calories}
                     </span>
@@ -218,7 +218,7 @@ export default function ExercisesPage() {
                     {ex.muscles.map((muscle) => (
                       <span
                         key={muscle}
-                        className="text-[11px] px-2 py-0.5 rounded-full bg-white/5 text-white/50 border border-white/10"
+                        className="text-[11px] px-2 py-0.5 rounded-full bg-muted text-muted-foreground border"
                       >
                         {muscle}
                       </span>
@@ -235,14 +235,14 @@ export default function ExercisesPage() {
                         transition={{ duration: 0.3 }}
                         className="overflow-hidden"
                       >
-                        <div className="mt-5 pt-4 border-t border-white/10">
-                          <h4 className="text-sm font-semibold text-white/80 mb-3">
+                        <div className="mt-5 pt-4 border-t border">
+                          <h4 className="text-sm font-semibold text-foreground/80 mb-3">
                             Step-by-step Instructions
                           </h4>
                           <ol className="space-y-2">
                             {ex.steps.map((step, i) => (
-                              <li key={i} className="flex gap-3 text-sm text-white/60">
-                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-white/10 text-white/70 flex items-center justify-center text-xs font-medium">
+                              <li key={i} className="flex gap-3 text-sm text-muted-foreground">
+                                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-muted text-foreground/70 flex items-center justify-center text-xs font-medium">
                                   {i + 1}
                                 </span>
                                 <span className="pt-0.5">{step}</span>
@@ -261,8 +261,8 @@ export default function ExercisesPage() {
 
         {filtered.length === 0 && (
           <div className="text-center py-20">
-            <p className="text-white/30 text-lg">No exercises found.</p>
-            <p className="text-white/20 text-sm mt-1">Try adjusting your search or filters.</p>
+            <p className="text-muted-foreground/50 text-lg">No exercises found.</p>
+            <p className="text-muted-foreground/30 text-sm mt-1">Try adjusting your search or filters.</p>
           </div>
         )}
       </div>
