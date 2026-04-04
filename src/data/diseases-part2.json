@@ -1,0 +1,1001 @@
+[
+  {
+    "id": "atherosclerosis",
+    "name": "Atherosclerosis",
+    "slug": "atherosclerosis",
+    "aliases": ["Hardening of the arteries", "Arterial plaque buildup", "Arteriosclerotic vascular disease"],
+    "icon": "GitBranch",
+    "organ": "heart",
+    "category": "cardiovascular",
+    "categoryLabel": "Cardiovascular",
+    "color": "#E24B4A",
+    "severity": "chronic",
+    "prevalence": "common",
+    "preventable": true,
+    "curable": false,
+    "overview": "Atherosclerosis is a chronic condition where plaque made of fat, cholesterol, and other substances builds up inside the arteries, narrowing them and restricting blood flow. It is the primary underlying cause of heart attacks, strokes, and peripheral artery disease. The condition develops slowly over decades and often shows no symptoms until a major cardiovascular event occurs.",
+    "atRisk": ["High cholesterol levels", "High blood pressure", "Smokers", "Diabetics", "Obesity", "Sedentary lifestyle", "Family history of heart disease", "Men over 45 and women over 55"],
+    "symptoms": [
+      {"name": "No symptoms in early stages", "stage": "early"},
+      {"name": "Chest pain or angina", "stage": "progressive"},
+      {"name": "Leg pain when walking (claudication)", "stage": "progressive"},
+      {"name": "Shortness of breath", "stage": "progressive"},
+      {"name": "Fatigue and weakness", "stage": "progressive"},
+      {"name": "Numbness in extremities", "stage": "progressive"},
+      {"name": "Heart attack", "stage": "emergency"},
+      {"name": "Stroke symptoms", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "Over 1 billion people worldwide",
+      "deathRank": "Leading contributor to #1 cause of death globally",
+      "ageRange": "Begins in childhood, clinical events typically after 40",
+      "preventable": "Largely preventable with lifestyle changes",
+      "duration": "Lifelong progressive condition"
+    },
+    "facts": [
+      "Atherosclerosis begins with damage to the inner lining of arteries, often starting in childhood.",
+      "It is the underlying cause of approximately 50% of all deaths in Western countries.",
+      "Plaque can rupture suddenly, triggering a blood clot that causes a heart attack or stroke.",
+      "Regular exercise can slow or even partially reverse early atherosclerosis.",
+      "The condition can affect any artery in the body, including those in the heart, brain, kidneys, and legs.",
+      "Statins have been shown to stabilize plaques and reduce cardiovascular events by up to 30%.",
+      "Chronic inflammation plays a major role in the development and progression of atherosclerosis."
+    ],
+    "tips": {
+      "prevention": [
+        "Maintain a heart-healthy diet low in saturated and trans fats.",
+        "Exercise at least 150 minutes per week at moderate intensity.",
+        "Quit smoking and avoid secondhand smoke exposure.",
+        "Keep blood pressure, cholesterol, and blood sugar in healthy ranges.",
+        "Maintain a healthy weight with BMI under 25."
+      ],
+      "management": [
+        "Take prescribed medications such as statins, blood pressure drugs, or antiplatelet agents consistently.",
+        "Follow a Mediterranean-style diet rich in fruits, vegetables, and healthy fats.",
+        "Monitor cholesterol and blood pressure regularly.",
+        "Manage stress through relaxation techniques and adequate sleep.",
+        "Attend all scheduled cardiovascular check-ups."
+      ],
+      "emergency": [
+        "Call emergency services immediately if experiencing chest pain, sudden weakness, or speech difficulties.",
+        "Chew an aspirin if a heart attack is suspected while waiting for help.",
+        "Note the time symptoms began, as this is critical for treatment decisions."
+      ]
+    },
+    "searchTerms": ["hardening arteries", "plaque buildup", "clogged arteries", "arterial disease", "heart disease", "cardiovascular disease"],
+    "relatedConditions": ["coronary-artery-disease", "stroke", "hypertension", "peripheral-artery-disease", "heart-attack"],
+    "relatedOrgans": ["heart", "blood", "brain"]
+  },
+  {
+    "id": "dvt",
+    "name": "Deep Vein Thrombosis",
+    "slug": "dvt",
+    "aliases": ["DVT", "Deep vein blood clot", "Venous thromboembolism", "Blood clot in leg"],
+    "icon": "Droplet",
+    "organ": "blood",
+    "category": "cardiovascular",
+    "categoryLabel": "Cardiovascular",
+    "color": "#E24B4A",
+    "severity": "acute",
+    "prevalence": "moderate",
+    "preventable": true,
+    "curable": true,
+    "overview": "Deep vein thrombosis is the formation of a blood clot in a deep vein, most commonly in the legs. If the clot dislodges and travels to the lungs, it can cause a life-threatening pulmonary embolism. DVT often occurs after prolonged immobility, surgery, or in individuals with certain clotting disorders.",
+    "atRisk": ["Prolonged immobility or bed rest", "Recent surgery", "Pregnancy and postpartum period", "Oral contraceptive or hormone therapy users", "Cancer patients", "Obesity", "Smokers", "People over 60"],
+    "symptoms": [
+      {"name": "Swelling in one leg", "stage": "early"},
+      {"name": "Pain or tenderness in the calf", "stage": "early"},
+      {"name": "Warmth in the affected area", "stage": "early"},
+      {"name": "Red or discolored skin on the leg", "stage": "progressive"},
+      {"name": "Visible surface veins", "stage": "progressive"},
+      {"name": "Leg heaviness or fatigue", "stage": "progressive"},
+      {"name": "Sudden shortness of breath (pulmonary embolism)", "stage": "emergency"},
+      {"name": "Chest pain that worsens with breathing", "stage": "emergency"},
+      {"name": "Rapid heartbeat and dizziness", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "Up to 10 million cases per year worldwide",
+      "deathRank": "Pulmonary embolism from DVT kills ~100,000 Americans annually",
+      "ageRange": "Risk increases significantly after age 40",
+      "preventable": "Many cases preventable with movement and blood thinners after surgery",
+      "duration": "Acute episode; risk of recurrence is lifelong"
+    },
+    "facts": [
+      "Up to 50% of DVT cases have no noticeable symptoms.",
+      "Long-haul flights over 4 hours significantly increase DVT risk, a condition sometimes called economy class syndrome.",
+      "DVT and pulmonary embolism together are the third most common cardiovascular disease after heart attack and stroke.",
+      "Post-thrombotic syndrome affects up to 50% of DVT survivors, causing chronic leg pain and swelling.",
+      "Genetic clotting disorders like Factor V Leiden increase DVT risk by 3 to 8 times.",
+      "Compression stockings can reduce DVT risk by up to 60% in hospitalized patients.",
+      "Cancer patients are 4 to 7 times more likely to develop DVT than the general population."
+    ],
+    "tips": {
+      "prevention": [
+        "Move your legs frequently during long periods of sitting, especially on flights.",
+        "Stay well hydrated and avoid excessive alcohol on long journeys.",
+        "Wear compression stockings if prescribed, especially after surgery.",
+        "Maintain a healthy weight and exercise regularly.",
+        "Discuss DVT prevention with your doctor before any surgery."
+      ],
+      "management": [
+        "Take blood-thinning medications exactly as prescribed.",
+        "Wear compression stockings to manage symptoms and prevent recurrence.",
+        "Elevate your legs when resting to reduce swelling.",
+        "Stay active with regular walking to improve blood flow.",
+        "Attend follow-up appointments and blood tests as scheduled."
+      ],
+      "emergency": [
+        "Seek immediate emergency care if you experience sudden shortness of breath, chest pain, or coughing up blood.",
+        "Call emergency services if one leg becomes suddenly swollen, painful, and warm.",
+        "Do not massage the affected leg as this can dislodge the clot."
+      ]
+    },
+    "searchTerms": ["blood clot leg", "deep vein thrombosis", "DVT", "leg swelling", "pulmonary embolism", "venous thrombosis"],
+    "relatedConditions": ["pulmonary-embolism", "varicose-veins", "atherosclerosis", "stroke"],
+    "relatedOrgans": ["blood", "heart", "lungs"]
+  },
+  {
+    "id": "cushing-syndrome",
+    "name": "Cushing Syndrome",
+    "slug": "cushing-syndrome",
+    "aliases": ["Hypercortisolism", "Cushing's disease", "Cortisol excess syndrome"],
+    "icon": "Moon",
+    "organ": "hormones",
+    "category": "endocrine",
+    "categoryLabel": "Endocrine",
+    "color": "#D4537E",
+    "severity": "chronic",
+    "prevalence": "rare",
+    "preventable": false,
+    "curable": true,
+    "overview": "Cushing syndrome results from prolonged exposure to high levels of the hormone cortisol, either from the body's own overproduction or from long-term use of corticosteroid medications. It causes distinctive symptoms including weight gain in the face and trunk, skin fragility, and muscle weakness. Left untreated, it can lead to serious complications including diabetes, high blood pressure, and bone loss.",
+    "atRisk": ["Long-term corticosteroid medication users", "Women aged 20-50", "People with pituitary tumors", "People with adrenal tumors", "Those with certain lung or pancreatic tumors"],
+    "symptoms": [
+      {"name": "Weight gain in face (moon face)", "stage": "early"},
+      {"name": "Fat accumulation between shoulders (buffalo hump)", "stage": "early"},
+      {"name": "Purple stretch marks on abdomen", "stage": "progressive"},
+      {"name": "Thinning, fragile skin that bruises easily", "stage": "progressive"},
+      {"name": "Muscle weakness especially in upper arms and thighs", "stage": "progressive"},
+      {"name": "Slow wound healing", "stage": "progressive"},
+      {"name": "Irregular menstrual periods", "stage": "progressive"},
+      {"name": "High blood pressure", "stage": "progressive"},
+      {"name": "Bone fractures from osteoporosis", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "Approximately 10-15 per million people annually",
+      "deathRank": "5-year mortality of 50% if untreated",
+      "ageRange": "Most common between ages 20 and 50",
+      "preventable": "Not preventable when caused by tumors; iatrogenic form is avoidable",
+      "duration": "Chronic until treated; surgery can be curative"
+    },
+    "facts": [
+      "The most common cause of Cushing syndrome is taking corticosteroid medications like prednisone for conditions such as asthma or arthritis.",
+      "Cushing disease specifically refers to Cushing syndrome caused by a pituitary tumor producing excess ACTH.",
+      "Women are three times more likely than men to develop endogenous Cushing syndrome.",
+      "Untreated Cushing syndrome can lead to type 2 diabetes, osteoporosis, and increased infection risk.",
+      "Diagnosis often requires multiple tests because cortisol levels naturally fluctuate throughout the day.",
+      "After successful treatment, it can take months to years for cortisol levels and symptoms to fully normalize."
+    ],
+    "tips": {
+      "prevention": [
+        "Use corticosteroid medications at the lowest effective dose for the shortest possible time.",
+        "Never stop corticosteroid medications abruptly; always taper under medical supervision.",
+        "Ask your doctor about alternative medications that do not affect cortisol.",
+        "Report new symptoms like unexplained weight gain or skin changes while on steroids."
+      ],
+      "management": [
+        "Follow your endocrinologist's treatment plan, which may include surgery, radiation, or medication.",
+        "Eat a calcium and vitamin D-rich diet to protect bones.",
+        "Monitor blood sugar and blood pressure regularly.",
+        "Engage in gentle, weight-bearing exercise to counteract muscle weakness and bone loss.",
+        "Seek mental health support, as mood changes are common with cortisol imbalances."
+      ],
+      "emergency": [
+        "Seek immediate care if you develop signs of adrenal crisis: severe fatigue, low blood pressure, confusion, or vomiting.",
+        "Wear a medical alert bracelet if you are on cortisol replacement therapy."
+      ]
+    },
+    "searchTerms": ["cushing syndrome", "cortisol excess", "moon face", "buffalo hump", "hypercortisolism", "pituitary tumor"],
+    "relatedConditions": ["addison-disease", "diabetes", "hypertension", "osteoporosis"],
+    "relatedOrgans": ["hormones", "brain", "kidneys"]
+  },
+  {
+    "id": "addison-disease",
+    "name": "Addison's Disease",
+    "slug": "addison-disease",
+    "aliases": ["Primary adrenal insufficiency", "Hypocortisolism", "Adrenal failure"],
+    "icon": "Battery",
+    "organ": "hormones",
+    "category": "endocrine",
+    "categoryLabel": "Endocrine",
+    "color": "#D4537E",
+    "severity": "chronic",
+    "prevalence": "rare",
+    "preventable": false,
+    "curable": false,
+    "overview": "Addison's disease occurs when the adrenal glands produce insufficient amounts of cortisol and often aldosterone. It is most commonly caused by autoimmune destruction of the adrenal cortex. Without treatment, Addison's disease can lead to a life-threatening adrenal crisis triggered by stress, infection, or injury.",
+    "atRisk": ["People with autoimmune conditions", "Women aged 30-50", "Those with tuberculosis", "People with genetic predisposition", "Individuals with other endocrine disorders"],
+    "symptoms": [
+      {"name": "Extreme fatigue and muscle weakness", "stage": "early"},
+      {"name": "Darkening of skin (hyperpigmentation)", "stage": "early"},
+      {"name": "Weight loss and decreased appetite", "stage": "early"},
+      {"name": "Low blood pressure and dizziness", "stage": "progressive"},
+      {"name": "Salt cravings", "stage": "progressive"},
+      {"name": "Nausea, vomiting, and abdominal pain", "stage": "progressive"},
+      {"name": "Joint and muscle pain", "stage": "progressive"},
+      {"name": "Irritability and depression", "stage": "progressive"},
+      {"name": "Adrenal crisis: severe weakness, confusion, loss of consciousness", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "Approximately 100-140 per million people",
+      "deathRank": "Adrenal crisis has a mortality rate of 6% per episode",
+      "ageRange": "Most commonly diagnosed between ages 30 and 50",
+      "preventable": "Not preventable; early detection is key",
+      "duration": "Lifelong condition requiring daily medication"
+    },
+    "facts": [
+      "President John F. Kennedy had Addison's disease, though it was kept secret during his presidency.",
+      "Autoimmune adrenalitis accounts for about 80% of Addison's disease cases in developed countries.",
+      "People with Addison's disease must increase their cortisol dose during illness, injury, or surgery to prevent crisis.",
+      "Skin darkening occurs because low cortisol triggers excess ACTH, which stimulates melanin production.",
+      "Addison's disease is often diagnosed only after an adrenal crisis requiring emergency hospitalization.",
+      "Patients must carry an emergency injection kit of hydrocortisone at all times.",
+      "The condition is associated with other autoimmune diseases like type 1 diabetes and thyroid disease."
+    ],
+    "tips": {
+      "prevention": [
+        "While Addison's cannot be prevented, early recognition of symptoms leads to better outcomes.",
+        "If you have one autoimmune condition, be aware of symptoms suggesting adrenal insufficiency.",
+        "Regular screening is recommended for those with family history of autoimmune disorders.",
+        "Ensure proper stress dosing of steroids before medical procedures if at risk."
+      ],
+      "management": [
+        "Take daily cortisol and aldosterone replacement medications as prescribed, never missing doses.",
+        "Learn to adjust medication doses during illness, stress, or physical exertion (sick day rules).",
+        "Wear a medical alert bracelet indicating adrenal insufficiency at all times.",
+        "Keep an emergency hydrocortisone injection kit accessible and know how to use it.",
+        "Maintain a diet with adequate salt intake, especially in hot weather or during exercise."
+      ],
+      "emergency": [
+        "Administer emergency hydrocortisone injection and call emergency services immediately during suspected adrenal crisis.",
+        "Signs of crisis include severe vomiting, diarrhea, confusion, and dangerously low blood pressure.",
+        "Inform emergency responders about Addison's disease immediately upon arrival."
+      ]
+    },
+    "searchTerms": ["addison disease", "adrenal insufficiency", "cortisol deficiency", "hypocortisolism", "adrenal crisis", "autoimmune adrenal"],
+    "relatedConditions": ["cushing-syndrome", "hypothyroidism", "diabetes", "lupus"],
+    "relatedOrgans": ["hormones", "kidneys", "immune"]
+  },
+  {
+    "id": "tuberculosis",
+    "name": "Tuberculosis",
+    "slug": "tuberculosis",
+    "aliases": ["TB", "Consumption", "Mycobacterium tuberculosis infection"],
+    "icon": "Circle",
+    "organ": "lungs",
+    "category": "respiratory",
+    "categoryLabel": "Respiratory",
+    "color": "#378ADD",
+    "severity": "acute",
+    "prevalence": "common",
+    "preventable": true,
+    "curable": true,
+    "overview": "Tuberculosis is a serious infectious disease caused by Mycobacterium tuberculosis that primarily affects the lungs but can spread to other organs. It spreads through airborne droplets when an infected person coughs or sneezes. TB remains one of the top infectious disease killers worldwide, with about one-quarter of the global population carrying latent TB infection.",
+    "atRisk": ["Close contacts of TB patients", "Immunocompromised individuals (HIV/AIDS)", "Healthcare workers", "People in overcrowded living conditions", "Malnourished individuals", "Smokers and heavy alcohol users", "People in developing countries"],
+    "symptoms": [
+      {"name": "Persistent cough lasting more than 3 weeks", "stage": "early"},
+      {"name": "Low-grade fever and night sweats", "stage": "early"},
+      {"name": "Unintentional weight loss", "stage": "early"},
+      {"name": "Fatigue and general malaise", "stage": "progressive"},
+      {"name": "Coughing up blood (hemoptysis)", "stage": "progressive"},
+      {"name": "Chest pain and difficulty breathing", "stage": "progressive"},
+      {"name": "Loss of appetite", "stage": "progressive"},
+      {"name": "Severe respiratory failure", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "About 10 million new active cases per year",
+      "deathRank": "Second leading infectious disease killer after COVID-19",
+      "ageRange": "All ages; most deaths in adults aged 15-59",
+      "preventable": "BCG vaccine provides partial protection; treatment of latent TB prevents activation",
+      "duration": "6-9 months of treatment for drug-susceptible TB"
+    },
+    "facts": [
+      "About one-quarter of the world's population has latent TB infection and are asymptomatic.",
+      "Only 5-10% of people with latent TB will develop active disease in their lifetime.",
+      "TB was historically known as consumption because it seemed to consume patients from within.",
+      "Drug-resistant TB (MDR-TB) requires up to 20 months of treatment with more toxic medications.",
+      "HIV-TB co-infection is particularly deadly; HIV increases TB risk by 15 to 22 times.",
+      "TB can affect the spine, kidneys, brain, and lymph nodes, not just the lungs.",
+      "India, Indonesia, China, and the Philippines account for over half of all TB cases globally."
+    ],
+    "tips": {
+      "prevention": [
+        "Get the BCG vaccine where recommended, especially for children in high-burden countries.",
+        "Improve ventilation in living and working spaces.",
+        "Screen and treat latent TB infection in high-risk individuals.",
+        "Practice respiratory hygiene: cover coughs and sneezes.",
+        "If diagnosed with latent TB, complete the full preventive treatment course."
+      ],
+      "management": [
+        "Complete the full 6-9 month course of antibiotics without interruption, even if feeling better.",
+        "Use directly observed therapy (DOT) if available to ensure treatment adherence.",
+        "Attend all scheduled follow-up appointments and sputum tests.",
+        "Isolate during the initial infectious period as directed by your doctor.",
+        "Eat a nutritious diet to support immune recovery."
+      ],
+      "emergency": [
+        "Seek immediate care if coughing up large amounts of blood.",
+        "Go to the emergency room for severe shortness of breath, high fever, or confusion."
+      ]
+    },
+    "searchTerms": ["tuberculosis", "TB", "consumption", "lung infection", "mycobacterium", "coughing blood", "night sweats"],
+    "relatedConditions": ["hiv-aids", "pneumonia", "lung-cancer", "copd"],
+    "relatedOrgans": ["lungs", "immune", "bones"]
+  },
+  {
+    "id": "lung-cancer",
+    "name": "Lung Cancer",
+    "slug": "lung-cancer",
+    "aliases": ["Bronchogenic carcinoma", "Pulmonary carcinoma", "Lung malignancy"],
+    "icon": "AlertTriangle",
+    "organ": "lungs",
+    "category": "respiratory",
+    "categoryLabel": "Respiratory",
+    "color": "#378ADD",
+    "severity": "chronic",
+    "prevalence": "common",
+    "preventable": true,
+    "curable": false,
+    "overview": "Lung cancer is the uncontrolled growth of abnormal cells in one or both lungs, and it is the leading cause of cancer death worldwide. The two main types are non-small cell lung cancer (85% of cases) and small cell lung cancer. Smoking is the primary cause, but non-smokers can also develop lung cancer from radon exposure, secondhand smoke, air pollution, and genetic factors.",
+    "atRisk": ["Current and former smokers", "Secondhand smoke exposure", "Radon gas exposure", "Asbestos and occupational chemical exposure", "Family history of lung cancer", "Air pollution exposure", "People over 55"],
+    "symptoms": [
+      {"name": "Persistent cough that worsens over time", "stage": "early"},
+      {"name": "Shortness of breath", "stage": "early"},
+      {"name": "Chest pain that worsens with deep breathing", "stage": "progressive"},
+      {"name": "Coughing up blood", "stage": "progressive"},
+      {"name": "Hoarseness or voice changes", "stage": "progressive"},
+      {"name": "Unexplained weight loss and fatigue", "stage": "progressive"},
+      {"name": "Recurrent respiratory infections", "stage": "progressive"},
+      {"name": "Bone pain from metastasis", "stage": "emergency"},
+      {"name": "Severe breathing difficulty", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "About 2.2 million new cases per year",
+      "deathRank": "Number 1 cancer killer worldwide",
+      "ageRange": "Most commonly diagnosed between ages 65-74",
+      "preventable": "Up to 80-90% of cases preventable by not smoking",
+      "duration": "5-year survival rate is about 23% overall"
+    },
+    "facts": [
+      "Lung cancer kills more people than colon, breast, and prostate cancers combined.",
+      "About 10-20% of lung cancers occur in people who have never smoked.",
+      "Radon gas is the second leading cause of lung cancer and the number one cause among non-smokers.",
+      "Low-dose CT screening can reduce lung cancer mortality by 20% in high-risk individuals.",
+      "Targeted therapy and immunotherapy have significantly improved survival for certain lung cancer subtypes.",
+      "Symptoms often do not appear until the cancer is in advanced stages.",
+      "Quitting smoking at any age reduces lung cancer risk; after 10 years, risk drops by about 50%."
+    ],
+    "tips": {
+      "prevention": [
+        "Do not smoke, and if you do, seek help to quit immediately.",
+        "Avoid secondhand smoke exposure in all environments.",
+        "Test your home for radon gas and mitigate if levels are elevated.",
+        "Use protective equipment if working with carcinogens like asbestos.",
+        "Get annual low-dose CT screening if you are 50+ with a significant smoking history."
+      ],
+      "management": [
+        "Follow your oncologist's treatment plan, which may include surgery, chemotherapy, radiation, or immunotherapy.",
+        "Ask about genetic testing of your tumor to identify targeted therapy options.",
+        "Maintain nutrition and physical activity to support treatment tolerance.",
+        "Join a support group for emotional and practical coping strategies.",
+        "Report new symptoms promptly, as treatment plans may need adjustment."
+      ],
+      "emergency": [
+        "Seek emergency care for sudden severe shortness of breath, coughing up significant blood, or severe chest pain.",
+        "Go to the hospital immediately for confusion, seizures, or sudden severe headache, which may indicate brain metastasis."
+      ]
+    },
+    "searchTerms": ["lung cancer", "bronchogenic carcinoma", "smoking cancer", "lung tumor", "NSCLC", "pulmonary cancer", "lung mass"],
+    "relatedConditions": ["copd", "tuberculosis", "pneumonia", "mesothelioma"],
+    "relatedOrgans": ["lungs", "bones", "brain"]
+  },
+  {
+    "id": "long-covid",
+    "name": "Long COVID",
+    "slug": "long-covid",
+    "aliases": ["Post-acute sequelae of SARS-CoV-2", "PASC", "Post-COVID syndrome", "Chronic COVID"],
+    "icon": "Clock",
+    "organ": "lungs",
+    "category": "respiratory",
+    "categoryLabel": "Respiratory",
+    "color": "#378ADD",
+    "severity": "chronic",
+    "prevalence": "common",
+    "preventable": true,
+    "curable": false,
+    "overview": "Long COVID refers to a wide range of new, returning, or ongoing health problems that persist four or more weeks after initial COVID-19 infection. It can affect nearly every organ system and can occur in anyone, including those who had mild or asymptomatic initial infections. Symptoms can fluctuate and may last months to years, significantly impacting quality of life and ability to work.",
+    "atRisk": ["People who had severe COVID-19 requiring hospitalization", "Unvaccinated individuals", "Those with pre-existing conditions like diabetes or obesity", "Women more than men", "People aged 35-69", "Those with autoimmune conditions"],
+    "symptoms": [
+      {"name": "Persistent fatigue and exhaustion", "stage": "early"},
+      {"name": "Brain fog and difficulty concentrating", "stage": "early"},
+      {"name": "Shortness of breath", "stage": "early"},
+      {"name": "Post-exertional malaise (symptoms worsening after physical or mental effort)", "stage": "progressive"},
+      {"name": "Heart palpitations", "stage": "progressive"},
+      {"name": "Joint and muscle pain", "stage": "progressive"},
+      {"name": "Sleep disturbances", "stage": "progressive"},
+      {"name": "Loss of taste or smell", "stage": "progressive"},
+      {"name": "Chest pain and difficulty breathing at rest", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "An estimated 65 million people worldwide",
+      "deathRank": "Significant cause of disability; death rate data still emerging",
+      "ageRange": "All ages, most common in adults aged 35-69",
+      "preventable": "Vaccination reduces long COVID risk by approximately 50%",
+      "duration": "Months to years; many patients improve gradually"
+    },
+    "facts": [
+      "Long COVID can involve over 200 different symptoms affecting multiple organ systems.",
+      "About 10-20% of COVID-19 survivors may develop some form of long COVID.",
+      "Brain fog in long COVID may be related to neuroinflammation and micro-clots in brain blood vessels.",
+      "COVID vaccination, even after infection, appears to reduce long COVID symptoms in some patients.",
+      "Some long COVID patients meet the diagnostic criteria for myalgic encephalomyelitis/chronic fatigue syndrome.",
+      "Reinfection with COVID-19 increases the risk of developing long COVID.",
+      "Research suggests long COVID may involve persistent viral reservoirs, autoimmunity, and microbiome disruption."
+    ],
+    "tips": {
+      "prevention": [
+        "Stay up to date on COVID-19 vaccinations and boosters.",
+        "Practice good hand hygiene and wear masks in high-risk settings.",
+        "Seek early treatment for acute COVID-19 infection, including antivirals if eligible.",
+        "Maintain overall good health with exercise, nutrition, and sleep."
+      ],
+      "management": [
+        "Pace activities carefully to avoid post-exertional malaise flare-ups.",
+        "Work with a multidisciplinary medical team including pulmonology, cardiology, and neurology as needed.",
+        "Track symptoms in a daily journal to identify patterns and triggers.",
+        "Consider rehabilitation programs designed specifically for long COVID recovery.",
+        "Prioritize sleep hygiene and stress management."
+      ],
+      "emergency": [
+        "Seek emergency care for new chest pain, severe shortness of breath, or heart palpitations at rest.",
+        "Go to the hospital for new neurological symptoms like sudden confusion, vision changes, or weakness."
+      ]
+    },
+    "searchTerms": ["long covid", "post covid", "PASC", "chronic covid", "brain fog", "post covid fatigue", "long hauler"],
+    "relatedConditions": ["covid-19", "chronic-fatigue", "asthma", "anxiety"],
+    "relatedOrgans": ["lungs", "brain", "heart"]
+  },
+  {
+    "id": "crohns-disease",
+    "name": "Crohn's Disease",
+    "slug": "crohns-disease",
+    "aliases": ["Crohn disease", "Regional enteritis", "Granulomatous colitis"],
+    "icon": "AlertCircle",
+    "organ": "intestines",
+    "category": "digestive",
+    "categoryLabel": "Digestive",
+    "color": "#639922",
+    "severity": "chronic",
+    "prevalence": "moderate",
+    "preventable": false,
+    "curable": false,
+    "overview": "Crohn's disease is a chronic inflammatory bowel disease that can affect any part of the gastrointestinal tract from mouth to anus, though it most commonly involves the end of the small intestine and the beginning of the colon. It causes inflammation that extends deep into the bowel wall, leading to pain, severe diarrhea, fatigue, and malnutrition. The disease follows a pattern of flare-ups and remissions.",
+    "atRisk": ["People under 30", "Ashkenazi Jewish descent", "Smokers", "Family history of IBD", "Those using NSAIDs regularly", "People in industrialized countries", "Those with previous intestinal infections"],
+    "symptoms": [
+      {"name": "Abdominal pain and cramping", "stage": "early"},
+      {"name": "Frequent diarrhea", "stage": "early"},
+      {"name": "Fatigue", "stage": "early"},
+      {"name": "Blood in stool", "stage": "progressive"},
+      {"name": "Unintentional weight loss", "stage": "progressive"},
+      {"name": "Mouth sores", "stage": "progressive"},
+      {"name": "Reduced appetite and nausea", "stage": "progressive"},
+      {"name": "Perianal fistulas or abscesses", "stage": "progressive"},
+      {"name": "Bowel obstruction with severe abdominal pain and vomiting", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "About 3.5 million people worldwide",
+      "deathRank": "Not typically fatal; slightly elevated mortality vs general population",
+      "ageRange": "Most commonly diagnosed between ages 15 and 35",
+      "preventable": "Not preventable; flare-ups can be reduced with treatment",
+      "duration": "Lifelong condition with periods of remission and flare"
+    },
+    "facts": [
+      "Crohn's disease can affect the full thickness of the bowel wall, unlike ulcerative colitis which only affects the inner lining.",
+      "Up to 75% of Crohn's patients eventually require surgery, though it does not cure the disease.",
+      "Smoking doubles the risk of developing Crohn's disease and worsens its course.",
+      "Crohn's can cause complications outside the gut, including arthritis, skin lesions, and eye inflammation.",
+      "The incidence of Crohn's disease has been rising in newly industrialized countries in Asia and South America.",
+      "Biologic therapies like anti-TNF drugs have revolutionized treatment and can achieve deep remission.",
+      "Stress does not cause Crohn's but can trigger flare-ups."
+    ],
+    "tips": {
+      "prevention": [
+        "Quit smoking, as it is the most significant modifiable risk factor.",
+        "Avoid unnecessary NSAID use, which can trigger flare-ups.",
+        "Eat a balanced diet and consider working with a dietitian.",
+        "Manage stress through mindfulness, therapy, or relaxation techniques."
+      ],
+      "management": [
+        "Take medications as prescribed, including during remission to prevent flare-ups.",
+        "Keep a food diary to identify personal trigger foods.",
+        "Monitor for nutritional deficiencies, especially iron, B12, and vitamin D.",
+        "Stay hydrated, especially during diarrhea episodes.",
+        "Maintain regular follow-ups with a gastroenterologist including colonoscopies."
+      ],
+      "emergency": [
+        "Seek emergency care for signs of bowel obstruction: severe abdominal pain, inability to pass gas, and vomiting.",
+        "Go to the hospital for high fever, rapid heart rate, or signs of severe dehydration.",
+        "Seek immediate care for significant rectal bleeding."
+      ]
+    },
+    "searchTerms": ["crohns disease", "inflammatory bowel disease", "IBD", "bowel inflammation", "intestinal disease", "crohn's"],
+    "relatedConditions": ["ulcerative-colitis", "celiac-disease", "ibs", "colorectal-cancer"],
+    "relatedOrgans": ["intestines", "stomach", "immune"]
+  },
+  {
+    "id": "celiac-disease",
+    "name": "Celiac Disease",
+    "slug": "celiac-disease",
+    "aliases": ["Coeliac disease", "Celiac sprue", "Gluten-sensitive enteropathy"],
+    "icon": "Wheat",
+    "organ": "intestines",
+    "category": "digestive",
+    "categoryLabel": "Digestive",
+    "color": "#639922",
+    "severity": "chronic",
+    "prevalence": "moderate",
+    "preventable": false,
+    "curable": false,
+    "overview": "Celiac disease is an autoimmune disorder in which ingesting gluten triggers an immune response that damages the small intestine's lining, impairing nutrient absorption. Gluten is a protein found in wheat, barley, and rye. If untreated, celiac disease can lead to serious complications including malnutrition, osteoporosis, infertility, and an increased risk of certain cancers.",
+    "atRisk": ["Family members of celiac patients", "People with type 1 diabetes", "Those with Down syndrome or Turner syndrome", "People with other autoimmune disorders", "Northern European ancestry"],
+    "symptoms": [
+      {"name": "Bloating and gas after eating gluten", "stage": "early"},
+      {"name": "Chronic diarrhea or constipation", "stage": "early"},
+      {"name": "Fatigue", "stage": "early"},
+      {"name": "Abdominal pain", "stage": "progressive"},
+      {"name": "Unintentional weight loss", "stage": "progressive"},
+      {"name": "Iron deficiency anemia resistant to treatment", "stage": "progressive"},
+      {"name": "Dermatitis herpetiformis (itchy blistering skin rash)", "stage": "progressive"},
+      {"name": "Bone or joint pain", "stage": "progressive"},
+      {"name": "Severe malnutrition and failure to thrive in children", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "About 1% of the global population (roughly 70 million)",
+      "deathRank": "Increases lymphoma risk 2-4 times if untreated",
+      "ageRange": "Can develop at any age after gluten is introduced into diet",
+      "preventable": "Not preventable, but damage is preventable with gluten-free diet",
+      "duration": "Lifelong condition; managed by strict gluten-free diet"
+    },
+    "facts": [
+      "An estimated 80% of people with celiac disease remain undiagnosed.",
+      "It takes an average of 6-10 years to receive a correct celiac disease diagnosis.",
+      "Even tiny amounts of gluten (as little as 50mg, about a small breadcrumb) can trigger intestinal damage.",
+      "Celiac disease can present with over 200 known symptoms, making diagnosis challenging.",
+      "Dermatitis herpetiformis, an intensely itchy skin rash, is celiac disease of the skin.",
+      "The small intestine can heal completely within 3-6 months of starting a strict gluten-free diet in most patients.",
+      "Celiac disease is associated with increased risk of type 1 diabetes, thyroid disease, and other autoimmune conditions."
+    ],
+    "tips": {
+      "prevention": [
+        "Celiac disease cannot be prevented, but early diagnosis prevents complications.",
+        "Get tested if you have a first-degree relative with celiac disease.",
+        "Screen for celiac if you have unexplained iron deficiency anemia or other autoimmune diseases.",
+        "Do not start a gluten-free diet before being tested, as it can interfere with diagnosis."
+      ],
+      "management": [
+        "Follow a strict gluten-free diet for life, avoiding all wheat, barley, and rye products.",
+        "Read food labels carefully and be aware of hidden gluten in sauces, medications, and processed foods.",
+        "Work with a dietitian experienced in celiac disease to ensure nutritional adequacy.",
+        "Get regular follow-up blood tests and possible biopsies to monitor intestinal healing.",
+        "Supplement with vitamins and minerals if deficiencies are detected, especially iron, calcium, and vitamin D."
+      ],
+      "emergency": [
+        "Seek medical care for signs of severe dehydration from persistent diarrhea.",
+        "Get emergency evaluation for severe abdominal pain or unexpected weight loss, which could indicate complications."
+      ]
+    },
+    "searchTerms": ["celiac disease", "coeliac", "gluten intolerance", "gluten allergy", "gluten sensitivity", "celiac sprue"],
+    "relatedConditions": ["crohns-disease", "ibs", "lactose-intolerance", "diabetes"],
+    "relatedOrgans": ["intestines", "immune", "skin"]
+  },
+  {
+    "id": "gallstones",
+    "name": "Gallstones",
+    "slug": "gallstones",
+    "aliases": ["Cholelithiasis", "Gallbladder stones", "Biliary calculi"],
+    "icon": "Circle",
+    "organ": "liver",
+    "category": "digestive",
+    "categoryLabel": "Digestive",
+    "color": "#639922",
+    "severity": "variable",
+    "prevalence": "common",
+    "preventable": true,
+    "curable": true,
+    "overview": "Gallstones are hardened deposits of digestive fluid that form in the gallbladder, a small organ beneath the liver that stores bile. They range in size from a grain of sand to a golf ball and may cause no symptoms or lead to severe pain when they block bile ducts. Gallstones are one of the most common reasons for surgery worldwide.",
+    "atRisk": ["Women over 40", "Obesity or rapid weight loss", "Pregnancy", "High-fat diet", "Family history of gallstones", "Native American or Hispanic ethnicity", "People with diabetes", "Those taking estrogen medications"],
+    "symptoms": [
+      {"name": "No symptoms (silent gallstones)", "stage": "early"},
+      {"name": "Sudden intense pain in upper right abdomen (biliary colic)", "stage": "progressive"},
+      {"name": "Pain radiating to right shoulder or back", "stage": "progressive"},
+      {"name": "Nausea and vomiting after fatty meals", "stage": "progressive"},
+      {"name": "Bloating and indigestion", "stage": "progressive"},
+      {"name": "Fever and chills (indicating infection)", "stage": "emergency"},
+      {"name": "Jaundice (yellowing of skin and eyes)", "stage": "emergency"},
+      {"name": "Clay-colored stools and dark urine", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "About 10-15% of adults in developed countries",
+      "deathRank": "Rarely fatal; complications can be life-threatening if untreated",
+      "ageRange": "Risk increases after age 40; women affected 2-3 times more than men",
+      "preventable": "Partially preventable through healthy weight and diet",
+      "duration": "Symptoms resolve after gallbladder removal; stones may recur without surgery"
+    },
+    "facts": [
+      "About 80% of gallstones never cause symptoms and are discovered incidentally.",
+      "Cholesterol gallstones account for about 80% of cases, while pigment stones make up the rest.",
+      "Rapid weight loss increases gallstone risk because the liver secretes extra cholesterol into bile.",
+      "Cholecystectomy (gallbladder removal) is one of the most commonly performed surgeries worldwide.",
+      "You can live a normal life without a gallbladder; the liver still produces bile, which flows directly into the intestine.",
+      "The classic gallstone patient profile is described as the 4 Fs: Female, Forty, Fertile, and Fair.",
+      "Gallstones blocking the pancreatic duct can cause acute pancreatitis, a serious complication."
+    ],
+    "tips": {
+      "prevention": [
+        "Maintain a healthy weight and avoid crash diets or rapid weight loss.",
+        "Eat a diet high in fiber and healthy fats, and low in refined carbohydrates.",
+        "Exercise regularly, aiming for at least 30 minutes most days.",
+        "If losing weight, aim for no more than 1-2 pounds per week.",
+        "Limit high-cholesterol and high-fat foods."
+      ],
+      "management": [
+        "If gallstones are asymptomatic, watchful waiting is appropriate as most never cause problems.",
+        "Avoid fatty meals that trigger biliary colic attacks.",
+        "Discuss surgical options with your doctor if attacks are recurrent.",
+        "Laparoscopic cholecystectomy is the gold standard treatment with minimal recovery time.",
+        "After gallbladder removal, gradually reintroduce fats into your diet."
+      ],
+      "emergency": [
+        "Seek emergency care for severe abdominal pain lasting more than several hours, especially with fever or jaundice.",
+        "Go to the hospital immediately for signs of pancreatitis: severe upper abdominal pain radiating to the back with nausea."
+      ]
+    },
+    "searchTerms": ["gallstones", "gallbladder stones", "biliary colic", "cholelithiasis", "gallbladder pain", "gallbladder attack"],
+    "relatedConditions": ["pancreatitis", "hepatitis-b", "ibs", "gerd"],
+    "relatedOrgans": ["liver", "intestines", "pancreas"]
+  },
+  {
+    "id": "ulcerative-colitis",
+    "name": "Ulcerative Colitis",
+    "slug": "ulcerative-colitis",
+    "aliases": ["UC", "Inflammatory bowel disease - UC", "Ulcerative proctitis"],
+    "icon": "AlertCircle",
+    "organ": "intestines",
+    "category": "digestive",
+    "categoryLabel": "Digestive",
+    "color": "#639922",
+    "severity": "chronic",
+    "prevalence": "moderate",
+    "preventable": false,
+    "curable": false,
+    "overview": "Ulcerative colitis is a chronic inflammatory bowel disease that causes inflammation and ulcers in the innermost lining of the large intestine (colon) and rectum. Unlike Crohn's disease, it affects only the colon and rectum, and the inflammation is continuous rather than patchy. Symptoms typically develop gradually and can range from mild to severe, with periods of remission and flare-ups.",
+    "atRisk": ["People aged 15-30 or 50-70", "Ashkenazi Jewish ancestry", "Family history of IBD", "People in northern climates and industrialized countries", "Former smokers (paradoxically, smoking may be protective)"],
+    "symptoms": [
+      {"name": "Bloody diarrhea", "stage": "early"},
+      {"name": "Abdominal pain and cramping", "stage": "early"},
+      {"name": "Urgency to defecate", "stage": "early"},
+      {"name": "Rectal pain and bleeding", "stage": "progressive"},
+      {"name": "Fatigue and weight loss", "stage": "progressive"},
+      {"name": "Fever during flare-ups", "stage": "progressive"},
+      {"name": "Failure to grow in children", "stage": "progressive"},
+      {"name": "Severe abdominal distension (toxic megacolon)", "stage": "emergency"},
+      {"name": "Profuse bloody diarrhea with high fever", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "About 5 million people worldwide",
+      "deathRank": "Slightly increased mortality; major risk is colorectal cancer long-term",
+      "ageRange": "Bimodal onset: 15-30 years and 50-70 years",
+      "preventable": "Not preventable; maintenance therapy prevents flare-ups",
+      "duration": "Lifelong; colectomy is curative but last resort"
+    },
+    "facts": [
+      "Unlike Crohn's disease, ulcerative colitis can be cured by surgical removal of the colon.",
+      "People with UC for 8-10 years have an increased risk of colorectal cancer and need regular surveillance colonoscopies.",
+      "Paradoxically, smoking appears to have a protective effect against ulcerative colitis, though smoking is never recommended.",
+      "Fecal microbiota transplant is being studied as a potential treatment for UC.",
+      "UC can cause complications outside the colon, including liver disease, arthritis, and eye inflammation.",
+      "Severe UC flare-ups can lead to toxic megacolon, a life-threatening emergency requiring urgent surgery.",
+      "About 25-40% of UC patients will eventually require colectomy."
+    ],
+    "tips": {
+      "prevention": [
+        "While UC cannot be prevented, regular medication adherence reduces flare-up frequency.",
+        "Identify and avoid personal dietary triggers that worsen symptoms.",
+        "Manage stress, as it can exacerbate flare-ups.",
+        "Get regular colorectal cancer screening after 8 years of UC diagnosis."
+      ],
+      "management": [
+        "Take maintenance medications as prescribed, even during remission.",
+        "Eat small, frequent meals and stay well hydrated during flare-ups.",
+        "Consider probiotics as an adjunctive therapy after discussing with your doctor.",
+        "Keep a symptom and food diary to identify patterns.",
+        "Build a support network including gastroenterologist, dietitian, and mental health professional."
+      ],
+      "emergency": [
+        "Seek immediate emergency care for severe abdominal distension, high fever, and more than 10 bloody stools per day.",
+        "Go to the hospital for signs of dehydration: dizziness, rapid heartbeat, and very dark urine.",
+        "Toxic megacolon is a surgical emergency requiring immediate hospitalization."
+      ]
+    },
+    "searchTerms": ["ulcerative colitis", "UC", "bloody diarrhea", "colon inflammation", "inflammatory bowel disease", "colitis"],
+    "relatedConditions": ["crohns-disease", "ibs", "colorectal-cancer", "celiac-disease"],
+    "relatedOrgans": ["intestines", "immune", "liver"]
+  },
+  {
+    "id": "parkinsons",
+    "name": "Parkinson's Disease",
+    "slug": "parkinsons",
+    "aliases": ["Parkinson disease", "PD", "Paralysis agitans", "Shaking palsy"],
+    "icon": "Hand",
+    "organ": "brain",
+    "category": "neurological",
+    "categoryLabel": "Neurological",
+    "color": "#BA7517",
+    "severity": "chronic",
+    "prevalence": "moderate",
+    "preventable": false,
+    "curable": false,
+    "overview": "Parkinson's disease is a progressive neurodegenerative disorder caused by the loss of dopamine-producing neurons in the brain, particularly in a region called the substantia nigra. It primarily affects movement, causing tremors, stiffness, and difficulty with balance and coordination. Non-motor symptoms including depression, sleep disturbances, and cognitive decline can be equally debilitating.",
+    "atRisk": ["People over 60", "Men more than women", "Family history of Parkinson's", "Exposure to pesticides and herbicides", "History of head trauma", "Rural living"],
+    "symptoms": [
+      {"name": "Resting tremor, often starting in one hand", "stage": "early"},
+      {"name": "Slowed movement (bradykinesia)", "stage": "early"},
+      {"name": "Muscle rigidity and stiffness", "stage": "early"},
+      {"name": "Loss of smell (hyposmia)", "stage": "early"},
+      {"name": "Impaired balance and postural instability", "stage": "progressive"},
+      {"name": "Shuffling gait and freezing episodes", "stage": "progressive"},
+      {"name": "Soft or slurred speech", "stage": "progressive"},
+      {"name": "Cognitive decline and dementia", "stage": "progressive"},
+      {"name": "Swallowing difficulties leading to aspiration", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "Over 10 million people worldwide",
+      "deathRank": "14th leading cause of death in the United States",
+      "ageRange": "Average onset age is 60; early-onset before 50 in 10% of cases",
+      "preventable": "Not preventable; caffeine and exercise may reduce risk",
+      "duration": "Lifelong progressive condition; average life expectancy 10-20 years after diagnosis"
+    },
+    "facts": [
+      "Muhammad Ali and Michael J. Fox are among the most well-known people with Parkinson's disease.",
+      "Loss of smell can occur years before motor symptoms develop and may be an early biomarker.",
+      "Deep brain stimulation (DBS) surgery can dramatically improve motor symptoms in selected patients.",
+      "Levodopa, the primary treatment, has been used since the 1960s and remains the most effective medication.",
+      "REM sleep behavior disorder, where people act out dreams, is strongly linked to later developing Parkinson's.",
+      "Exercise has been shown to slow Parkinson's progression and is now considered a key part of treatment.",
+      "The gut-brain connection in Parkinson's is a major area of research, as gut symptoms often precede brain symptoms."
+    ],
+    "tips": {
+      "prevention": [
+        "Exercise regularly, as physical activity is associated with reduced Parkinson's risk.",
+        "Minimize exposure to pesticides and industrial chemicals.",
+        "Moderate coffee consumption may have a protective effect.",
+        "Protect against head injuries by wearing seatbelts and helmets."
+      ],
+      "management": [
+        "Take medications on a strict schedule, as timing is critical for symptom control.",
+        "Engage in regular exercise, especially activities that challenge balance like tai chi or dancing.",
+        "Work with a speech therapist if voice or swallowing is affected.",
+        "Modify the home environment to prevent falls: remove rugs, install grab bars, improve lighting.",
+        "Stay socially active and consider joining a Parkinson's support group.",
+        "Explore physical and occupational therapy to maintain independence."
+      ],
+      "emergency": [
+        "Seek emergency care for severe rigidity, high fever, and confusion, which could indicate neuroleptic malignant syndrome.",
+        "Go to the hospital after any fall with head injury or inability to get up."
+      ]
+    },
+    "searchTerms": ["parkinsons disease", "tremor", "shaking", "dopamine", "movement disorder", "neurodegenerative", "bradykinesia"],
+    "relatedConditions": ["alzheimers", "multiple-sclerosis", "depression", "dementia"],
+    "relatedOrgans": ["brain", "muscles", "intestines"]
+  },
+  {
+    "id": "multiple-sclerosis",
+    "name": "Multiple Sclerosis",
+    "slug": "multiple-sclerosis",
+    "aliases": ["MS", "Disseminated sclerosis", "Encephalomyelitis disseminata"],
+    "icon": "GitBranch",
+    "organ": "brain",
+    "category": "neurological",
+    "categoryLabel": "Neurological",
+    "color": "#BA7517",
+    "severity": "chronic",
+    "prevalence": "moderate",
+    "preventable": false,
+    "curable": false,
+    "overview": "Multiple sclerosis is a chronic autoimmune disease in which the immune system attacks the protective myelin sheath covering nerve fibers in the brain and spinal cord, disrupting communication between the brain and body. Symptoms vary widely depending on which nerves are affected and can range from numbness and tingling to severe disability. Most people are diagnosed between ages 20 and 50, and women are affected 2-3 times more often than men.",
+    "atRisk": ["Women aged 20-50", "Northern European descent", "People living farther from the equator", "Vitamin D deficiency", "Smokers", "Family history of MS", "People with Epstein-Barr virus history"],
+    "symptoms": [
+      {"name": "Numbness or tingling in limbs", "stage": "early"},
+      {"name": "Vision problems (optic neuritis)", "stage": "early"},
+      {"name": "Fatigue", "stage": "early"},
+      {"name": "Muscle weakness or spasticity", "stage": "progressive"},
+      {"name": "Balance problems and dizziness", "stage": "progressive"},
+      {"name": "Bladder and bowel dysfunction", "stage": "progressive"},
+      {"name": "Cognitive difficulties and brain fog", "stage": "progressive"},
+      {"name": "Pain and electric-shock sensations", "stage": "progressive"},
+      {"name": "Sudden severe relapse with significant neurological deficit", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "About 2.8 million people worldwide",
+      "deathRank": "Reduces life expectancy by 5-10 years on average",
+      "ageRange": "Most commonly diagnosed between ages 20 and 50",
+      "preventable": "Not preventable; disease-modifying therapies slow progression",
+      "duration": "Lifelong; most common form (relapsing-remitting) has periods of stability"
+    },
+    "facts": [
+      "MS is sometimes called the disease of a thousand faces due to its wide variety of symptoms.",
+      "Epstein-Barr virus infection appears to be a necessary trigger for developing MS in genetically susceptible people.",
+      "Countries farther from the equator have higher rates of MS, possibly related to lower vitamin D levels.",
+      "MRI can detect MS lesions years before symptoms appear.",
+      "Modern disease-modifying therapies have dramatically improved outcomes, with some reducing relapse rates by over 70%.",
+      "Heat can temporarily worsen MS symptoms, a phenomenon known as Uhthoff phenomenon.",
+      "MS does not significantly reduce fertility, and many women with MS have healthy pregnancies."
+    ],
+    "tips": {
+      "prevention": [
+        "Maintain adequate vitamin D levels through sun exposure or supplementation.",
+        "Do not smoke, and if you do, quit as smoking increases MS risk and progression.",
+        "These measures may reduce risk but cannot guarantee prevention.",
+        "Stay physically active as regular exercise is associated with lower MS risk."
+      ],
+      "management": [
+        "Start disease-modifying therapy early and take it consistently as prescribed.",
+        "Stay cool during exercise and hot weather to manage heat sensitivity.",
+        "Engage in regular exercise adapted to your abilities, as it improves fatigue, mood, and function.",
+        "Work with occupational and physical therapists to maximize independence.",
+        "Address mental health proactively, as depression and anxiety are common in MS.",
+        "Plan activities to manage fatigue, alternating activity with rest periods."
+      ],
+      "emergency": [
+        "Seek urgent medical attention for new or rapidly worsening neurological symptoms, as relapses may require IV steroids.",
+        "Go to the emergency room for sudden vision loss, severe weakness, or difficulty breathing."
+      ]
+    },
+    "searchTerms": ["multiple sclerosis", "MS", "demyelination", "autoimmune nerve damage", "myelin", "optic neuritis", "relapsing remitting"],
+    "relatedConditions": ["lupus", "parkinsons", "chronic-fatigue", "depression"],
+    "relatedOrgans": ["brain", "eyes", "muscles"]
+  },
+  {
+    "id": "concussion",
+    "name": "Concussion",
+    "slug": "concussion",
+    "aliases": ["Mild traumatic brain injury", "mTBI", "Brain concussion"],
+    "icon": "AlertTriangle",
+    "organ": "brain",
+    "category": "neurological",
+    "categoryLabel": "Neurological",
+    "color": "#BA7517",
+    "severity": "acute",
+    "prevalence": "common",
+    "preventable": true,
+    "curable": true,
+    "overview": "A concussion is a mild traumatic brain injury caused by a bump, blow, or jolt to the head or body that causes the brain to move rapidly within the skull. It temporarily disrupts normal brain function and can affect memory, judgment, reflexes, speech, balance, and coordination. Most concussions resolve within days to weeks, but repeated concussions can cause long-term brain damage.",
+    "atRisk": ["Contact sport athletes (football, rugby, boxing, soccer)", "Children and adolescents", "Military personnel", "People with previous concussions", "Elderly at risk for falls", "Motor vehicle accident victims"],
+    "symptoms": [
+      {"name": "Headache and pressure in the head", "stage": "early"},
+      {"name": "Confusion and feeling dazed", "stage": "early"},
+      {"name": "Dizziness and balance problems", "stage": "early"},
+      {"name": "Nausea or vomiting", "stage": "early"},
+      {"name": "Memory loss around the event", "stage": "progressive"},
+      {"name": "Sensitivity to light and noise", "stage": "progressive"},
+      {"name": "Sleep disturbances", "stage": "progressive"},
+      {"name": "Difficulty concentrating", "stage": "progressive"},
+      {"name": "Worsening headache, repeated vomiting, seizures, or loss of consciousness", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "An estimated 50-60 million concussions occur worldwide each year",
+      "deathRank": "Rarely fatal; repeated concussions carry long-term risks",
+      "ageRange": "Most common in ages 15-24; also high in children and elderly",
+      "preventable": "Many concussions preventable with protective equipment and rule changes in sports",
+      "duration": "Most resolve in 7-14 days; post-concussion syndrome can last months"
+    },
+    "facts": [
+      "You do not need to lose consciousness to have a concussion; fewer than 10% of concussions involve loss of consciousness.",
+      "Second impact syndrome, where a second concussion occurs before the first has healed, can be fatal.",
+      "The developing brains of children and teens take longer to recover from concussion than adult brains.",
+      "Chronic traumatic encephalopathy (CTE) is linked to repeated concussions, particularly in contact sports.",
+      "Rest, not complete bed rest, is now recommended; gradual return to normal activities aids recovery.",
+      "Neuroimaging (CT or MRI) is typically normal after a concussion because it is a functional rather than structural injury.",
+      "Women may be more susceptible to concussions and have longer recovery times than men."
+    ],
+    "tips": {
+      "prevention": [
+        "Wear properly fitted helmets during cycling, skiing, and contact sports.",
+        "Follow sports rules and practice proper technique to minimize head impacts.",
+        "Make homes fall-proof for elderly individuals: install grab bars, remove trip hazards, ensure good lighting.",
+        "Always wear seatbelts in vehicles.",
+        "Teach children safe play practices and recognize concussion signs."
+      ],
+      "management": [
+        "Rest from physical and cognitive activities for 24-48 hours, then gradually increase activity as tolerated.",
+        "Avoid screens and bright lights during the initial recovery period if they worsen symptoms.",
+        "Do not return to sports or high-risk activities until fully recovered and cleared by a healthcare provider.",
+        "Stay hydrated and maintain a regular sleep schedule.",
+        "Use over-the-counter acetaminophen for headaches; avoid aspirin and ibuprofen initially due to bleeding risk."
+      ],
+      "emergency": [
+        "Go to the emergency room immediately for worsening headache, repeated vomiting, seizures, or unusual behavior after a head injury.",
+        "Seek emergency care if one pupil is larger than the other or if the person cannot be awakened.",
+        "Call emergency services if there is clear fluid draining from the nose or ears."
+      ]
+    },
+    "searchTerms": ["concussion", "head injury", "brain injury", "mTBI", "head trauma", "knocked out", "post concussion"],
+    "relatedConditions": ["migraine", "parkinsons", "epilepsy", "depression"],
+    "relatedOrgans": ["brain", "eyes", "muscles"]
+  },
+  {
+    "id": "ocd",
+    "name": "Obsessive-Compulsive Disorder",
+    "slug": "ocd",
+    "aliases": ["OCD", "Obsessive compulsive disorder", "Obsessional neurosis"],
+    "icon": "Repeat",
+    "organ": "brain",
+    "category": "mental-health",
+    "categoryLabel": "Mental Health",
+    "color": "#7F77DD",
+    "severity": "chronic",
+    "prevalence": "moderate",
+    "preventable": false,
+    "curable": false,
+    "overview": "Obsessive-compulsive disorder is a chronic mental health condition characterized by recurring, unwanted thoughts (obsessions) and repetitive behaviors (compulsions) that the person feels driven to perform. These obsessions and compulsions interfere significantly with daily activities and cause considerable distress. OCD is not about being neat or organized; it involves intrusive thoughts that cause severe anxiety, relieved only temporarily by ritualistic behaviors.",
+    "atRisk": ["People with family history of OCD", "Those who experienced childhood trauma", "People with other anxiety disorders", "Young adults (average onset age 19)", "People with autoimmune conditions (PANDAS in children)"],
+    "symptoms": [
+      {"name": "Intrusive unwanted thoughts causing anxiety", "stage": "early"},
+      {"name": "Repetitive behaviors or mental rituals to reduce anxiety", "stage": "early"},
+      {"name": "Excessive hand washing or cleaning", "stage": "progressive"},
+      {"name": "Checking behaviors (locks, stove, etc.) repeatedly", "stage": "progressive"},
+      {"name": "Need for symmetry or exact ordering", "stage": "progressive"},
+      {"name": "Hoarding or inability to discard items", "stage": "progressive"},
+      {"name": "Significant time spent on rituals (over 1 hour daily)", "stage": "progressive"},
+      {"name": "Avoidance of triggers leading to social isolation", "stage": "progressive"},
+      {"name": "Suicidal thoughts from severe distress", "stage": "emergency"}
+    ],
+    "quickFacts": {
+      "affectedGlobally": "About 2-3% of the global population",
+      "deathRank": "Not directly fatal; high suicide risk if severe and untreated",
+      "ageRange": "Typically develops in late teens to early 20s; can start in childhood",
+      "preventable": "Not preventable; early treatment improves outcomes significantly",
+      "duration": "Chronic; most patients improve significantly with proper treatment"
+    },
+    "facts": [
+      "OCD is ranked by the WHO as one of the top 10 most disabling illnesses in terms of lost income and quality of life.",
+      "People with OCD usually recognize their obsessions are irrational but feel unable to stop them.",
+      "It takes an average of 14-17 years from symptom onset for someone with OCD to receive appropriate treatment.",
+      "Exposure and response prevention (ERP) therapy is the gold standard treatment and is effective in about 70% of patients.",
+      "OCD exists on a spectrum; related conditions include body dysmorphic disorder, hoarding disorder, and trichotillomania.",
+      "Brain imaging studies show OCD involves overactivity in the cortico-striato-thalamo-cortical circuit."
+    ],
+    "tips": {
+      "prevention": [
+        "While OCD cannot be prevented, early recognition and treatment leads to better outcomes.",
+        "Educate yourself about OCD to distinguish between normal worry and clinical obsessions.",
+        "Seek help early if intrusive thoughts begin interfering with daily life.",
+        "Maintain good mental health habits: exercise, sleep, social connection, and stress management."
+      ],
+      "management": [
+        "Pursue exposure and response prevention (ERP) therapy with a trained OCD specialist.",
+        "Take prescribed medications (usually SSRIs) consistently, as they may take 8-12 weeks to reach full effect.",
+        "Resist the urge to seek reassurance from others about obsessive fears.",
+        "Practice mindfulness to observe obsessive thoughts without engaging with them.",
+        "Join an OCD support group to connect with others who understand the condition."
+      ],
+      "emergency": [
+        "Seek immediate help if experiencing suicidal thoughts by contacting the 988 Suicide & Crisis Lifeline.",
+        "Go to the emergency room if OCD symptoms are causing inability to eat, sleep, or care for yourself."
+      ]
+    },
+    "searchTerms": ["OCD", "obsessive compulsive", "intrusive thoughts", "compulsions", "rituals", "obsessions", "checking behavior"],
+    "relatedConditions": ["anxiety", "depression", "bipolar", "eating-disorders"],
+    "relatedOrgans": ["brain"]
+  }
+]
