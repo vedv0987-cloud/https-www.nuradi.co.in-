@@ -46,95 +46,151 @@ const CATEGORIES = Object.values(DISEASE_CATEGORIES).slice(0, 8);
 export default function HomePage() {
   return (
     <div className="space-y-20 pb-20">
-      {/* ═══════ HERO ═══════ */}
-      <section className="relative overflow-hidden min-h-[70vh] flex items-center">
+      {/* ═══════ HERO — PREMIUM ═══════ */}
+      <section className="relative overflow-hidden bg-[#0a0a0a] text-white">
+        {/* Animated grid background */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-transparent to-gray-50/50" />
-          <div className="absolute top-20 -left-40 w-96 h-96 bg-gray-200/30 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 -right-40 w-96 h-96 bg-gray-200/30 rounded-full blur-3xl" />
+          <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "radial-gradient(circle, white 1px, transparent 1px)", backgroundSize: "40px 40px" }} />
+          <motion.div
+            animate={{ scale: [1, 1.2, 1], opacity: [0.05, 0.1, 0.05] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px]"
+          />
+          <motion.div
+            animate={{ scale: [1.2, 1, 1.2], opacity: [0.03, 0.08, 0.03] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-white/5 rounded-full blur-[100px]"
+          />
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-16 w-full relative z-10">
-          <div className="max-w-3xl mx-auto text-center space-y-8">
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-sm font-medium"
-            >
-              <Sparkles className="w-4 h-4" />
-              India&apos;s Free Health Tools Platform
-            </motion.div>
-
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]"
-            >
-              <span className="block">Your Health,</span>
-              <span className="block text-[#1a1a1a] italic">
-                Simplified
-              </span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="text-lg text-muted-foreground max-w-lg mx-auto"
-            >
-              10+ free health tools, 120+ disease guides, 1000+ expert videos — all in one place. No login required.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-4 justify-center"
-            >
-              <Link
-                href="/tools/bmi"
-                className={cn(
-                  buttonVariants({ size: "lg" }),
-                  "gap-2 text-base px-8 h-12 rounded-xl bg-[#1a1a1a] hover:bg-black shadow-lg shadow-black/15"
-                )}
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-24 sm:py-32 w-full relative z-10">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* Left — Copy */}
+            <div className="space-y-8">
+              <motion.div
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6 }}
               >
-                Try a Health Tool
-                <ArrowRight className="w-4 h-4" />
-              </Link>
-              <Link
-                href="/health-az"
-                className={cn(
-                  buttonVariants({ variant: "outline", size: "lg" }),
-                  "text-base px-8 h-12 rounded-xl"
-                )}
-              >
-                <Stethoscope className="w-4 h-4 mr-2" />
-                Health A-Z
-              </Link>
-            </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-white/80 text-sm font-medium mb-6"
+                >
+                  <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
+                  India&apos;s #1 Free Health Platform
+                </motion.div>
 
-            {/* Stats */}
+                <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black tracking-[-0.04em] leading-[0.95]">
+                  <motion.span
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.3 }}
+                    className="block"
+                  >
+                    Your Health.
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="block text-white/40"
+                  >
+                    Your Data.
+                  </motion.span>
+                  <motion.span
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.5 }}
+                    className="block"
+                  >
+                    Your Power.
+                  </motion.span>
+                </h1>
+              </motion.div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+                className="text-lg text-white/50 max-w-md leading-relaxed"
+              >
+                10+ AI-powered health tools. 120+ disease guides. 1,000+ expert videos. Everything you need to take control of your health — completely free.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7 }}
+                className="flex flex-wrap gap-4"
+              >
+                <Link
+                  href="/tools/bmi"
+                  className="inline-flex items-center gap-2 px-8 h-14 bg-white text-black font-bold text-base rounded-2xl hover:bg-gray-100 transition-colors shadow-2xl shadow-white/10"
+                >
+                  Get Started Free
+                  <ArrowRight className="w-5 h-5" />
+                </Link>
+                <Link
+                  href="/health-az"
+                  className="inline-flex items-center gap-2 px-8 h-14 border border-white/20 text-white font-bold text-base rounded-2xl hover:bg-white/5 transition-colors"
+                >
+                  <Stethoscope className="w-5 h-5" />
+                  Explore Health A-Z
+                </Link>
+              </motion.div>
+            </div>
+
+            {/* Right — Stats Cards */}
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-wrap justify-center gap-8 pt-4 text-sm text-muted-foreground"
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.6 }}
+              className="hidden lg:grid grid-cols-2 gap-4"
             >
               {[
-                { value: "10+", label: "Health Tools" },
-                { value: "120+", label: "Disease Guides" },
-                { value: "1,000+", label: "Expert Videos" },
-                { value: "28", label: "Verified Creators" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="text-2xl font-extrabold text-foreground">{stat.value}</div>
-                  <div className="text-xs">{stat.label}</div>
-                </div>
+                { value: "10+", label: "Health Tools", desc: "BMI, Bio Age, Sleep, Gut Health & more", emoji: "🔬" },
+                { value: "120+", label: "Disease Guides", desc: "Conditions A-Z with expert tips", emoji: "📋" },
+                { value: "1,000+", label: "Expert Videos", desc: "From 28 verified medical creators", emoji: "🎬" },
+                { value: "Free", label: "Forever", desc: "No login, no ads, no data selling", emoji: "✨" },
+              ].map((stat, i) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.7 + i * 0.1 }}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  className="p-6 rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-sm hover:bg-white/[0.06] transition-all cursor-default"
+                >
+                  <span className="text-2xl block mb-3">{stat.emoji}</span>
+                  <div className="text-3xl font-black tracking-tight">{stat.value}</div>
+                  <div className="text-sm font-semibold text-white/70 mt-1">{stat.label}</div>
+                  <div className="text-xs text-white/30 mt-2">{stat.desc}</div>
+                </motion.div>
               ))}
             </motion.div>
           </div>
+
+          {/* Mobile stats row */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+            className="lg:hidden flex flex-wrap justify-center gap-8 pt-12 border-t border-white/10 mt-12"
+          >
+            {[
+              { value: "10+", label: "Health Tools" },
+              { value: "120+", label: "Disease Guides" },
+              { value: "1,000+", label: "Expert Videos" },
+              { value: "Free", label: "Forever" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="text-2xl font-black">{stat.value}</div>
+                <div className="text-xs text-white/40">{stat.label}</div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
