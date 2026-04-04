@@ -71,12 +71,11 @@ export function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} HealthEduTV. All videos belong to
+            &copy; {new Date().getFullYear()} NuradiHealth. All videos belong to
             their respective YouTube creators.
           </p>
           <p className="text-xs text-muted-foreground flex items-center gap-1">
-            Made with <Heart className="w-3 h-3 text-red-500 fill-red-500" />{" "}
-            by Realatte AI
+            Built by NuradiHealth
           </p>
         </div>
       </div>
