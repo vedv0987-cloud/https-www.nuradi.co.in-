@@ -9,17 +9,17 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const video = videos.find((v) => v.id === id);
-  if (!video) return { title: "Video Not Found — HealthEduTV" };
+  if (!video) return { title: "Video Not Found — NuradiHealth" };
   const channel = channels.find((c) => c.id === video.channelId);
   return {
-    title: `${video.title} — HealthEduTV`,
+    title: `${video.title} — NuradiHealth`,
     description: video.description.slice(0, 160),
     openGraph: {
       title: video.title,
       description: video.description.slice(0, 160),
       images: [{ url: video.thumbnail, width: 1280, height: 720 }],
       type: "video.other",
-      siteName: "HealthEduTV",
+      siteName: "NuradiHealth",
     },
     twitter: {
       card: "summary_large_image",

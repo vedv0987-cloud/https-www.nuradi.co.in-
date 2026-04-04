@@ -49,7 +49,7 @@ export default function AboutPage() {
       >
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium">
           <Sparkles className="w-4 h-4" />
-          About HealthEduTV
+          About NuradiHealth
         </div>
         <h1 className="text-4xl sm:text-5xl font-bold tracking-tight">
           Trusted knowledge,
@@ -57,7 +57,7 @@ export default function AboutPage() {
           <span className="text-primary">beautifully organized.</span>
         </h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          HealthEduTV is a curated video discovery platform that brings together
+          NuradiHealth is a curated video discovery platform that brings together
           the best health and education content from verified YouTube creators.
         </p>
       </motion.div>

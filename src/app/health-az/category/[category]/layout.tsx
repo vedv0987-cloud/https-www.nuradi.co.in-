@@ -8,15 +8,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { category } = await params;
   const cat = DISEASE_CATEGORIES[category];
-  if (!cat) return { title: "Category Not Found — HealthEduTV" };
+  if (!cat) return { title: "Category Not Found — NuradiHealth" };
   return {
-    title: `${cat.label} Conditions — Health A-Z — HealthEduTV`,
+    title: `${cat.label} Conditions — Health A-Z — NuradiHealth`,
     description: `Browse all ${cat.label.toLowerCase()} health conditions with expert videos and information.`,
     openGraph: {
       title: `${cat.label} — Health A-Z`,
-      description: `Browse ${cat.label.toLowerCase()} conditions on HealthEduTV.`,
+      description: `Browse ${cat.label.toLowerCase()} conditions on NuradiHealth.`,
       type: "website",
-      siteName: "HealthEduTV",
+      siteName: "NuradiHealth",
     },
   };
 }

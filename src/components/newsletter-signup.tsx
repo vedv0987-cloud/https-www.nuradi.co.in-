@@ -41,7 +41,7 @@ export function NewsletterSignup() {
             <motion.div key="success" initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} className="py-4">
               <CheckCircle2 className="w-10 h-10 text-primary mx-auto mb-3" />
               <h2 className="text-xl font-bold mb-1">You&apos;re in!</h2>
-              <p className="text-sm text-muted-foreground">Welcome to the HealthEduTV community.</p>
+              <p className="text-sm text-muted-foreground">Welcome to the NuradiHealth community.</p>
             </motion.div>
           )}
         </AnimatePresence>

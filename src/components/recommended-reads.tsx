@@ -46,7 +46,7 @@ export function RecommendedReads() {
               onClick={() => setActiveTab(tab.key)}
               className={`px-5 py-2 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                 activeTab === tab.key
-                  ? "bg-teal-700 text-white shadow-md"
+                  ? "bg-[#1a1a1a] text-white shadow-md"
                   : "bg-muted text-foreground hover:bg-muted/80"
               }`}
             >

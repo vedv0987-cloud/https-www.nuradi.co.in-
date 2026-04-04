@@ -8,15 +8,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const path = LEARNING_PATHS.find((p) => p.slug === slug);
-  if (!path) return { title: "Learning Path Not Found — HealthEduTV" };
+  if (!path) return { title: "Learning Path Not Found — NuradiHealth" };
   return {
-    title: `${path.name} — Learning Paths — HealthEduTV`,
+    title: `${path.name} — Learning Paths — NuradiHealth`,
     description: path.description,
     openGraph: {
       title: `${path.name} — Learning Path`,
       description: path.description,
       type: "article",
-      siteName: "HealthEduTV",
+      siteName: "NuradiHealth",
     },
   };
 }

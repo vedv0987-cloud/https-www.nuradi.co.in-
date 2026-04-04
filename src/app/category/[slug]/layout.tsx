@@ -10,15 +10,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const meta = CATEGORY_META[slug as Category];
-  if (!meta) return { title: "Category Not Found — HealthEduTV" };
+  if (!meta) return { title: "Category Not Found — NuradiHealth" };
   return {
-    title: `${meta.label} Videos — HealthEduTV`,
+    title: `${meta.label} Videos — NuradiHealth`,
     description: meta.description,
     openGraph: {
-      title: `${meta.label} — HealthEduTV`,
+      title: `${meta.label} — NuradiHealth`,
       description: meta.description,
       type: "website",
-      siteName: "HealthEduTV",
+      siteName: "NuradiHealth",
     },
   };
 }

@@ -10,15 +10,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const disease = diseases.find((d) => d.slug === slug);
-  if (!disease) return { title: "Condition Not Found — HealthEduTV" };
+  if (!disease) return { title: "Condition Not Found — NuradiHealth" };
   return {
-    title: `${disease.name} — Health A-Z — HealthEduTV`,
+    title: `${disease.name} — Health A-Z — NuradiHealth`,
     description: disease.overview.slice(0, 160),
     openGraph: {
-      title: `${disease.name} — HealthEduTV`,
+      title: `${disease.name} — NuradiHealth`,
       description: disease.overview.slice(0, 160),
       type: "article",
-      siteName: "HealthEduTV",
+      siteName: "NuradiHealth",
     },
   };
 }

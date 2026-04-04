@@ -8,15 +8,15 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { id } = await params;
   const part = bodyParts.find((p) => p.id === id);
-  if (!part) return { title: "Body Part Not Found — HealthEduTV" };
+  if (!part) return { title: "Body Part Not Found — NuradiHealth" };
   return {
-    title: `${part.name} — Body Explorer — HealthEduTV`,
+    title: `${part.name} — Body Explorer — NuradiHealth`,
     description: `Explore ${part.videoCount} expert videos about the ${part.name.toLowerCase()}. Learn about anatomy, health conditions, and treatments.`,
     openGraph: {
       title: `${part.name} — Body Explorer`,
       description: `${part.videoCount} expert videos about the ${part.name.toLowerCase()}.`,
       type: "article",
-      siteName: "HealthEduTV",
+      siteName: "NuradiHealth",
     },
   };
 }

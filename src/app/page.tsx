@@ -29,16 +29,16 @@ import { RecommendedReads } from "@/components/recommended-reads";
 import { DISEASE_CATEGORIES } from "@/data/disease-categories";
 
 const HEALTH_TOOLS = [
-  { href: "/tools/bmi", label: "BMI & Body Metrics", desc: "Calculate BMI, ideal weight & daily calories", icon: Calculator, color: "#6366F1", bg: "#EEF2FF" },
-  { href: "/tools/biological-age", label: "Biological Age", desc: "How old is your body really?", icon: Activity, color: "#8B5CF6", bg: "#F5F3FF" },
-  { href: "/tools/sleep-score", label: "Sleep Score", desc: "Rate your sleep quality out of 100", icon: Moon, color: "#4338CA", bg: "#EEF2FF" },
-  { href: "/tools/gut-health", label: "Gut Health Score", desc: "Assess your digestive health", icon: Apple, color: "#059669", bg: "#ECFDF5" },
-  { href: "/tools/water-tracker", label: "Water Tracker", desc: "Track daily water intake", icon: Droplets, color: "#0EA5E9", bg: "#F0F9FF" },
-  { href: "/tools/mood-tracker", label: "Mood Tracker", desc: "Track stress, mood & energy daily", icon: Smile, color: "#8B5CF6", bg: "#FAF5FF" },
-  { href: "/tools/emergency-qr", label: "Emergency QR Card", desc: "Generate a health emergency QR card", icon: QrCode, color: "#DC2626", bg: "#FEF2F2" },
-  { href: "/tools/generic-medicine", label: "Generic Medicine", desc: "Find cheaper generic alternatives", icon: Pill, color: "#16A34A", bg: "#F0FDF4" },
-  { href: "/tools/food-nutrition", label: "Food Nutrition", desc: "Indian food nutrition database", icon: Apple, color: "#EA580C", bg: "#FFF7ED" },
-  { href: "/symptom-checker", label: "Symptom Checker", desc: "Find the right doctor for your symptoms", icon: Stethoscope, color: "#0EA5E9", bg: "#F0F9FF" },
+  { href: "/tools/bmi", label: "BMI & Body Metrics", desc: "Calculate BMI, ideal weight & daily calories", icon: Calculator, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/tools/biological-age", label: "Biological Age", desc: "How old is your body really?", icon: Activity, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/tools/sleep-score", label: "Sleep Score", desc: "Rate your sleep quality out of 100", icon: Moon, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/tools/gut-health", label: "Gut Health Score", desc: "Assess your digestive health", icon: Apple, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/tools/water-tracker", label: "Water Tracker", desc: "Track daily water intake", icon: Droplets, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/tools/mood-tracker", label: "Mood Tracker", desc: "Track stress, mood & energy daily", icon: Smile, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/tools/emergency-qr", label: "Emergency QR Card", desc: "Generate a health emergency QR card", icon: QrCode, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/tools/generic-medicine", label: "Generic Medicine", desc: "Find cheaper generic alternatives", icon: Pill, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/tools/food-nutrition", label: "Food Nutrition", desc: "Indian food nutrition database", icon: Apple, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/symptom-checker", label: "Symptom Checker", desc: "Find the right doctor for your symptoms", icon: Stethoscope, color: "#1a1a1a", bg: "#f5f5f5" },
 ];
 
 const CATEGORIES = Object.values(DISEASE_CATEGORIES).slice(0, 8);
@@ -49,18 +49,18 @@ export default function HomePage() {
       {/* ═══════ HERO ═══════ */}
       <section className="relative overflow-hidden min-h-[70vh] flex items-center">
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-teal-50/50 via-transparent to-sky-50/50 dark:from-teal-950/20 dark:to-sky-950/20" />
-          <div className="absolute top-20 -left-40 w-96 h-96 bg-teal-500/5 rounded-full blur-3xl" />
-          <div className="absolute bottom-20 -right-40 w-96 h-96 bg-sky-500/5 rounded-full blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-transparent to-gray-50/50" />
+          <div className="absolute top-20 -left-40 w-96 h-96 bg-gray-200/30 rounded-full blur-3xl" />
+          <div className="absolute bottom-20 -right-40 w-96 h-96 bg-gray-200/30 rounded-full blur-3xl" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 w-full relative z-10">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 py-16 w-full relative z-10">
           <div className="max-w-3xl mx-auto text-center space-y-8">
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-400 text-sm font-medium"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 text-gray-700 text-sm font-medium"
             >
               <Sparkles className="w-4 h-4" />
               India&apos;s Free Health Tools Platform
@@ -73,7 +73,7 @@ export default function HomePage() {
               className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1]"
             >
               <span className="block">Your Health,</span>
-              <span className="block bg-gradient-to-r from-teal-600 to-sky-600 bg-clip-text text-transparent">
+              <span className="block text-[#1a1a1a] italic">
                 Simplified
               </span>
             </motion.h1>
@@ -97,7 +97,7 @@ export default function HomePage() {
                 href="/tools/bmi"
                 className={cn(
                   buttonVariants({ size: "lg" }),
-                  "gap-2 text-base px-8 h-12 rounded-xl bg-teal-700 hover:bg-teal-800 shadow-lg shadow-teal-700/25"
+                  "gap-2 text-base px-8 h-12 rounded-xl bg-[#1a1a1a] hover:bg-black shadow-lg shadow-black/15"
                 )}
               >
                 Try a Health Tool
@@ -139,7 +139,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ HEALTH TOOLS GRID ═══════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -180,7 +180,7 @@ export default function HomePage() {
                     >
                       <Icon className="w-6 h-6" style={{ color: tool.color }} />
                     </div>
-                    <h3 className="font-bold text-sm group-hover:text-teal-700 dark:group-hover:text-teal-400 transition-colors">
+                    <h3 className="font-bold text-sm group-hover:text-black transition-colors">
                       {tool.label}
                     </h3>
                     <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
@@ -195,7 +195,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ HEALTH CONDITIONS ═══════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -245,13 +245,13 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ QUICK LINKS ═══════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6">
         <div className="grid sm:grid-cols-3 gap-4">
           <Link
             href="/explore"
-            className="group flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-950/30 dark:to-teal-900/20 hover:shadow-lg transition-shadow"
+            className="group flex items-center gap-4 p-6 rounded-2xl bg-[#f5f5f5] hover:shadow-lg transition-shadow border"
           >
-            <div className="w-14 h-14 rounded-xl bg-teal-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center flex-shrink-0">
               <Play className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -261,9 +261,9 @@ export default function HomePage() {
           </Link>
           <Link
             href="/infographics"
-            className="group flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950/30 dark:to-purple-900/20 hover:shadow-lg transition-shadow"
+            className="group flex items-center gap-4 p-6 rounded-2xl bg-[#f5f5f5] hover:shadow-lg transition-shadow border"
           >
-            <div className="w-14 h-14 rounded-xl bg-purple-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center flex-shrink-0">
               <BookOpen className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -273,9 +273,9 @@ export default function HomePage() {
           </Link>
           <Link
             href="/symptom-checker"
-            className="group flex items-center gap-4 p-6 rounded-2xl bg-gradient-to-br from-sky-50 to-sky-100 dark:from-sky-950/30 dark:to-sky-900/20 hover:shadow-lg transition-shadow"
+            className="group flex items-center gap-4 p-6 rounded-2xl bg-[#f5f5f5] hover:shadow-lg transition-shadow border"
           >
-            <div className="w-14 h-14 rounded-xl bg-sky-600 flex items-center justify-center flex-shrink-0">
+            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center flex-shrink-0">
               <Stethoscope className="w-6 h-6 text-white" />
             </div>
             <div>
@@ -296,12 +296,12 @@ export default function HomePage() {
       <NewsletterSignup />
 
       {/* ═══════ CTA BANNER ═══════ */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6">
+      <section className="max-w-[1400px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative overflow-hidden rounded-2xl bg-gradient-to-r from-teal-700 to-sky-700 p-8 sm:p-12 text-white text-center"
+          className="relative overflow-hidden rounded-2xl bg-[#1a1a1a] p-8 sm:p-12 text-white text-center"
         >
           <h2 className="text-2xl sm:text-3xl font-bold">
             Your Health Journey Starts Here
@@ -314,7 +314,7 @@ export default function HomePage() {
               href="/tools/biological-age"
               className={cn(
                 buttonVariants({ size: "lg" }),
-                "bg-white text-teal-800 hover:bg-white/90 rounded-xl h-12 px-8"
+                "bg-white text-[#1a1a1a] hover:bg-gray-100 rounded-xl h-12 px-8"
               )}
             >
               Check Your Bio Age <ArrowRight className="w-4 h-4 ml-2" />

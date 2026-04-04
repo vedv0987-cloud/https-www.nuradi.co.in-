@@ -14,7 +14,7 @@ export function WhyTrustUs() {
   return (
     <section className="max-w-7xl mx-auto px-4 sm:px-6">
       <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-        <h2 className="text-2xl font-bold mb-6">Why Trust HealthEduTV</h2>
+        <h2 className="text-2xl font-bold mb-6">Why Trust NuradiHealth</h2>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {CARDS.map((card, i) => {
             const Icon = card.icon;

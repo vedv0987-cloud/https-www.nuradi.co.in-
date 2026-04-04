@@ -178,7 +178,7 @@ export function Navbar() {
   return (
     <header ref={headerRef} className="sticky top-0 z-50">
       <nav className="bg-[#1a1a1a]">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 h-[60px] flex items-center">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 h-[60px] flex items-center">
           {/* Logo — flush left */}
           <Link href="/" className="flex items-center flex-shrink-0">
             <Image

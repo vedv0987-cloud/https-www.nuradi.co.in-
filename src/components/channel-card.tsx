@@ -76,7 +76,7 @@ export function ChannelCard({
           {channelVideoCount > 0 && (
             <p className="text-xs text-muted-foreground mt-2 flex items-center gap-1">
               <PlayCircle className="w-3.5 h-3.5" />
-              {channelVideoCount} videos on HealthEduTV
+              {channelVideoCount} videos on NuradiHealth
             </p>
           )}
         </div>
