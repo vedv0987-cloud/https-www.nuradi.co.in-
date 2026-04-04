@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 import { Search, Clock, Calendar, ArrowRight } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
-import { Card, CardContent } from "@/components/ui/card";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -345,7 +344,7 @@ export default function BlogPage() {
                 transition={{ duration: 0.4, delay: 0.1 * (i % 6) }}
               >
                 <Link href="#" className="group block">
-                  <Card className="overflow-hidden border-black/10 bg-white transition-shadow hover:shadow-lg">
+                  <div className="overflow-hidden border rounded-2xl bg-white transition-shadow hover:shadow-lg">
                     {/* Image */}
                     <div className="relative aspect-video w-full overflow-hidden bg-black/5">
                       <Image
@@ -361,7 +360,7 @@ export default function BlogPage() {
                       </Badge>
                     </div>
 
-                    <CardContent className="p-5">
+                    <div className="p-5">
                       <h2 className="text-xl font-semibold leading-tight tracking-tight group-hover:underline">
                         {article.title}
                       </h2>
@@ -389,8 +388,8 @@ export default function BlogPage() {
                         Read more
                         <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
                       </div>
-                    </CardContent>
-                  </Card>
+                    </div>
+                  </div>
                 </Link>
               </motion.div>
             ))}
