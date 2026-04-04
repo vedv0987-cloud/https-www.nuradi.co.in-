@@ -211,7 +211,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav Links — next to logo */}
-          <div className="hidden lg:flex items-center gap-0.5 flex-1">
+          <div className="hidden lg:flex items-center gap-0.5">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.key}
