@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { motion } from "motion/react";
+import { motion, useMotionValue, useTransform, useSpring } from "motion/react";
+import { useEffect, useState, useRef, useCallback } from "react";
 import {
   ArrowRight,
   Heart,
@@ -27,6 +28,59 @@ import { WhyTrustUs } from "@/components/why-trust-us";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 import { RecommendedReads } from "@/components/recommended-reads";
 import { DISEASE_CATEGORIES } from "@/data/disease-categories";
+
+// Animated counter that counts up on mount
+function AnimCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        const dur = 1500;
+        const start = performance.now();
+        const step = (now: number) => {
+          const p = Math.min((now - start) / dur, 1);
+          setCount(Math.round(target * (p * (2 - p))));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+        obs.disconnect();
+      }
+    }, { threshold: 0.3 });
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, [target]);
+  return <span ref={ref}>{count.toLocaleString()}{suffix}</span>;
+}
+
+// Floating particles for hero background
+function FloatingParticles() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {Array.from({ length: 20 }).map((_, i) => (
+        <motion.div
+          key={i}
+          className="absolute w-1 h-1 rounded-full bg-white/20"
+          style={{ left: `${Math.random() * 100}%`, top: `${Math.random() * 100}%` }}
+          animate={{
+            y: [0, -30 - Math.random() * 50, 0],
+            x: [0, (Math.random() - 0.5) * 40, 0],
+            opacity: [0, 0.6, 0],
+            scale: [0, 1 + Math.random(), 0],
+          }}
+          transition={{
+            duration: 4 + Math.random() * 6,
+            repeat: Infinity,
+            delay: Math.random() * 5,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
 
 const HEALTH_TOOLS = [
   { href: "/tools/bmi", label: "BMI & Body Metrics", desc: "Calculate BMI, ideal weight & daily calories", icon: Calculator, color: "#1a1a1a", bg: "#f5f5f5" },
@@ -68,6 +122,8 @@ export default function HomePage() {
           />
           {/* Subtle grid lines */}
           <div className="absolute inset-0 opacity-[0.015]" style={{ backgroundImage: "linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+          {/* Floating particles */}
+          <FloatingParticles />
         </div>
 
         <div className="max-w-[1600px] mx-auto px-6 sm:px-10 py-20 sm:py-28 w-full relative z-10">
@@ -162,51 +218,89 @@ export default function HomePage() {
               transition={{ delay: 0.6, duration: 1 }}
               className="hidden lg:block relative"
             >
-              {/* Animated ring */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              {/* Animated orbital rings */}
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 60, repeat: Infinity, ease: "linear" }}
-                  className="w-[420px] h-[420px] rounded-full border border-white/[0.04]"
-                />
+                  className="w-[480px] h-[480px] rounded-full border border-white/[0.03]"
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.5, 1], opacity: [0.3, 0.8, 0.3] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white/40"
+                  />
+                </motion.div>
                 <motion.div
                   animate={{ rotate: -360 }}
-                  transition={{ duration: 45, repeat: Infinity, ease: "linear" }}
-                  className="absolute w-[340px] h-[340px] rounded-full border border-white/[0.06] border-dashed"
+                  transition={{ duration: 40, repeat: Infinity, ease: "linear" }}
+                  className="absolute w-[360px] h-[360px] rounded-full border border-dashed border-white/[0.04]"
+                >
+                  <motion.div
+                    animate={{ scale: [1, 1.3, 1], opacity: [0.5, 1, 0.5] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                    className="absolute bottom-0 right-0 w-1.5 h-1.5 rounded-full bg-emerald-400/60"
+                  />
+                </motion.div>
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 80, repeat: Infinity, ease: "linear" }}
+                  className="absolute w-[250px] h-[250px] rounded-full border border-white/[0.02]"
                 />
               </div>
 
-              {/* Stats grid with glass cards */}
+              {/* Stats grid with interactive glass cards */}
               <div className="relative grid grid-cols-2 gap-5">
                 {[
-                  { value: "10+", label: "Health Tools", desc: "BMI, Bio Age, Sleep, Gut Health & more", icon: Activity },
-                  { value: "120+", label: "Disease Guides", desc: "Conditions A-Z with expert tips", icon: BookOpen },
-                  { value: "1,000+", label: "Expert Videos", desc: "From 28 verified medical creators", icon: Play },
-                  { value: "Free", label: "Forever", desc: "No login, no ads, no data selling", icon: Shield },
+                  { value: 10, suffix: "+", label: "Health Tools", desc: "BMI, Bio Age, Sleep, Gut Health & more", icon: Activity, glowColor: "from-blue-500/10" },
+                  { value: 120, suffix: "+", label: "Disease Guides", desc: "Conditions A-Z with expert tips", icon: BookOpen, glowColor: "from-purple-500/10" },
+                  { value: 1000, suffix: "+", label: "Expert Videos", desc: "From 28 verified medical creators", icon: Play, glowColor: "from-emerald-500/10" },
+                  { value: 0, suffix: "", label: "Forever Free", desc: "No login, no ads, no data selling", icon: Shield, glowColor: "from-amber-500/10", isText: true, textValue: "Free" },
                 ].map((stat, i) => {
                   const Icon = stat.icon;
                   return (
                     <motion.div
                       key={stat.label}
-                      initial={{ opacity: 0, y: 30, filter: "blur(5px)" }}
-                      animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                      transition={{ delay: 0.8 + i * 0.15, duration: 0.6 }}
-                      whileHover={{ y: -6, scale: 1.03, borderColor: "rgba(255,255,255,0.2)" }}
-                      className="group p-7 rounded-3xl border border-white/[0.08] bg-gradient-to-br from-white/[0.04] to-white/[0.01] backdrop-blur-xl hover:from-white/[0.07] hover:to-white/[0.03] transition-all duration-500 cursor-default"
+                      initial={{ opacity: 0, y: 40, rotateX: 15 }}
+                      animate={{ opacity: 1, y: 0, rotateX: 0 }}
+                      transition={{ delay: 0.8 + i * 0.15, duration: 0.7, type: "spring", damping: 20 }}
+                      whileHover={{ y: -8, scale: 1.04, borderColor: "rgba(255,255,255,0.15)" }}
+                      className={`group relative p-7 rounded-3xl border border-white/[0.06] bg-gradient-to-br from-white/[0.03] to-transparent backdrop-blur-xl overflow-hidden transition-all duration-500 cursor-default`}
                     >
-                      <div className="w-10 h-10 rounded-xl bg-white/[0.06] group-hover:bg-white/[0.1] flex items-center justify-center mb-4 transition-colors">
-                        <Icon className="w-5 h-5 text-white/50 group-hover:text-white/80 transition-colors" />
-                      </div>
+                      {/* Hover glow effect */}
                       <motion.div
-                        className="text-4xl font-black tracking-tight"
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ delay: 1.2 + i * 0.15 }}
+                        className={`absolute inset-0 bg-gradient-to-br ${stat.glowColor} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-700`}
+                      />
+
+                      {/* Animated icon */}
+                      <motion.div
+                        whileHover={{ rotate: [0, -10, 10, 0], scale: 1.1 }}
+                        transition={{ duration: 0.5 }}
+                        className="relative w-12 h-12 rounded-2xl bg-white/[0.05] group-hover:bg-white/[0.08] flex items-center justify-center mb-5 transition-all duration-300"
                       >
-                        {stat.value}
+                        <Icon className="w-5 h-5 text-white/40 group-hover:text-white/80 transition-colors duration-300" />
+                        {/* Icon ring animation */}
+                        <motion.div
+                          className="absolute inset-0 rounded-2xl border border-white/[0.08]"
+                          animate={{ scale: [1, 1.15, 1], opacity: [0.5, 0, 0.5] }}
+                          transition={{ duration: 3, repeat: Infinity, delay: i * 0.5 }}
+                        />
                       </motion.div>
-                      <div className="text-sm font-semibold text-white/60 mt-1.5">{stat.label}</div>
-                      <div className="text-xs text-white/25 mt-2 leading-relaxed">{stat.desc}</div>
+
+                      {/* Animated counter */}
+                      <div className="relative text-4xl font-black tracking-tight">
+                        {stat.isText ? stat.textValue : <AnimCounter target={stat.value} suffix={stat.suffix} />}
+                      </div>
+                      <div className="relative text-sm font-semibold text-white/60 mt-1.5 group-hover:text-white/80 transition-colors">{stat.label}</div>
+                      <div className="relative text-xs text-white/25 mt-2.5 leading-relaxed group-hover:text-white/40 transition-colors">{stat.desc}</div>
+
+                      {/* Corner accent line */}
+                      <motion.div
+                        className="absolute top-0 right-0 w-16 h-px bg-gradient-to-l from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                      />
+                      <motion.div
+                        className="absolute top-0 right-0 h-16 w-px bg-gradient-to-b from-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"
+                      />
                     </motion.div>
                   );
                 })}
