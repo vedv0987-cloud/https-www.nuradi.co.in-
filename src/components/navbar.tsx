@@ -196,22 +196,22 @@ export function Navbar() {
   return (
     <header ref={headerRef} className="sticky top-0 z-50">
       {/* Main navbar — always dark */}
-      <nav className="bg-[#1a1a1a] border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-6">
-          {/* Logo */}
-          <Link href="/" className="flex items-center flex-shrink-0">
+      <nav className="bg-[#1a1a1a]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-12 flex items-center gap-8">
+          {/* Logo — left aligned */}
+          <Link href="/" className="flex items-center flex-shrink-0 mr-2">
             <Image
               src="/nuradihealth-white.svg"
               alt="NuradiHealth"
-              width={180}
-              height={32}
-              className="h-8 w-auto"
+              width={150}
+              height={28}
+              className="h-7 w-auto"
               priority
             />
           </Link>
 
-          {/* Desktop Nav Links */}
-          <div className="hidden lg:flex items-center gap-1">
+          {/* Desktop Nav Links — next to logo */}
+          <div className="hidden lg:flex items-center gap-0.5 flex-1">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.key}
@@ -242,7 +242,7 @@ export function Navbar() {
           </div>
 
           {/* Right side: Search + Theme Toggle */}
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 ml-auto">
             {/* Search Icon */}
             <button
               onClick={() => {
