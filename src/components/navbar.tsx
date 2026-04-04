@@ -5,81 +5,51 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
-import {
-  Search,
-  Menu,
-  X,
-  Sun,
-  Moon,
-  ChevronDown,
-  Wind,
-  Calculator,
-  Stethoscope,
-  Heart,
-  FlaskConical,
-  Scale,
-  Flame,
-  Droplets,
-  HeartPulse,
-  Percent,
-  PieChart,
-  Timer,
-  Brain,
-  Dumbbell,
-  Apple,
-  Lightbulb,
-  Atom,
-  BookOpen,
-  Activity,
-} from "lucide-react";
+import { Search, Menu, X, Sun, Moon, ChevronDown, ArrowRight } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
+import { DISEASE_CATEGORIES } from "@/data/disease-categories";
+
+const HEALTH_CONDITIONS = Object.values(DISEASE_CATEGORIES).map((c) => ({
+  href: `/health-az/category/${c.id}`,
+  label: c.label,
+}));
+
+const WELLNESS_LINKS = [
+  { href: "/category/fitness", label: "Fitness & Exercise" },
+  { href: "/category/nutrition", label: "Nutrition & Diet" },
+  { href: "/category/mental-health", label: "Mental Well-Being" },
+  { href: "/category/personal-dev", label: "Personal Growth" },
+  { href: "/category/health", label: "Health & Wellness" },
+  { href: "/category/science", label: "Science & Learning" },
+];
+
+const TOOL_LINKS = [
+  { href: "/health-lab/bmi", label: "BMI Calculator" },
+  { href: "/health-lab/calories", label: "Calorie Calculator" },
+  { href: "/health-lab/macros", label: "Macro Calculator" },
+  { href: "/health-lab/heart-rate", label: "Heart Rate Zones" },
+  { href: "/health-lab/body-fat", label: "Body Fat Calculator" },
+  { href: "/body-explorer", label: "Body Explorer" },
+  { href: "/breathe", label: "Breathing Exercise" },
+  { href: "/health-lab/sleep", label: "Sleep Calculator" },
+  { href: "/health-lab/water", label: "Water Intake" },
+];
+
+const FEATURED_LINKS = [
+  { href: "/explore", label: "Explore Videos" },
+  { href: "/channels", label: "Top Channels" },
+  { href: "/learning-paths", label: "Learning Paths" },
+  { href: "/ai-insights", label: "AI Insights" },
+  { href: "/daily-dose", label: "Daily Dose" },
+  { href: "/news", label: "Health News" },
+];
 
 const NAV_ITEMS = [
-  {
-    label: "Health Conditions",
-    children: [
-      { href: "/health-az", label: "Health A-Z", desc: "Browse all conditions", icon: Stethoscope },
-      { href: "/health-az/category/cardiovascular", label: "Heart & Blood", desc: "Cardiovascular health", icon: Heart },
-      { href: "/health-az/category/neurological", label: "Brain & Nerves", desc: "Neurological conditions", icon: Brain },
-      { href: "/health-az/category/mental-health", label: "Mental Health", desc: "Anxiety, depression & more", icon: Activity },
-      { href: "/health-az/category/digestive", label: "Digestive Health", desc: "Stomach & gut issues", icon: Apple },
-      { href: "/health-az/category/endocrine", label: "Diabetes & Hormones", desc: "Metabolic conditions", icon: FlaskConical },
-    ],
-  },
-  {
-    label: "Wellness",
-    children: [
-      { href: "/category/fitness", label: "Fitness & Exercise", desc: "Workouts & training", icon: Dumbbell },
-      { href: "/category/nutrition", label: "Nutrition & Diet", desc: "Eating well", icon: Apple },
-      { href: "/category/mental-health", label: "Mental Well-Being", desc: "Stress & mindfulness", icon: Brain },
-      { href: "/breathe", label: "Breathing Exercises", desc: "Guided breathing", icon: Wind },
-      { href: "/category/personal-dev", label: "Personal Growth", desc: "Productivity & growth", icon: Lightbulb },
-    ],
-  },
-  {
-    label: "Tools",
-    children: [
-      { href: "/health-lab", label: "All Health Tools", desc: "8 interactive calculators", icon: FlaskConical },
-      { href: "/health-lab/bmi", label: "BMI Calculator", desc: "Body Mass Index", icon: Scale },
-      { href: "/health-lab/calories", label: "Calorie Calculator", desc: "Daily calorie needs", icon: Flame },
-      { href: "/health-lab/macros", label: "Macro Calculator", desc: "Protein, carbs & fat", icon: PieChart },
-      { href: "/health-lab/heart-rate", label: "Heart Rate Zones", desc: "Training zones", icon: HeartPulse },
-      { href: "/body-explorer", label: "Body Explorer", desc: "Videos by organ", icon: Stethoscope },
-    ],
-  },
-  {
-    label: "Featured",
-    children: [
-      { href: "/explore", label: "Explore Videos", desc: "Browse all content", icon: BookOpen },
-      { href: "/channels", label: "Top Channels", desc: "28 verified creators", icon: Atom },
-      { href: "/learning-paths", label: "Learning Paths", desc: "Structured courses", icon: BookOpen },
-      { href: "/ai-insights", label: "AI Insights", desc: "AI-powered analysis", icon: Lightbulb },
-      { href: "/daily-dose", label: "Daily Dose", desc: "Daily health lesson", icon: Heart },
-    ],
-  },
+  { key: "conditions", label: "Health Conditions" },
+  { key: "wellness", label: "Wellness" },
+  { key: "tools", label: "Tools" },
+  { key: "featured", label: "Featured" },
 ];
 
 const MOBILE_ALL = [
@@ -101,11 +71,11 @@ export function Navbar() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const router = useRouter();
-  const navRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handler = (e: MouseEvent) => {
-      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+      if (headerRef.current && !headerRef.current.contains(e.target as Node)) {
         setOpenDropdown(null);
       }
     };
@@ -122,156 +92,236 @@ export function Navbar() {
     }
   };
 
-  return (
-    <header className="sticky top-0 z-50 bg-background/95 backdrop-blur-xl border-b">
-      <nav
-        ref={navRef}
-        className="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4"
-      >
-        {/* Logo */}
-        <Link href="/" className="flex items-center flex-shrink-0">
-          <Image
-            src={theme === "dark" ? "/nuradihealth-on-dark.svg" : "/nuradihealth-on-light.svg"}
-            alt="NuradiHealth"
-            width={160}
-            height={28}
-            className="h-7 w-auto"
-            priority
-          />
-        </Link>
+  const renderDropdownContent = (key: string) => {
+    switch (key) {
+      case "conditions":
+        return (
+          <div className="max-w-5xl mx-auto px-6 py-8">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-bold text-[#1a1a1a] dark:text-white">Health Conditions</h3>
+              <Link
+                href="/health-az"
+                onClick={() => setOpenDropdown(null)}
+                className="flex items-center gap-1 text-sm font-semibold text-teal-700 dark:text-teal-400 hover:underline"
+              >
+                ALL <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-3 gap-x-12 gap-y-3">
+              {HEALTH_CONDITIONS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpenDropdown(null)}
+                  className="text-sm text-[#333] dark:text-white/80 hover:text-teal-700 dark:hover:text-teal-400 transition-colors py-1"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      case "wellness":
+        return (
+          <div className="max-w-3xl mx-auto px-6 py-8">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-bold text-[#1a1a1a] dark:text-white">Wellness</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-x-12 gap-y-3">
+              {WELLNESS_LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpenDropdown(null)}
+                  className="text-sm text-[#333] dark:text-white/80 hover:text-teal-700 dark:hover:text-teal-400 transition-colors py-1"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      case "tools":
+        return (
+          <div className="max-w-3xl mx-auto px-6 py-8">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-bold text-[#1a1a1a] dark:text-white">Health Tools</h3>
+              <Link
+                href="/health-lab"
+                onClick={() => setOpenDropdown(null)}
+                className="flex items-center gap-1 text-sm font-semibold text-teal-700 dark:text-teal-400 hover:underline"
+              >
+                ALL TOOLS <ArrowRight className="w-4 h-4" />
+              </Link>
+            </div>
+            <div className="grid grid-cols-3 gap-x-12 gap-y-3">
+              {TOOL_LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpenDropdown(null)}
+                  className="text-sm text-[#333] dark:text-white/80 hover:text-teal-700 dark:hover:text-teal-400 transition-colors py-1"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      case "featured":
+        return (
+          <div className="max-w-3xl mx-auto px-6 py-8">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="text-lg font-bold text-[#1a1a1a] dark:text-white">Featured</h3>
+            </div>
+            <div className="grid grid-cols-2 gap-x-12 gap-y-3">
+              {FEATURED_LINKS.map((item) => (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={() => setOpenDropdown(null)}
+                  className="text-sm text-[#333] dark:text-white/80 hover:text-teal-700 dark:hover:text-teal-400 transition-colors py-1"
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-0.5">
-          {NAV_ITEMS.map((item) => (
-            <div key={item.label} className="relative">
+  return (
+    <header ref={headerRef} className="sticky top-0 z-50">
+      {/* Main navbar — always dark */}
+      <nav className="bg-[#1a1a1a] border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-6">
+          {/* Logo */}
+          <Link href="/" className="flex items-center flex-shrink-0">
+            <Image
+              src="/nuradihealth-white.svg"
+              alt="NuradiHealth"
+              width={180}
+              height={32}
+              className="h-8 w-auto"
+              priority
+            />
+          </Link>
+
+          {/* Desktop Nav Links */}
+          <div className="hidden lg:flex items-center gap-1">
+            {NAV_ITEMS.map((item) => (
               <button
+                key={item.key}
                 onClick={() =>
-                  setOpenDropdown(openDropdown === item.label ? null : item.label)
+                  setOpenDropdown(openDropdown === item.key ? null : item.key)
                 }
-                className={cn(
-                  "flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors",
-                  "hover:bg-muted text-foreground/80 hover:text-foreground",
-                  openDropdown === item.label && "bg-muted text-foreground"
-                )}
+                className={`flex items-center gap-1 px-3 py-1.5 text-sm font-medium transition-colors rounded ${
+                  openDropdown === item.key
+                    ? "text-white bg-white/10"
+                    : "text-white/80 hover:text-white"
+                }`}
               >
                 {item.label}
                 <ChevronDown
-                  className={cn(
-                    "w-3.5 h-3.5 transition-transform duration-200",
-                    openDropdown === item.label && "rotate-180"
-                  )}
+                  className={`w-3.5 h-3.5 transition-transform duration-200 ${
+                    openDropdown === item.key ? "rotate-180" : ""
+                  }`}
                 />
               </button>
+            ))}
 
-              <AnimatePresence>
-                {openDropdown === item.label && (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8, scale: 0.96 }}
-                    animate={{ opacity: 1, y: 0, scale: 1 }}
-                    exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute top-full left-0 mt-1 w-72 bg-popover border rounded-xl shadow-xl p-2 z-50"
-                  >
-                    {item.children.map((child) => {
-                      const Icon = child.icon;
-                      return (
-                        <Link
-                          key={child.href}
-                          href={child.href}
-                          onClick={() => setOpenDropdown(null)}
-                          className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-muted transition-colors"
-                        >
-                          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                            <Icon className="w-4 h-4 text-primary" />
-                          </div>
-                          <div>
-                            <p className="text-sm font-medium">{child.label}</p>
-                            <p className="text-[11px] text-muted-foreground">
-                              {child.desc}
-                            </p>
-                          </div>
-                        </Link>
-                      );
-                    })}
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-          ))}
+            <Link
+              href="/about"
+              className="px-3 py-1.5 text-sm font-medium text-white/80 hover:text-white transition-colors rounded"
+            >
+              About
+            </Link>
+          </div>
 
-          <Link
-            href="/about"
-            className="px-3 py-2 text-sm font-medium rounded-lg hover:bg-muted text-foreground/80 hover:text-foreground transition-colors"
-          >
-            About
-          </Link>
-        </div>
+          {/* Right side: Search + Theme Toggle */}
+          <div className="flex items-center gap-1">
+            {/* Search Icon */}
+            <button
+              onClick={() => {
+                setSearchOpen(!searchOpen);
+                setOpenDropdown(null);
+              }}
+              className="p-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+              aria-label="Search"
+            >
+              <Search className="w-5 h-5" />
+            </button>
 
-        {/* Search + Actions */}
-        <div className="flex items-center gap-2">
-          {/* Desktop Search */}
-          <form onSubmit={handleSearch} className="hidden lg:block relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <Input
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              placeholder="Search..."
-              className="w-48 pl-9 h-9 bg-muted/50 border-0 rounded-full focus-visible:ring-1"
-            />
-          </form>
+            {/* Subtle Theme Toggle */}
+            <button
+              onClick={toggle}
+              className="p-2 rounded-full text-white/40 hover:text-white/70 transition-colors"
+              aria-label="Toggle theme"
+            >
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4" />
+              ) : (
+                <Moon className="w-4 h-4" />
+              )}
+            </button>
 
-          {/* Mobile Search Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden"
-            onClick={() => setSearchOpen(!searchOpen)}
-          >
-            <Search className="w-5 h-5" />
-          </Button>
-
-          {/* Theme Toggle */}
-          <Button variant="ghost" size="icon" onClick={toggle} className="rounded-full">
-            {theme === "dark" ? (
-              <Sun className="w-5 h-5" />
-            ) : (
-              <Moon className="w-5 h-5" />
-            )}
-          </Button>
-
-          {/* Mobile Menu Toggle */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="lg:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            {mobileOpen ? (
-              <X className="w-5 h-5" />
-            ) : (
-              <Menu className="w-5 h-5" />
-            )}
-          </Button>
+            {/* Mobile Menu Toggle */}
+            <button
+              className="lg:hidden p-2 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+              onClick={() => {
+                setMobileOpen(!mobileOpen);
+                setOpenDropdown(null);
+              }}
+            >
+              {mobileOpen ? (
+                <X className="w-5 h-5" />
+              ) : (
+                <Menu className="w-5 h-5" />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 
-      {/* Mobile Search */}
+      {/* Mega-menu dropdown panels (desktop) */}
+      <AnimatePresence>
+        {openDropdown && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="hidden lg:block overflow-hidden bg-white dark:bg-[#222] border-b shadow-xl"
+          >
+            {renderDropdownContent(openDropdown)}
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Search Panel */}
       <AnimatePresence>
         {searchOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden border-b overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.15 }}
+            className="overflow-hidden bg-white dark:bg-[#222] border-b shadow-lg"
           >
-            <form onSubmit={handleSearch} className="px-4 py-3">
+            <form
+              onSubmit={handleSearch}
+              className="max-w-2xl mx-auto px-4 py-4"
+            >
               <div className="relative">
-                <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
+                <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
                 <Input
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  placeholder="Search videos, channels..."
-                  className="pl-9 rounded-full"
+                  placeholder="Search videos, channels, conditions..."
+                  className="pl-12 h-12 text-base rounded-full border-2 focus-visible:ring-teal-600"
                   autoFocus
                 />
               </div>
@@ -284,20 +334,17 @@ export function Navbar() {
       <AnimatePresence>
         {mobileOpen && (
           <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            className="lg:hidden border-b overflow-hidden"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="lg:hidden overflow-hidden bg-[#1a1a1a] border-b border-white/10"
           >
             <div className="px-4 py-3 flex flex-col gap-0.5">
               {MOBILE_ALL.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={cn(
-                    buttonVariants({ variant: "ghost" }),
-                    "justify-start"
-                  )}
+                  className="block px-3 py-2.5 text-sm text-white/80 hover:text-white hover:bg-white/10 rounded transition-colors"
                   onClick={() => setMobileOpen(false)}
                 >
                   {link.label}

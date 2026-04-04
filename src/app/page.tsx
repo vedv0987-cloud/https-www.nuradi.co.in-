@@ -32,7 +32,7 @@ import { BodyPartGrid } from "@/components/body-part-grid";
 import { BreathingExercise } from "@/components/breathing-exercise";
 import { BMICalculator } from "@/components/bmi-calculator";
 import { AIInsights } from "@/components/ai-insights";
-import { TrustBar } from "@/components/trust-bar";
+
 import { WhyTrustUs } from "@/components/why-trust-us";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 import { RecommendedReads } from "@/components/recommended-reads";
@@ -289,8 +289,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ═══════ TRUST BAR ═══════ */}
-      <TrustBar />
 
       {/* ═══════ TRENDING NOW — HORIZONTAL SCROLL ═══════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
