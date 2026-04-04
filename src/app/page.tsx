@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { motion, useMotionValue, useTransform, useSpring } from "motion/react";
+import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "motion/react";
 import { useEffect, useState, useRef, useCallback } from "react";
 import {
   ArrowRight,
@@ -28,6 +28,80 @@ import { WhyTrustUs } from "@/components/why-trust-us";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 import { RecommendedReads } from "@/components/recommended-reads";
 import { DISEASE_CATEGORIES } from "@/data/disease-categories";
+
+// Rotating hero text with smooth word cycling
+const HERO_WORDS = [
+  { line1: "Your Health.", line2: "Your Data.", line3: "Your Power." },
+  { line1: "Your Body.", line2: "Your Mind.", line3: "Your Life." },
+  { line1: "Know More.", line2: "Live Better.", line3: "Stay Strong." },
+  { line1: "Check Now.", line2: "Act Smart.", line3: "Feel Great." },
+  { line1: "Free Tools.", line2: "Real Science.", line3: "Zero BS." },
+];
+
+function RotatingHeroText() {
+  const [idx, setIdx] = useState(0);
+  useEffect(() => {
+    const timer = setInterval(() => setIdx((i) => (i + 1) % HERO_WORDS.length), 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const words = HERO_WORDS[idx];
+  return (
+    <h1 className="text-[3.5rem] sm:text-[4.5rem] lg:text-[5.5rem] font-black tracking-[-0.05em] leading-[0.9] relative">
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <motion.span
+            initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -30, filter: "blur(5px)" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+            className="block"
+          >
+            {words.line1}
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+            animate={{ opacity: 0.25, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -30, filter: "blur(5px)" }}
+            transition={{ duration: 0.6, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="block"
+          >
+            {words.line2}
+          </motion.span>
+          <motion.span
+            initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+            animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+            exit={{ opacity: 0, y: -30, filter: "blur(5px)" }}
+            transition={{ duration: 0.6, delay: 0.16, ease: [0.22, 1, 0.36, 1] }}
+            className="block"
+          >
+            {words.line3}
+          </motion.span>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Progress dots */}
+      <div className="flex gap-2 mt-6">
+        {HERO_WORDS.map((_, i) => (
+          <motion.button
+            key={i}
+            onClick={() => setIdx(i)}
+            className={cn(
+              "h-1.5 rounded-full transition-all duration-500",
+              i === idx ? "w-8 bg-white/60" : "w-1.5 bg-white/15 hover:bg-white/25"
+            )}
+          />
+        ))}
+      </div>
+    </h1>
+  );
+}
 
 // Animated counter that counts up on mount
 function AnimCounter({ target, suffix = "" }: { target: number; suffix?: string }) {
@@ -146,32 +220,7 @@ export default function HomePage() {
                 <span className="text-white/40 text-xs">Trusted by thousands</span>
               </motion.div>
 
-              <h1 className="text-[3.5rem] sm:text-[4.5rem] lg:text-[5.5rem] font-black tracking-[-0.05em] leading-[0.9]">
-                <motion.span
-                  initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ delay: 0.2, duration: 0.8 }}
-                  className="block"
-                >
-                  Your Health.
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-                  animate={{ opacity: 0.25, y: 0, filter: "blur(0px)" }}
-                  transition={{ delay: 0.4, duration: 0.8 }}
-                  className="block"
-                >
-                  Your Data.
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, y: 50, filter: "blur(10px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ delay: 0.6, duration: 0.8 }}
-                  className="block"
-                >
-                  Your Power.
-                </motion.span>
-              </h1>
+              <RotatingHeroText />
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
