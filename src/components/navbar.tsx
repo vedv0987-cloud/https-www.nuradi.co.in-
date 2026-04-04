@@ -211,17 +211,17 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav Links — next to logo */}
-          <div className="hidden lg:flex items-center gap-0.5">
+          <div className="hidden lg:flex items-center gap-1">
             {NAV_ITEMS.map((item) => (
               <button
                 key={item.key}
                 onClick={() =>
                   setOpenDropdown(openDropdown === item.key ? null : item.key)
                 }
-                className={`flex items-center gap-1 px-3 py-1.5 text-sm font-medium transition-colors rounded ${
+                className={`flex items-center gap-1 px-4 py-1.5 text-[15px] font-bold transition-colors rounded ${
                   openDropdown === item.key
                     ? "text-white bg-white/10"
-                    : "text-white/80 hover:text-white"
+                    : "text-white hover:text-white/80"
                 }`}
               >
                 {item.label}
@@ -235,7 +235,7 @@ export function Navbar() {
 
             <Link
               href="/about"
-              className="px-3 py-1.5 text-sm font-medium text-white/80 hover:text-white transition-colors rounded"
+              className="px-4 py-1.5 text-[15px] font-bold text-white hover:text-white/80 transition-colors rounded"
             >
               About
             </Link>
