@@ -23,7 +23,6 @@ import {
   HeartPulse,
   Percent,
   PieChart,
-  Moon as MoonIcon,
   Timer,
 } from "lucide-react";
 import { useTheme } from "@/components/theme-provider";

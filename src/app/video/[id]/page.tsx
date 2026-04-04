@@ -2,6 +2,7 @@
 
 import { use, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ExternalLink,
@@ -180,9 +181,11 @@ export default function VideoPage({
                   href={`/channel/${channel.id}`}
                   className="flex items-center gap-3 group flex-1 min-w-0"
                 >
-                  <img
+                  <Image
                     src={channel.avatar}
                     alt={channel.name}
+                    width={48}
+                    height={48}
                     className="w-12 h-12 rounded-full flex-shrink-0"
                   />
                   <div className="min-w-0">

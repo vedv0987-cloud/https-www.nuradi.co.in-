@@ -102,6 +102,30 @@ export default function ExplorePage() {
         </p>
       </motion.div>
 
+      {/* Category Quick Filters */}
+      <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-2 mb-4">
+        <Button
+          variant={category === "all" ? "default" : "outline"}
+          size="sm"
+          className="flex-shrink-0 rounded-full"
+          onClick={() => handleFilter(() => setCategory("all"))}
+        >
+          All
+        </Button>
+        {(Object.entries(CATEGORY_META) as [Category, (typeof CATEGORY_META)[Category]][]).map(([key, meta]) => (
+          <Button
+            key={key}
+            variant={category === key ? "default" : "outline"}
+            size="sm"
+            className="flex-shrink-0 rounded-full"
+            style={category === key ? { backgroundColor: meta.color, borderColor: meta.color } : {}}
+            onClick={() => handleFilter(() => setCategory(key))}
+          >
+            {meta.label}
+          </Button>
+        ))}
+      </div>
+
       {/* Filters */}
       <div className="flex flex-wrap gap-3 mb-6">
         <Select

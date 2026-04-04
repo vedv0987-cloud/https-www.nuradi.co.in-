@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import {
   Play,
@@ -42,8 +43,10 @@ const ICON_MAP: Record<string, React.ElementType> = {
 
 // Top 8 most-viewed videos for hero rotation
 const heroVideos = [...videos].sort((a, b) => b.views - a.views).slice(0, 8);
+const heroIds = new Set(heroVideos.map((v) => v.id));
 const trendingVideos = [...videos]
   .sort((a, b) => b.views - a.views)
+  .filter((v) => !heroIds.has(v.id))
   .slice(0, 8);
 const editorsPicks = videos.filter((v) => v.featured).slice(0, 6);
 const latestVideos = [...videos]
@@ -206,10 +209,13 @@ export default function HomePage() {
                       href={`/video/${currentVideo.id}`}
                       className="group block relative aspect-video rounded-2xl overflow-hidden shadow-2xl ring-1 ring-white/10"
                     >
-                      <img
+                      <Image
                         src={currentVideo.thumbnail}
                         alt={currentVideo.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        fill
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        priority
+                        className="object-cover transition-transform duration-700 group-hover:scale-105"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-black/5" />
                       <div className="absolute inset-0 flex items-center justify-center">
@@ -237,9 +243,11 @@ export default function HomePage() {
                         </h2>
                         <div className="flex items-center gap-2 mt-2">
                           {currentChannel && (
-                            <img
+                            <Image
                               src={currentChannel.avatar}
                               alt={currentChannel.name}
+                              width={20}
+                              height={20}
                               className="w-5 h-5 rounded-full ring-1 ring-white/20"
                             />
                           )}
@@ -563,11 +571,12 @@ export default function HomePage() {
                   href={`/channel/${channel.id}`}
                   className="group flex flex-col items-center gap-2 w-24"
                 >
-                  <img
+                  <Image
                     src={channel.avatar}
                     alt={channel.name}
+                    width={72}
+                    height={72}
                     className="w-[72px] h-[72px] rounded-full border-2 border-transparent group-hover:border-primary transition-all shadow-sm"
-                    loading="lazy"
                   />
                   <span className="text-xs font-medium text-center line-clamp-2 group-hover:text-primary transition-colors">
                     {channel.name}

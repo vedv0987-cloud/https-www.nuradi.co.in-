@@ -9,35 +9,37 @@ const STATS = [
   { icon: Play, value: 1031, label: "Expert Videos", suffix: "+", color: "#3b82f6" },
   { icon: Stethoscope, value: 120, label: "Conditions Covered", suffix: "+", color: "#8b5cf6" },
   { icon: FlaskConical, value: 100, label: "Science-Backed", suffix: "%", color: "#f59e0b" },
-  { icon: ShieldCheck, value: 0, label: "Misinformation", suffix: "", color: "#ef4444" },
+  { icon: ShieldCheck, value: 0, label: "Misinformation", suffix: "", isText: true, textValue: "Zero", color: "#ef4444" },
   { icon: RefreshCw, value: 0, label: "Updated Weekly", suffix: "", isText: true, textValue: "Weekly", color: "#06b6d4" },
 ];
 
 function AnimatedNumber({ target, suffix, isText, textValue }: { target: number; suffix: string; isText?: boolean; textValue?: string }) {
-  const [count, setCount] = useState(0);
-  const [visible, setVisible] = useState(false);
+  const [count, setCount] = useState(target);
+  const [hasAnimated, setHasAnimated] = useState(false);
   const ref = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
+    if (isText || hasAnimated) return;
+    setCount(0);
     const el = ref.current;
     if (!el) return;
-    const obs = new IntersectionObserver(([e]) => { if (e.isIntersecting) setVisible(true); }, { threshold: 0.5 });
+    const obs = new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) {
+        setHasAnimated(true);
+        const duration = 1200;
+        const start = performance.now();
+        function animate(now: number) {
+          const p = Math.min((now - start) / duration, 1);
+          const eased = p * (2 - p);
+          setCount(Math.round(target * eased));
+          if (p < 1) requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+      }
+    }, { threshold: 0.5 });
     obs.observe(el);
     return () => obs.disconnect();
-  }, []);
-
-  useEffect(() => {
-    if (!visible || isText) return;
-    const duration = 1200;
-    const start = performance.now();
-    function animate(now: number) {
-      const p = Math.min((now - start) / duration, 1);
-      const eased = p * (2 - p);
-      setCount(Math.round(target * eased));
-      if (p < 1) requestAnimationFrame(animate);
-    }
-    requestAnimationFrame(animate);
-  }, [visible, target, isText]);
+  }, [target, isText, hasAnimated]);
 
   return <span ref={ref} className="text-lg font-bold">{isText ? textValue : `${count.toLocaleString()}${suffix}`}</span>;
 }
