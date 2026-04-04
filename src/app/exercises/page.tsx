@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { motion, AnimatePresence } from "motion/react";
-import { Search, Dumbbell, Heart, Flower2, StretchHorizontal, Home, ChevronDown, ChevronUp, Flame, Clock, Target } from "lucide-react";
+import { Search, Dumbbell, Heart, Sparkles, Move, Home, ChevronDown, ChevronUp, Flame, Clock, Target } from "lucide-react";
 
 interface Exercise {
   id: number;
@@ -78,8 +78,8 @@ const categoryIcons: Record<string, React.ReactNode> = {
   All: <Target className="w-4 h-4" />,
   Strength: <Dumbbell className="w-4 h-4" />,
   Cardio: <Heart className="w-4 h-4" />,
-  Yoga: <Flower2 className="w-4 h-4" />,
-  Stretching: <StretchHorizontal className="w-4 h-4" />,
+  Yoga: <Sparkles className="w-4 h-4" />,
+  Stretching: <Move className="w-4 h-4" />,
   "Home Workout": <Home className="w-4 h-4" />,
 };
 

@@ -535,7 +535,7 @@ export default function HospitalsPage() {
                 {/* City */}
                 <div className="space-y-2">
                   <span className="text-muted-foreground text-xs uppercase tracking-wider block mb-1">City</span>
-                  <Select value={city} onValueChange={setCity}>
+                  <Select value={city} onValueChange={(v) => setCity(v)}>
                     <SelectTrigger className="bg-neutral-900 border-neutral-700 text-white">
                       <SelectValue />
                     </SelectTrigger>
@@ -552,7 +552,7 @@ export default function HospitalsPage() {
                 {/* Type */}
                 <div className="space-y-2">
                   <span className="text-muted-foreground text-xs uppercase tracking-wider block mb-1">Type</span>
-                  <Select value={type} onValueChange={setType}>
+                  <Select value={type} onValueChange={(v) => setType(v)}>
                     <SelectTrigger className="bg-neutral-900 border-neutral-700 text-white">
                       <SelectValue />
                     </SelectTrigger>
@@ -569,7 +569,7 @@ export default function HospitalsPage() {
                 {/* Sort */}
                 <div className="space-y-2">
                   <span className="text-muted-foreground text-xs uppercase tracking-wider block mb-1">Sort by</span>
-                  <Select value={sortBy} onValueChange={setSortBy}>
+                  <Select value={sortBy} onValueChange={(v) => setSortBy(v)}>
                     <SelectTrigger className="bg-neutral-900 border-neutral-700 text-white">
                       <SelectValue />
                     </SelectTrigger>
