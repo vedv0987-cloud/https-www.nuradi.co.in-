@@ -418,7 +418,7 @@ export default function GutHealthPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-emerald-950/10 to-background">
       {/* Header */}
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 pt-8 pb-4">
+      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 pt-8 pb-4">
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-sm font-medium mb-4">
             <Leaf className="w-4 h-4" />
@@ -461,7 +461,7 @@ export default function GutHealthPage() {
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 pb-20">
+      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 pb-20">
         <AnimatePresence mode="wait">
           {/* Step 1: Diet Diversity */}
           {step === 1 && (

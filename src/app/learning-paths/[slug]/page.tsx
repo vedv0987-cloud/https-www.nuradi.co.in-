@@ -38,7 +38,7 @@ export default function LearningPathPage({ params }: { params: Promise<{ slug: s
 
   if (!path) {
     return (
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-20 text-center">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-20 text-center">
         <h1 className="text-2xl font-bold">Path not found</h1>
         <Link href="/learning-paths" className={cn(buttonVariants(), "mt-4")}>All Paths</Link>
       </div>
@@ -49,7 +49,7 @@ export default function LearningPathPage({ params }: { params: Promise<{ slug: s
   const activeVideo = stepVideos[activeStep];
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-8">
       <Link href="/learning-paths" className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6">
         <ArrowLeft className="w-4 h-4" /> Learning Paths
       </Link>

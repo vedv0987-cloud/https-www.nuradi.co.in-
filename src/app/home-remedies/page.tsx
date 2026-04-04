@@ -68,7 +68,7 @@ export default function HomeRemediesPage() {
 
   return (
     <div className="min-h-screen">
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 pt-8 pb-4">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 pt-8 pb-4">
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 text-sm font-medium mb-4">
             <Leaf className="w-4 h-4" /> Gharelu Nuskhe
@@ -92,7 +92,7 @@ export default function HomeRemediesPage() {
         </div>
       </div>
 
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-8 pb-20">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-8 pb-20">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {filtered.map((r, i) => (
             <motion.div key={r.id} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.03 }}

@@ -43,7 +43,7 @@ export default function DailyDosePage() {
   }, []);
 
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <div className="max-w-[1100px] mx-auto px-4 sm:px-6 py-10">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-8">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
           <Sunrise className="w-4 h-4" /> Daily Dose — Day {dayNum}

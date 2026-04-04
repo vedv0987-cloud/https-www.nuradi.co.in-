@@ -22,7 +22,7 @@ const TOOLS = [
 
 export default function HealthLabPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-12">
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-12">
       {/* Hero */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}

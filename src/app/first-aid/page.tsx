@@ -523,7 +523,7 @@ export default function FirstAidPage() {
     <div className="min-h-screen bg-white text-black">
       {/* Header */}
       <header className="border-b border-neutral-200 bg-white sticky top-0 z-10">
-        <div className="max-w-3xl mx-auto px-4 py-4">
+        <div className="max-w-[1100px] mx-auto px-4 py-4">
           <div className="flex items-center gap-3 mb-4">
             <Link href="/">
               <Button variant="ghost" size="icon" className="shrink-0">
@@ -586,7 +586,7 @@ export default function FirstAidPage() {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-3xl mx-auto px-4 py-6">
+      <main className="max-w-[1100px] mx-auto px-4 py-6">
         <div className="space-y-3">
           {filtered.length > 0 ? (
             filtered.map((emergency) => (

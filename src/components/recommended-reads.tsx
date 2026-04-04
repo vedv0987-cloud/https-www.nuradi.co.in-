@@ -30,7 +30,7 @@ export function RecommendedReads() {
   }, [activeTab]);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="max-w-[1600px] mx-auto px-4 sm:px-6">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}

@@ -98,7 +98,7 @@ export function Navbar() {
     switch (key) {
       case "conditions":
         return (
-          <div className="max-w-5xl mx-auto px-6 py-8">
+          <div className="max-w-[1600px] mx-auto px-6 py-8">
             <div className="flex items-center justify-between mb-6 border-b pb-4">
               <h3 className="text-lg font-bold text-[#1a1a1a]">Health Conditions</h3>
               <Link href="/health-az" onClick={() => setOpenDropdown(null)} className="flex items-center gap-1 text-sm font-bold text-teal-700 hover:underline">
@@ -116,7 +116,7 @@ export function Navbar() {
         );
       case "wellness":
         return (
-          <div className="max-w-3xl mx-auto px-6 py-8">
+          <div className="max-w-[1100px] mx-auto px-6 py-8">
             <div className="flex items-center justify-between mb-6 border-b pb-4">
               <h3 className="text-lg font-bold text-[#1a1a1a]">Wellness</h3>
             </div>
@@ -131,7 +131,7 @@ export function Navbar() {
         );
       case "tools":
         return (
-          <div className="max-w-4xl mx-auto px-6 py-8">
+          <div className="max-w-[1200px] mx-auto px-6 py-8">
             <div className="flex items-center justify-between mb-6 border-b pb-4">
               <h3 className="text-lg font-bold text-[#1a1a1a]">Health Tools</h3>
               <div className="flex gap-4">
@@ -154,7 +154,7 @@ export function Navbar() {
         );
       case "videos":
         return (
-          <div className="max-w-3xl mx-auto px-6 py-8">
+          <div className="max-w-[1100px] mx-auto px-6 py-8">
             <div className="flex items-center justify-between mb-6 border-b pb-4">
               <h3 className="text-lg font-bold text-[#1a1a1a]">Health Videos</h3>
               <Link href="/explore" onClick={() => setOpenDropdown(null)} className="flex items-center gap-1 text-sm font-bold text-teal-700 hover:underline">
@@ -274,7 +274,7 @@ export function Navbar() {
             transition={{ duration: 0.15 }}
             className="overflow-hidden bg-white border-b shadow-lg"
           >
-            <form onSubmit={handleSearch} className="max-w-2xl mx-auto px-4 py-4">
+            <form onSubmit={handleSearch} className="max-w-[1000px] mx-auto px-4 py-4">
               <div className="relative">
                 <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                 <Input

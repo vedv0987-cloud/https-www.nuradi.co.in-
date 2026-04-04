@@ -37,7 +37,7 @@ export function ToolLayout({
   science?: string;
 }) {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8">
       <Link
         href="/health-lab"
         className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"

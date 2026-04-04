@@ -58,7 +58,7 @@ function SearchContent() {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -66,7 +66,7 @@ function SearchContent() {
       >
         <form
           onSubmit={handleSearch}
-          className="relative max-w-2xl mx-auto mb-8"
+          className="relative max-w-[1000px] mx-auto mb-8"
         >
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
           <Input
@@ -159,8 +159,8 @@ export default function SearchPage() {
   return (
     <Suspense
       fallback={
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
-          <div className="h-12 bg-muted rounded-lg animate-pulse max-w-2xl mx-auto" />
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8">
+          <div className="h-12 bg-muted rounded-lg animate-pulse max-w-[1000px] mx-auto" />
         </div>
       }
     >

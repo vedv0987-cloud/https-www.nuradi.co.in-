@@ -144,7 +144,7 @@ export default function EmergencyQRPage() {
         transition={{ duration: 0.5 }}
         className="border-b border-red-500/20 bg-red-950/30 backdrop-blur-sm"
       >
-        <div className="mx-auto max-w-4xl px-4 py-6 sm:px-6">
+        <div className="mx-auto max-w-[1200px] px-4 py-6 sm:px-6">
           <div className="flex items-center gap-3">
             <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-500/20 text-red-400">
               <Shield className="h-6 w-6" />
@@ -161,7 +161,7 @@ export default function EmergencyQRPage() {
         </div>
       </motion.div>
 
-      <div className="mx-auto max-w-4xl px-4 py-8 sm:px-6">
+      <div className="mx-auto max-w-[1200px] px-4 py-8 sm:px-6">
         {/* Privacy Notice */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

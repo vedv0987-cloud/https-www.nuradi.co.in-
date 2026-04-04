@@ -57,7 +57,7 @@ export default function InfographicsPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-purple-50/30 to-background dark:from-purple-950/10">
       {/* Header */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-8 pb-4">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 pt-8 pb-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -124,7 +124,7 @@ export default function InfographicsPage() {
       </div>
 
       {/* Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 pb-20">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 pb-20">
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {filtered.map((data, i) => (

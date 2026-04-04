@@ -12,7 +12,7 @@ const ICON_MAP: Record<string, React.ElementType> = { Heart, Brain, Syringe, Tre
 
 export default function LearningPathsPage() {
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-10">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
           <BookOpen className="w-4 h-4" /> Structured Learning

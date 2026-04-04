@@ -35,7 +35,7 @@ export default function CategoryPage({
 
   if (!meta) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 text-center">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-20 text-center">
         <h1 className="text-2xl font-bold">Category not found</h1>
         <Link href="/explore" className={cn(buttonVariants(), "mt-4")}>Browse All</Link>
       </div>
@@ -60,7 +60,7 @@ export default function CategoryPage({
           background: `linear-gradient(135deg, ${meta.color}15 0%, ${meta.color}05 100%)`,
         }}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
           <div className="flex items-center gap-4">
             <div
               className="w-14 h-14 rounded-xl flex items-center justify-center"
@@ -82,7 +82,7 @@ export default function CategoryPage({
         </div>
       </motion.div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 space-y-12">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 space-y-12">
         {/* Videos */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {categoryVideos.map((video, i) => (

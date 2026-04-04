@@ -155,7 +155,7 @@ export function AIInsightsFull() {
   const [refreshKey, setRefreshKey] = useState(0);
 
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-10">
+    <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-10">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-gradient-to-r from-violet-500/10 to-purple-500/10 text-violet-600 dark:text-violet-400 text-sm font-medium mb-4 border border-violet-500/20">
           <Brain className="w-4 h-4" />

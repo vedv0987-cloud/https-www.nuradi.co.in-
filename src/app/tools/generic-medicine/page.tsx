@@ -101,7 +101,7 @@ export default function GenericMedicinePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-50/50 to-background dark:from-green-950/10">
       {/* Header */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 pt-8 pb-4">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 pt-8 pb-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -158,7 +158,7 @@ export default function GenericMedicinePage() {
       </div>
 
       {/* Results */}
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 pb-20">
+      <div className="max-w-[1100px] mx-auto px-4 sm:px-6 pb-20">
         {query.trim() && results.length === 0 && (
           <div className="text-center py-16">
             <Pill className="w-12 h-12 text-muted-foreground/30 mx-auto mb-3" />

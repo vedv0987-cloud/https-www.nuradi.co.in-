@@ -28,7 +28,7 @@ export default function NewsPage() {
   }, []);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-10">
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-10">
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
         <div className="flex items-center gap-2 mb-1">
           <Newspaper className="w-5 h-5 text-primary" />

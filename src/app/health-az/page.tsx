@@ -90,7 +90,7 @@ export default function HealthAZPage() {
   }, []);
 
   return (
-    <div className="max-w-5xl mx-auto px-4 sm:px-6 py-10">
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-10">
       {/* Hero */}
       <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center mb-10">
         <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 text-primary text-sm font-medium mb-4">
@@ -107,7 +107,7 @@ export default function HealthAZPage() {
       </motion.div>
 
       {/* Search */}
-      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="relative max-w-2xl mx-auto mb-12">
+      <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }} className="relative max-w-[1000px] mx-auto mb-12">
         <div className="relative">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground" />
           <Input

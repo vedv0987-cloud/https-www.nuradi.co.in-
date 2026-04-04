@@ -290,7 +290,7 @@ export default function MoodTrackerPage() {
   }
 
   return (
-    <div className="mx-auto min-h-screen max-w-2xl px-4 pb-20 pt-6">
+    <div className="mx-auto min-h-screen max-w-[1000px] px-4 pb-20 pt-6">
       {/* header */}
       <motion.div
         initial={{ opacity: 0, y: -20 }}

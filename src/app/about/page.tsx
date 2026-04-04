@@ -39,7 +39,7 @@ const FEATURES = [
 
 export default function AboutPage() {
   return (
-    <div className="max-w-4xl mx-auto px-4 sm:px-6 py-12 space-y-16">
+    <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-12 space-y-16">
       {/* Hero */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -56,7 +56,7 @@ export default function AboutPage() {
           <br />
           <span className="text-primary">beautifully organized.</span>
         </h1>
-        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+        <p className="text-lg text-muted-foreground max-w-[1000px] mx-auto">
           NuradiHealth is a curated video discovery platform that brings together
           the best health and education content from verified YouTube creators.
         </p>

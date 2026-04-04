@@ -44,7 +44,7 @@ export default function BodyPartPage({
 
   if (!bpData || !bpMeta) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 text-center">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-20 text-center">
         <h1 className="text-2xl font-bold">Body part not found</h1>
         <Link href="/body-explorer" className={cn(buttonVariants(), "mt-4")}>
           Back to Body Explorer
@@ -58,7 +58,7 @@ export default function BodyPartPage({
   const paged = videos.slice((page - 1) * PER_PAGE, page * PER_PAGE);
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
+    <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-8">
       {/* Back */}
       <Link
         href="/body-explorer"

@@ -113,7 +113,7 @@ export default function BMICalculatorPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="relative max-w-4xl mx-auto px-4 py-12 sm:py-16 text-center"
+          className="relative max-w-[1200px] mx-auto px-4 py-12 sm:py-16 text-center"
         >
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm mb-6">
             <Calculator className="w-8 h-8 text-white" />
@@ -129,7 +129,7 @@ export default function BMICalculatorPage() {
       </div>
 
       {/* Main Content */}
-      <div className="max-w-4xl mx-auto px-4 py-8 sm:py-12">
+      <div className="max-w-[1200px] mx-auto px-4 py-8 sm:py-12">
         <div className="grid lg:grid-cols-2 gap-8">
           {/* Input Panel */}
           <motion.div

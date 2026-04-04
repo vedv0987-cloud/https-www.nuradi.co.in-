@@ -149,7 +149,7 @@ export default function SymptomCheckerPage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-sky-50 to-white dark:from-sky-950/20 dark:to-background">
       {/* Header */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pt-8 pb-4">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pt-8 pb-4">
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-sky-100 dark:bg-sky-900/30 text-sky-700 dark:text-sky-400 text-sm font-medium mb-4">
             <Stethoscope className="w-4 h-4" />
@@ -201,7 +201,7 @@ export default function SymptomCheckerPage() {
       </div>
 
       {/* Step Content */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 pb-20">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 pb-20">
         <AnimatePresence mode="wait">
           {/* ═══════ STEP 1: BODY MAP ═══════ */}
           {step === 1 && (
@@ -326,7 +326,7 @@ export default function SymptomCheckerPage() {
                 </p>
               </div>
 
-              <div className="flex flex-wrap gap-2 justify-center max-w-2xl mx-auto">
+              <div className="flex flex-wrap gap-2 justify-center max-w-[1000px] mx-auto">
                 {availableSymptoms.map((symptom) => {
                   const isSelected = selectedSymptoms.includes(symptom);
                   return (

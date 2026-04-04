@@ -121,7 +121,7 @@ export default function QuizPage() {
   if (selectedQuiz === null) {
     return (
       <div className="min-h-screen">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 pt-8 pb-20">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 pt-8 pb-20">
           <div className="text-center mb-10">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 text-gray-700 text-sm font-medium mb-4">
               <Brain className="w-4 h-4" /> Health Quiz
@@ -129,7 +129,7 @@ export default function QuizPage() {
             <h1 className="text-3xl sm:text-4xl font-bold mb-2">Test Your Health Knowledge</h1>
             <p className="text-muted-foreground text-sm">Pick a quiz and challenge yourself</p>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-[1200px] mx-auto">
             {QUIZZES.map((q, i) => (
               <motion.button key={i} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.05 }}
                 onClick={() => setSelectedQuiz(i)}
@@ -169,7 +169,7 @@ export default function QuizPage() {
   // Question screen
   return (
     <div className="min-h-screen">
-      <div className="max-w-2xl mx-auto px-4 sm:px-8 pt-8 pb-20">
+      <div className="max-w-[1000px] mx-auto px-4 sm:px-8 pt-8 pb-20">
         {/* Progress */}
         <div className="flex items-center justify-between mb-2">
           <p className="text-sm font-semibold">{quiz!.title}</p>

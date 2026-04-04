@@ -17,7 +17,7 @@ const BMI_RANGES = [
 
 export default function BMIPage() {
   return (
-    <div className="max-w-3xl mx-auto px-4 sm:px-6 py-10">
+    <div className="max-w-[1100px] mx-auto px-4 sm:px-6 py-10">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

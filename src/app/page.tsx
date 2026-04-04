@@ -63,7 +63,7 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-8 py-24 sm:py-32 w-full relative z-10">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-8 py-24 sm:py-32 w-full relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left — Copy */}
             <div className="space-y-8">
@@ -195,7 +195,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ HEALTH TOOLS GRID ═══════ */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-6">
+      <section className="max-w-[1600px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -251,7 +251,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ HEALTH CONDITIONS ═══════ */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-6">
+      <section className="max-w-[1600px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -301,7 +301,7 @@ export default function HomePage() {
       </section>
 
       {/* ═══════ QUICK LINKS ═══════ */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-6">
+      <section className="max-w-[1600px] mx-auto px-4 sm:px-6">
         <div className="grid sm:grid-cols-3 gap-4">
           <Link
             href="/explore"
@@ -352,7 +352,7 @@ export default function HomePage() {
       <NewsletterSignup />
 
       {/* ═══════ CTA BANNER ═══════ */}
-      <section className="max-w-[1400px] mx-auto px-4 sm:px-6">
+      <section className="max-w-[1600px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

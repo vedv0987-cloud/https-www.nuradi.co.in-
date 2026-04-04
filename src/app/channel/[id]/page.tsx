@@ -23,7 +23,7 @@ export default function ChannelPage({
 
   if (!channel) {
     return (
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-20 text-center">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 py-20 text-center">
         <h1 className="text-2xl font-bold">Channel not found</h1>
         <Link href="/channels" className={cn(buttonVariants(), "mt-4")}>Browse Channels</Link>
       </div>
@@ -41,7 +41,7 @@ export default function ChannelPage({
         transition={{ duration: 0.5 }}
         className="bg-muted/30 border-b py-10"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="max-w-[1600px] mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
             <Image
               src={channel.avatar}
@@ -96,7 +96,7 @@ export default function ChannelPage({
       </motion.div>
 
       {/* Videos */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 mt-8">
+      <div className="max-w-[1600px] mx-auto px-4 sm:px-6 mt-8">
         <h2 className="text-xl font-bold mb-6">
           Videos ({channelVideos.length})
         </h2>

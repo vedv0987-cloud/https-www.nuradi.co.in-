@@ -262,7 +262,7 @@ export default function SleepScorePage() {
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-950/10 to-background">
       {/* Header */}
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 pt-8 pb-4">
+      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 pt-8 pb-4">
         <div className="text-center mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-400 text-sm font-medium mb-4">
             <Moon className="w-4 h-4" />
@@ -296,7 +296,7 @@ export default function SleepScorePage() {
         </div>
       </div>
 
-      <div className="max-w-2xl mx-auto px-4 sm:px-6 pb-20">
+      <div className="max-w-[1000px] mx-auto px-4 sm:px-6 pb-20">
         <AnimatePresence mode="wait">
           {step === 1 && (
             <motion.div key="s1" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -30 }} className="space-y-6">

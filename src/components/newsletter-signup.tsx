@@ -22,7 +22,7 @@ export function NewsletterSignup() {
   };
 
   return (
-    <section className="max-w-7xl mx-auto px-4 sm:px-6">
+    <section className="max-w-[1600px] mx-auto px-4 sm:px-6">
       <div className="rounded-2xl bg-gradient-to-r from-primary/5 to-emerald-500/5 border p-8 sm:p-10 text-center">
         <AnimatePresence mode="wait">
           {!subscribed ? (
