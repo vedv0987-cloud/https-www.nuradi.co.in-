@@ -25,23 +25,26 @@ const WELLNESS_LINKS = [
 ];
 
 const TOOL_LINKS = [
-  { href: "/health-lab/bmi", label: "BMI Calculator" },
-  { href: "/health-lab/calories", label: "Calorie Calculator" },
-  { href: "/health-lab/macros", label: "Macro Calculator" },
-  { href: "/health-lab/heart-rate", label: "Heart Rate Zones" },
-  { href: "/health-lab/body-fat", label: "Body Fat Calculator" },
+  { href: "/tools/bmi", label: "BMI & Body Metrics" },
+  { href: "/tools/biological-age", label: "Biological Age Calculator" },
+  { href: "/tools/sleep-score", label: "Sleep Score" },
+  { href: "/tools/gut-health", label: "Gut Health Score" },
+  { href: "/tools/water-tracker", label: "Water Tracker" },
+  { href: "/tools/mood-tracker", label: "Mood & Stress Tracker" },
+  { href: "/tools/emergency-qr", label: "Emergency QR Card" },
+  { href: "/tools/generic-medicine", label: "Generic Medicine Finder" },
+  { href: "/tools/food-nutrition", label: "Food Nutrition Database" },
+  { href: "/symptom-checker", label: "Symptom Checker" },
   { href: "/body-explorer", label: "Body Explorer" },
   { href: "/breathe", label: "Breathing Exercise" },
-  { href: "/health-lab/sleep", label: "Sleep Calculator" },
-  { href: "/health-lab/water", label: "Water Intake" },
 ];
 
-const FEATURED_LINKS = [
-  { href: "/explore", label: "Explore Videos" },
+const VIDEO_LINKS = [
+  { href: "/explore", label: "Explore All Videos" },
   { href: "/channels", label: "Top Channels" },
   { href: "/learning-paths", label: "Learning Paths" },
-  { href: "/ai-insights", label: "AI Insights" },
   { href: "/daily-dose", label: "Daily Dose" },
+  { href: "/ai-insights", label: "AI Insights" },
   { href: "/news", label: "Health News" },
 ];
 
@@ -49,18 +52,19 @@ const NAV_ITEMS = [
   { key: "conditions", label: "Health Conditions" },
   { key: "wellness", label: "Wellness" },
   { key: "tools", label: "Tools" },
-  { key: "featured", label: "Featured" },
+  { key: "videos", label: "Health Videos" },
 ];
 
 const MOBILE_ALL = [
   { href: "/", label: "Home" },
-  { href: "/explore", label: "Explore" },
+  { href: "/explore", label: "Health Videos" },
   { href: "/channels", label: "Channels" },
   { href: "/health-az", label: "Health A-Z" },
-  { href: "/health-lab", label: "Health Tools" },
+  { href: "/tools/bmi", label: "BMI Calculator" },
+  { href: "/tools/biological-age", label: "Biological Age" },
+  { href: "/symptom-checker", label: "Symptom Checker" },
+  { href: "/infographics", label: "Infographics" },
   { href: "/body-explorer", label: "Body Explorer" },
-  { href: "/learning-paths", label: "Learning Paths" },
-  { href: "/breathe", label: "Breathing" },
   { href: "/about", label: "About" },
 ];
 
@@ -153,6 +157,13 @@ export function Navbar() {
               >
                 ALL TOOLS <ArrowRight className="w-4 h-4" />
               </Link>
+              <Link
+                href="/infographics"
+                onClick={() => setOpenDropdown(null)}
+                className="flex items-center gap-1 text-sm font-semibold text-teal-700 dark:text-teal-400 hover:underline"
+              >
+                INFOGRAPHICS <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
             <div className="grid grid-cols-3 gap-x-12 gap-y-3">
               {TOOL_LINKS.map((item) => (
@@ -168,14 +179,21 @@ export function Navbar() {
             </div>
           </div>
         );
-      case "featured":
+      case "videos":
         return (
           <div className="max-w-3xl mx-auto px-6 py-8">
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-bold text-[#1a1a1a] dark:text-white">Featured</h3>
+              <h3 className="text-lg font-bold text-[#1a1a1a] dark:text-white">Health Videos</h3>
+              <Link
+                href="/explore"
+                onClick={() => setOpenDropdown(null)}
+                className="flex items-center gap-1 text-sm font-semibold text-teal-700 dark:text-teal-400 hover:underline"
+              >
+                ALL VIDEOS <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
             <div className="grid grid-cols-2 gap-x-12 gap-y-3">
-              {FEATURED_LINKS.map((item) => (
+              {VIDEO_LINKS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
