@@ -47,10 +47,22 @@ const VIDEO_LINKS = [
   { href: "/news", label: "Health News" },
 ];
 
+const FEATURES_LINKS = [
+  { href: "/first-aid", label: "First Aid Guide" },
+  { href: "/quiz", label: "Health Quiz" },
+  { href: "/home-remedies", label: "Home Remedies" },
+  { href: "/myths", label: "Health Myths Busted" },
+  { href: "/challenges", label: "30-Day Challenges" },
+  { href: "/pregnancy", label: "Pregnancy Tracker" },
+  { href: "/vaccination", label: "Vaccination Schedule" },
+  { href: "/infographics", label: "Disease Infographics" },
+];
+
 const NAV_ITEMS = [
   { key: "conditions", label: "Health Conditions" },
   { key: "wellness", label: "Wellness" },
   { key: "tools", label: "Tools" },
+  { key: "features", label: "Features" },
   { key: "videos", label: "Health Videos" },
 ];
 
@@ -60,10 +72,15 @@ const MOBILE_ALL = [
   { href: "/channels", label: "Channels" },
   { href: "/health-az", label: "Health A-Z" },
   { href: "/tools/bmi", label: "BMI Calculator" },
-  { href: "/tools/biological-age", label: "Biological Age" },
   { href: "/symptom-checker", label: "Symptom Checker" },
+  { href: "/first-aid", label: "First Aid Guide" },
+  { href: "/quiz", label: "Health Quiz" },
+  { href: "/home-remedies", label: "Home Remedies" },
+  { href: "/myths", label: "Health Myths" },
+  { href: "/challenges", label: "30-Day Challenges" },
+  { href: "/pregnancy", label: "Pregnancy Tracker" },
+  { href: "/vaccination", label: "Vaccination Schedule" },
   { href: "/infographics", label: "Infographics" },
-  { href: "/body-explorer", label: "Body Explorer" },
   { href: "/about", label: "About" },
 ];
 
@@ -145,6 +162,21 @@ export function Navbar() {
             </div>
             <div className="grid grid-cols-3 gap-x-12 gap-y-3">
               {TOOL_LINKS.map((item) => (
+                <Link key={item.href} href={item.href} onClick={() => setOpenDropdown(null)} className="text-sm text-[#333] hover:text-teal-700 transition-colors py-1">
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </div>
+        );
+      case "features":
+        return (
+          <div className="max-w-[1200px] mx-auto px-6 py-8">
+            <div className="flex items-center justify-between mb-6 border-b pb-4">
+              <h3 className="text-lg font-bold text-[#1a1a1a]">Features</h3>
+            </div>
+            <div className="grid grid-cols-3 gap-x-12 gap-y-3">
+              {FEATURES_LINKS.map((item) => (
                 <Link key={item.href} href={item.href} onClick={() => setOpenDropdown(null)} className="text-sm text-[#333] hover:text-teal-700 transition-colors py-1">
                   {item.label}
                 </Link>
