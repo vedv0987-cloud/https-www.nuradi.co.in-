@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { Navbar } from "@/components/navbar";
 import { TrustBar } from "@/components/trust-bar";
 import { Footer } from "@/components/footer";
+import { ChatWidget } from "@/components/chat-widget";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -65,6 +66,7 @@ export default function RootLayout({
           <TrustBar />
           <main className="flex-1">{children}</main>
           <Footer />
+          <ChatWidget />
         </ThemeProvider>
       </body>
     </html>
