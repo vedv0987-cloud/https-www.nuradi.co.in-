@@ -2,6 +2,7 @@
 
 import { use } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import {
   Heart,
@@ -110,11 +111,12 @@ export default function CategoryPage({
                   href={`/channel/${channel.id}`}
                   className="flex-shrink-0 group flex flex-col items-center gap-2 w-24"
                 >
-                  <img
+                  <Image
                     src={channel.avatar}
                     alt={channel.name}
+                    width={64}
+                    height={64}
                     className="w-16 h-16 rounded-full border-2 border-transparent group-hover:border-primary transition-colors"
-                    loading="lazy"
                   />
                   <span className="text-xs font-medium text-center line-clamp-2 group-hover:text-primary transition-colors">
                     {channel.name}

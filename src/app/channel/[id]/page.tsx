@@ -2,6 +2,7 @@
 
 import { use } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ExternalLink, CheckCircle2 } from "lucide-react";
 import { channels } from "@/data/channels";
@@ -42,9 +43,11 @@ export default function ChannelPage({
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-5">
-            <img
+            <Image
               src={channel.avatar}
               alt={channel.name}
+              width={96}
+              height={96}
               className="w-24 h-24 rounded-full"
             />
             <div className="flex-1">

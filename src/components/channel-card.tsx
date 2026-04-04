@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { ExternalLink, CheckCircle2, PlayCircle } from "lucide-react";
 import { Channel, CATEGORY_META } from "@/types";
@@ -30,11 +31,12 @@ export function ChannelCard({
     >
       <div className="flex items-start gap-4">
         <Link href={`/channel/${channel.id}`}>
-          <img
+          <Image
             src={channel.avatar}
             alt={channel.name}
+            width={64}
+            height={64}
             className="w-16 h-16 rounded-full flex-shrink-0 ring-2 ring-transparent group-hover:ring-primary/30 transition-all"
-            loading="lazy"
           />
         </Link>
         <div className="min-w-0 flex-1">

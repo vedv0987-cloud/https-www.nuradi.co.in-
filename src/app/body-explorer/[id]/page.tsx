@@ -2,6 +2,7 @@
 
 import { use, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence } from "motion/react";
 import {
   ArrowLeft, Play, Clock, Eye, ChevronLeft, ChevronRight, X,
@@ -118,9 +119,11 @@ export default function BodyPartPage({
                   </h2>
                   <div className="flex items-center gap-3 mt-2">
                     {playingVideo.channelAvatar && (
-                      <img
+                      <Image
                         src={playingVideo.channelAvatar}
-                        alt=""
+                        alt={playingVideo.channelName}
+                        width={24}
+                        height={24}
                         className="w-6 h-6 rounded-full"
                       />
                     )}
@@ -172,11 +175,12 @@ export default function BodyPartPage({
                 className="group block text-left w-full"
               >
                 <div className="relative aspect-video rounded-xl overflow-hidden bg-muted shadow-sm group-hover:shadow-xl transition-shadow duration-300">
-                  <img
+                  <Image
                     src={video.thumbnail}
                     alt={video.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                   <div className="absolute inset-0 flex items-center justify-center">
@@ -199,11 +203,12 @@ export default function BodyPartPage({
                 </div>
                 <div className="mt-3 flex gap-3">
                   {video.channelAvatar && (
-                    <img
+                    <Image
                       src={video.channelAvatar}
                       alt={video.channelName}
+                      width={32}
+                      height={32}
                       className="w-8 h-8 rounded-full flex-shrink-0"
-                      loading="lazy"
                     />
                   )}
                   <div className="min-w-0">

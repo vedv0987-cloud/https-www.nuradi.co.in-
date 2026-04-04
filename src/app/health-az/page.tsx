@@ -103,7 +103,7 @@ export default function HealthAZPage() {
         <p className="text-muted-foreground mt-3 max-w-lg mx-auto">
           Understand any health condition in minutes. Symptoms, facts, expert videos — all in one place.
         </p>
-        <p className="text-sm text-muted-foreground mt-2">{diseases.length}+ Conditions · 15 Body Systems · 1,000+ Expert Videos</p>
+        <p className="text-sm text-muted-foreground mt-2">{diseases.length}+ Conditions · {Object.keys(DISEASE_CATEGORIES).length} Body Systems · 1,000+ Expert Videos</p>
       </motion.div>
 
       {/* Search */}

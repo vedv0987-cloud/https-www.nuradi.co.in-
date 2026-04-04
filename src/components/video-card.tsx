@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "motion/react";
 import { Play, Clock } from "lucide-react";
 import { Video, CATEGORY_META } from "@/types";
@@ -29,11 +30,12 @@ export function VideoCard({
       >
         <Link href={`/video/${video.id}`} className="group flex gap-3">
           <div className="relative w-40 flex-shrink-0 aspect-video rounded-lg overflow-hidden bg-muted">
-            <img
+            <Image
               src={video.thumbnail}
               alt={video.title}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              loading="lazy"
+              fill
+              sizes="160px"
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
             />
             <span className="absolute bottom-1 right-1 bg-black/80 text-white text-[10px] font-medium px-1 py-0.5 rounded">
               {video.duration}
@@ -64,11 +66,12 @@ export function VideoCard({
     >
       <Link href={`/video/${video.id}`} className="group block">
         <div className="relative aspect-video rounded-xl overflow-hidden bg-muted shadow-sm group-hover:shadow-xl transition-shadow duration-300">
-          <img
+          <Image
             src={video.thumbnail}
             alt={video.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
           <div className="absolute inset-0 flex items-center justify-center">
@@ -92,11 +95,12 @@ export function VideoCard({
         </div>
         <div className="mt-3 flex gap-3">
           {channel && (
-            <img
+            <Image
               src={channel.avatar}
               alt={channel.name}
+              width={36}
+              height={36}
               className="w-9 h-9 rounded-full flex-shrink-0 ring-2 ring-transparent group-hover:ring-primary/20 transition-all"
-              loading="lazy"
             />
           )}
           <div className="min-w-0">
