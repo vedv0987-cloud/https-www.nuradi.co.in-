@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
-import { Tv, Heart } from "lucide-react";
+import Image from "next/image";
+import { Heart } from "lucide-react";
 import { Separator } from "@/components/ui/separator";
+import { useTheme } from "@/components/theme-provider";
 
 const FOOTER_LINKS = {
   Platform: [
@@ -24,19 +26,21 @@ const FOOTER_LINKS = {
 };
 
 export function Footer() {
+  const { theme } = useTheme();
   return (
     <footer className="bg-muted/30 border-t mt-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {/* Brand */}
           <div className="col-span-2 md:col-span-1">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 rounded-lg bg-primary flex items-center justify-center">
-                <Tv className="w-4.5 h-4.5 text-primary-foreground" />
-              </div>
-              <span className="font-bold text-lg">
-                Health<span className="text-primary">EduTV</span>
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src={theme === "dark" ? "/nuradihealth-on-dark.svg" : "/nuradihealth-on-light.svg"}
+                alt="NuradiHealth"
+                width={140}
+                height={24}
+                className="h-6 w-auto"
+              />
             </Link>
             <p className="text-sm text-muted-foreground mt-3 max-w-[240px]">
               Curated health & education videos from trusted YouTube creators.

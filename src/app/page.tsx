@@ -35,6 +35,7 @@ import { AIInsights } from "@/components/ai-insights";
 import { TrustBar } from "@/components/trust-bar";
 import { WhyTrustUs } from "@/components/why-trust-us";
 import { NewsletterSignup } from "@/components/newsletter-signup";
+import { RecommendedReads } from "@/components/recommended-reads";
 import { Wind, Calculator, FlaskConical, BookOpen, Sunrise } from "lucide-react";
 
 const ICON_MAP: Record<string, React.ElementType> = {
@@ -588,7 +589,7 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ═══════ HEALTH TOOLS: BREATHING + BMI ═══════ */}
+      {/* ═══════ HEALTH TOOLS ═══════ */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -596,44 +597,62 @@ export default function HomePage() {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-2xl font-bold mb-6">Health Tools</h2>
-          <div className="grid lg:grid-cols-2 gap-6">
-            {/* Breathing Exercise */}
-            <div className="p-6 rounded-2xl border bg-card">
-              <div className="flex items-center justify-between mb-5">
-                <div className="flex items-center gap-2">
-                  <Wind className="w-5 h-5 text-primary" />
-                  <h3 className="text-lg font-bold">1-Minute Breathing</h3>
-                </div>
-                <Link
-                  href="/breathe"
-                  className={buttonVariants({ variant: "ghost", size: "sm" })}
-                >
-                  Full page <ChevronRight className="w-4 h-4 ml-1" />
-                </Link>
+          <div className="flex items-center gap-2 mb-6">
+            <FlaskConical className="w-6 h-6 text-teal-600" />
+            <h2 className="text-2xl sm:text-3xl font-bold">Health Tools</h2>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-5">
+            {/* Main Tool Card — Breathing */}
+            <div className="lg:col-span-2 lg:row-span-2 rounded-3xl bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-950/30 dark:to-teal-900/20 p-8 flex flex-col">
+              <h3 className="text-xl font-bold mb-2">Breathe better, live better</h3>
+              <p className="text-muted-foreground text-sm mb-6 max-w-md">
+                Reduce stress with guided breathing exercises. Box breathing, 4-7-8, and more techniques.
+              </p>
+              <div className="flex-1 min-h-0">
+                <BreathingExercise />
               </div>
-              <BreathingExercise />
+              <Link
+                href="/breathe"
+                className={cn(buttonVariants({ size: "lg" }), "mt-6 self-start rounded-full bg-teal-700 hover:bg-teal-800 text-white")}
+              >
+                Explore Breathing
+              </Link>
             </div>
 
-            {/* BMI Calculator */}
-            <div className="p-6 rounded-2xl border bg-card">
-              <div className="flex items-center justify-between mb-5">
-                <div className="flex items-center gap-2">
-                  <Calculator className="w-5 h-5 text-primary" />
-                  <h3 className="text-lg font-bold">BMI Calculator</h3>
-                </div>
+            {/* Small Tool Cards */}
+            {[
+              { href: "/health-lab/bmi", label: "BMI Calculator", desc: "Check your Body Mass Index", icon: Calculator, color: "from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/20" },
+              { href: "/health-lab/calories", label: "Calorie Calculator", desc: "Calculate daily calorie needs", icon: Sunrise, color: "from-orange-50 to-orange-100 dark:from-orange-950/30 dark:to-orange-900/20" },
+              { href: "/health-lab/macros", label: "Macro Calculator", desc: "Daily carb, protein & fat goals", icon: FlaskConical, color: "from-purple-50 to-purple-100 dark:from-purple-950/30 dark:to-purple-900/20" },
+              { href: "/body-explorer", label: "Body Explorer", desc: "Learn about every organ", icon: Stethoscope, color: "from-emerald-50 to-emerald-100 dark:from-emerald-950/30 dark:to-emerald-900/20" },
+            ].map((tool) => {
+              const Icon = tool.icon;
+              return (
                 <Link
-                  href="/bmi"
-                  className={buttonVariants({ variant: "ghost", size: "sm" })}
+                  key={tool.href}
+                  href={tool.href}
+                  className={cn(
+                    "group rounded-2xl bg-gradient-to-br p-5 flex items-start justify-between gap-3 transition-shadow hover:shadow-lg",
+                    tool.color
+                  )}
                 >
-                  Full page <ChevronRight className="w-4 h-4 ml-1" />
+                  <div>
+                    <p className="text-xs font-semibold text-teal-700 dark:text-teal-400 mb-1">{tool.label}</p>
+                    <p className="text-sm font-medium text-foreground">{tool.desc}</p>
+                  </div>
+                  <div className="w-10 h-10 rounded-full bg-white dark:bg-white/10 flex items-center justify-center flex-shrink-0 shadow-sm group-hover:scale-110 transition-transform">
+                    <ArrowRight className="w-4 h-4 text-teal-700 dark:text-teal-400" />
+                  </div>
                 </Link>
-              </div>
-              <BMICalculator />
-            </div>
+              );
+            })}
           </div>
         </motion.div>
       </section>
+
+      {/* ═══════ RECOMMENDED READS ═══════ */}
+      <RecommendedReads />
 
       {/* ═══════ WHY TRUST US ═══════ */}
       <WhyTrustUs />
