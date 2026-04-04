@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion, AnimatePresence, useMotionValue, useTransform, useSpring } from "motion/react";
 import { useEffect, useState, useRef, useCallback } from "react";
 import {
@@ -157,16 +158,16 @@ function FloatingParticles() {
 }
 
 const HEALTH_TOOLS = [
-  { href: "/tools/bmi", label: "BMI & Body Metrics", desc: "Calculate BMI, ideal weight & daily calories", icon: Calculator, color: "#1a1a1a", bg: "#f5f5f5" },
-  { href: "/tools/biological-age", label: "Biological Age", desc: "How old is your body really?", icon: Activity, color: "#1a1a1a", bg: "#f5f5f5" },
-  { href: "/tools/sleep-score", label: "Sleep Score", desc: "Rate your sleep quality out of 100", icon: Moon, color: "#1a1a1a", bg: "#f5f5f5" },
-  { href: "/tools/gut-health", label: "Gut Health Score", desc: "Assess your digestive health", icon: Apple, color: "#1a1a1a", bg: "#f5f5f5" },
-  { href: "/tools/water-tracker", label: "Water Tracker", desc: "Track daily water intake", icon: Droplets, color: "#1a1a1a", bg: "#f5f5f5" },
-  { href: "/tools/mood-tracker", label: "Mood Tracker", desc: "Track stress, mood & energy daily", icon: Smile, color: "#1a1a1a", bg: "#f5f5f5" },
-  { href: "/tools/emergency-qr", label: "Emergency QR Card", desc: "Generate a health emergency QR card", icon: QrCode, color: "#1a1a1a", bg: "#f5f5f5" },
-  { href: "/tools/generic-medicine", label: "Generic Medicine", desc: "Find cheaper generic alternatives", icon: Pill, color: "#1a1a1a", bg: "#f5f5f5" },
-  { href: "/tools/food-nutrition", label: "Food Nutrition", desc: "Indian food nutrition database", icon: Apple, color: "#1a1a1a", bg: "#f5f5f5" },
-  { href: "/symptom-checker", label: "Symptom Checker", desc: "Find the right doctor for your symptoms", icon: Stethoscope, color: "#1a1a1a", bg: "#f5f5f5" },
+  { href: "/tools/bmi", label: "BMI & Body Metrics", desc: "Calculate BMI, ideal weight & daily calories", icon: Calculator, img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" },
+  { href: "/tools/biological-age", label: "Biological Age", desc: "How old is your body really?", icon: Activity, img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop" },
+  { href: "/tools/sleep-score", label: "Sleep Score", desc: "Rate your sleep quality out of 100", icon: Moon, img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&h=300&fit=crop" },
+  { href: "/tools/gut-health", label: "Gut Health Score", desc: "Assess your digestive health", icon: Apple, img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop" },
+  { href: "/tools/water-tracker", label: "Water Tracker", desc: "Track daily water intake", icon: Droplets, img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&h=300&fit=crop" },
+  { href: "/tools/mood-tracker", label: "Mood Tracker", desc: "Track stress, mood & energy daily", icon: Smile, img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=300&fit=crop" },
+  { href: "/tools/emergency-qr", label: "Emergency QR Card", desc: "Generate a health emergency QR card", icon: QrCode, img: "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=400&h=300&fit=crop" },
+  { href: "/tools/generic-medicine", label: "Generic Medicine", desc: "Find cheaper generic alternatives", icon: Pill, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop" },
+  { href: "/tools/food-nutrition", label: "Food Nutrition", desc: "Indian food nutrition database", icon: Apple, img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop" },
+  { href: "/symptom-checker", label: "Symptom Checker", desc: "Find the right doctor for your symptoms", icon: Stethoscope, img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=300&fit=crop" },
 ];
 
 const CATEGORIES = Object.values(DISEASE_CATEGORIES).slice(0, 8);
@@ -423,7 +424,7 @@ export default function HomePage() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-5">
             {HEALTH_TOOLS.map((tool, i) => {
               const Icon = tool.icon;
               return (
@@ -432,25 +433,38 @@ export default function HomePage() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.05 }}
-                  whileHover={{ y: -4 }}
+                  transition={{ delay: i * 0.04 }}
+                  whileHover={{ y: -6 }}
                 >
                   <Link
                     href={tool.href}
-                    className="group block p-5 rounded-2xl border bg-card hover:shadow-lg transition-all duration-300"
+                    className="group block rounded-2xl border bg-card hover:shadow-xl transition-all duration-300 overflow-hidden"
                   >
-                    <div
-                      className="w-12 h-12 rounded-xl flex items-center justify-center mb-3"
-                      style={{ backgroundColor: tool.bg }}
-                    >
-                      <Icon className="w-6 h-6" style={{ color: tool.color }} />
+                    {/* Image */}
+                    <div className="relative h-36 overflow-hidden">
+                      <Image
+                        src={tool.img}
+                        alt={tool.label}
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                        className="object-cover group-hover:scale-110 transition-transform duration-500"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                      <div className="absolute bottom-3 left-3">
+                        <div className="w-9 h-9 rounded-xl bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md">
+                          <Icon className="w-4.5 h-4.5 text-[#1a1a1a]" />
+                        </div>
+                      </div>
                     </div>
-                    <h3 className="font-bold text-sm group-hover:text-black transition-colors">
-                      {tool.label}
-                    </h3>
-                    <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                      {tool.desc}
-                    </p>
+                    {/* Text */}
+                    <div className="p-4">
+                      <h3 className="font-bold text-sm group-hover:text-black transition-colors">
+                        {tool.label}
+                      </h3>
+                      <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+                        {tool.desc}
+                      </p>
+                    </div>
                   </Link>
                 </motion.div>
               );
