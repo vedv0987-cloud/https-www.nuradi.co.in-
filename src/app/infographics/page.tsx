@@ -24,7 +24,6 @@ const CATEGORIES = [
   { key: "Autoimmune", label: "Autoimmune", color: "#DD6B20" },
   { key: "Musculoskeletal", label: "Bones", color: "#718096" },
   { key: "Gastrointestinal", label: "Digestive", color: "#38A169" },
-  { key: "Genetic", label: "Genetic", color: "#9B2C2C" },
   { key: "Skin", label: "Skin", color: "#D53F8C" },
   { key: "Eye", label: "Eye", color: "#2C5282" },
   { key: "Dental", label: "Dental", color: "#4A5568" },
