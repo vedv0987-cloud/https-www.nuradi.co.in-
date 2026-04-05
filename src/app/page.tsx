@@ -610,7 +610,7 @@ export default function HomePage() {
               { href: "/symptom-checker", icon: Stethoscope, title: "Symptom Checker", desc: "Find the right doctor for your symptoms" },
               { href: "/exercises", icon: HeartPulse, title: "Exercise Library", desc: "40 workouts: strength, cardio, yoga & more" },
               { href: "/blog", icon: BookOpen, title: "Health Blog", desc: "20+ articles on wellness, nutrition, fitness" },
-              { href: "/hospitals", icon: Shield, title: "Hospital Finder", desc: "30+ top Indian hospitals with contact info" },
+              { href: "/journal", icon: Heart, title: "Symptom Diary", desc: "Track symptoms, mood, and daily health" },
             ].map((item, i) => {
               const Icon = item.icon;
               return (
