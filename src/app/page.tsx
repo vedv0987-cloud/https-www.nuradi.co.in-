@@ -10,18 +10,28 @@ import {
   Brain,
   Stethoscope,
   Activity,
-  Calculator,
   Droplets,
   Moon,
   Pill,
-  Apple,
-  QrCode,
-  Smile,
-  TrendingUp,
   Shield,
   Sparkles,
   BookOpen,
   Play,
+  Scale,
+  Hourglass,
+  Salad,
+  GlassWater,
+  HeartPulse,
+  ShieldAlert,
+  Utensils,
+  Bone,
+  Wind,
+  Flame,
+  Microscope,
+  Baby,
+  Eye,
+  Smile as SmileIcon,
+  Zap,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -158,17 +168,35 @@ function FloatingParticles() {
 }
 
 const HEALTH_TOOLS = [
-  { href: "/tools/bmi", label: "BMI & Body Metrics", desc: "Calculate BMI, ideal weight & daily calories", icon: Calculator, img: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop" },
-  { href: "/tools/biological-age", label: "Biological Age", desc: "How old is your body really?", icon: Activity, img: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop" },
-  { href: "/tools/sleep-score", label: "Sleep Score", desc: "Rate your sleep quality out of 100", icon: Moon, img: "https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?w=400&h=300&fit=crop" },
-  { href: "/tools/gut-health", label: "Gut Health Score", desc: "Assess your digestive health", icon: Apple, img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop" },
-  { href: "/tools/water-tracker", label: "Water Tracker", desc: "Track daily water intake", icon: Droplets, img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&h=300&fit=crop" },
-  { href: "/tools/mood-tracker", label: "Mood Tracker", desc: "Track stress, mood & energy daily", icon: Smile, img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=300&fit=crop" },
-  { href: "/tools/emergency-qr", label: "Emergency QR Card", desc: "Generate a health emergency QR card", icon: QrCode, img: "https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=400&h=300&fit=crop" },
+  { href: "/tools/bmi", label: "BMI & Body Metrics", desc: "Calculate BMI, ideal weight & daily calories", icon: Scale, img: "https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop" },
+  { href: "/tools/biological-age", label: "Biological Age", desc: "How old is your body really?", icon: Hourglass, img: "https://images.unsplash.com/photo-1501139083538-0139583c060f?w=400&h=300&fit=crop" },
+  { href: "/tools/sleep-score", label: "Sleep Score", desc: "Rate your sleep quality out of 100", icon: Moon, img: "https://images.unsplash.com/photo-1520206183501-b80df61043c2?w=400&h=300&fit=crop" },
+  { href: "/tools/gut-health", label: "Gut Health Score", desc: "Assess your digestive health", icon: Salad, img: "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=400&h=300&fit=crop" },
+  { href: "/tools/water-tracker", label: "Water Tracker", desc: "Track daily water intake", icon: GlassWater, img: "https://images.unsplash.com/photo-1548839140-29a749e1cf4d?w=400&h=300&fit=crop" },
+  { href: "/tools/mood-tracker", label: "Mood Tracker", desc: "Track stress, mood & energy daily", icon: HeartPulse, img: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=400&h=300&fit=crop" },
+  { href: "/tools/emergency-qr", label: "Emergency QR Card", desc: "Generate a health emergency QR card", icon: ShieldAlert, img: "https://images.unsplash.com/photo-1505751172876-fa1923c5c528?w=400&h=300&fit=crop" },
   { href: "/tools/generic-medicine", label: "Generic Medicine", desc: "Find cheaper generic alternatives", icon: Pill, img: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=300&fit=crop" },
-  { href: "/tools/food-nutrition", label: "Food Nutrition", desc: "Indian food nutrition database", icon: Apple, img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop" },
-  { href: "/symptom-checker", label: "Symptom Checker", desc: "Find the right doctor for your symptoms", icon: Stethoscope, img: "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=400&h=300&fit=crop" },
+  { href: "/tools/food-nutrition", label: "Food Nutrition", desc: "Indian food nutrition database", icon: Utensils, img: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=400&h=300&fit=crop" },
+  { href: "/symptom-checker", label: "Symptom Checker", desc: "Find the right doctor for your symptoms", icon: Stethoscope, img: "https://images.unsplash.com/photo-1584982751601-97dcc096659c?w=400&h=300&fit=crop" },
 ];
+
+const CATEGORY_ICON_MAP: Record<string, { icon: React.ElementType; count: number }> = {
+  cardiovascular: { icon: Heart, count: 8 },
+  endocrine: { icon: Flame, count: 10 },
+  respiratory: { icon: Wind, count: 8 },
+  digestive: { icon: Utensils, count: 8 },
+  neurological: { icon: Brain, count: 7 },
+  "mental-health": { icon: Sparkles, count: 8 },
+  musculoskeletal: { icon: Bone, count: 6 },
+  skin: { icon: Zap, count: 4 },
+  renal: { icon: Droplets, count: 5 },
+  reproductive: { icon: Baby, count: 4 },
+  immune: { icon: Shield, count: 3 },
+  eye: { icon: Eye, count: 4 },
+  ear: { icon: Activity, count: 2 },
+  dental: { icon: SmileIcon, count: 2 },
+  nutritional: { icon: Salad, count: 8 },
+};
 
 const CATEGORIES = Object.values(DISEASE_CATEGORIES).slice(0, 8);
 
@@ -473,52 +501,86 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ═══════ HEALTH CONDITIONS ═══════ */}
+      {/* ═══════ HEALTH CONDITIONS — PREMIUM ═══════ */}
       <section className="max-w-[1600px] mx-auto px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <div className="flex items-center justify-between mb-8">
+          <div className="flex items-center justify-between mb-10">
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold">Health Conditions</h2>
-              <p className="text-muted-foreground text-sm mt-1">120+ conditions explained with expert videos</p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-semibold mb-3">
+                <Stethoscope className="w-3 h-3" />
+                Browse by System
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight">Health Conditions</h2>
+              <p className="text-muted-foreground text-sm mt-2">120+ conditions across 15 body systems, explained by verified experts</p>
             </div>
             <Link
               href="/health-az"
-              className={cn(buttonVariants({ variant: "outline", size: "sm" }), "rounded-full")}
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#1a1a1a] text-white text-sm font-semibold hover:bg-black transition-all hover:gap-3"
             >
-              View All <ArrowRight className="w-3.5 h-3.5 ml-1" />
+              View All 120+
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {CATEGORIES.map((cat, i) => (
-              <motion.div
-                key={cat.id}
-                initial={{ opacity: 0, y: 15 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
-              >
-                <Link
-                  href={`/health-az/category/${cat.id}`}
-                  className="group block p-4 rounded-2xl transition-all duration-300 hover:shadow-md"
-                  style={{ backgroundColor: cat.bg }}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
+            {CATEGORIES.map((cat, i) => {
+              const meta = CATEGORY_ICON_MAP[cat.id] || { icon: Heart, count: 5 };
+              const Icon = meta.icon;
+              return (
+                <motion.div
+                  key={cat.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06, duration: 0.5 }}
+                  whileHover={{ y: -6 }}
                 >
-                  <h3
-                    className="font-bold text-sm"
-                    style={{ color: cat.color }}
+                  <Link
+                    href={`/health-az/category/${cat.id}`}
+                    className="group relative block h-full p-6 rounded-3xl bg-white border-2 border-gray-100 hover:border-[#1a1a1a] transition-all duration-300 overflow-hidden"
                   >
-                    {cat.label}
-                  </h3>
-                  <p className="text-[11px] text-gray-600 dark:text-gray-400 mt-1">
-                    Browse conditions &rarr;
-                  </p>
-                </Link>
-              </motion.div>
-            ))}
+                    {/* Colored accent blob */}
+                    <div
+                      className="absolute -top-12 -right-12 w-32 h-32 rounded-full opacity-20 group-hover:opacity-40 group-hover:scale-125 transition-all duration-500 blur-2xl"
+                      style={{ backgroundColor: cat.color }}
+                    />
+
+                    {/* Icon */}
+                    <div
+                      className="relative w-12 h-12 rounded-2xl flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
+                      style={{ backgroundColor: cat.bg }}
+                    >
+                      <Icon className="w-6 h-6" style={{ color: cat.color }} strokeWidth={2.5} />
+                    </div>
+
+                    {/* Content */}
+                    <div className="relative">
+                      <h3 className="font-bold text-base text-[#1a1a1a] leading-tight group-hover:translate-x-0.5 transition-transform duration-300">
+                        {cat.label}
+                      </h3>
+                      <div className="flex items-center justify-between mt-3">
+                        <span className="text-xs font-semibold text-gray-500">
+                          {meta.count} conditions
+                        </span>
+                        <ArrowRight
+                          className="w-4 h-4 text-gray-400 group-hover:text-[#1a1a1a] group-hover:translate-x-1 transition-all duration-300"
+                        />
+                      </div>
+                    </div>
+
+                    {/* Bottom accent line */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-1 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"
+                      style={{ backgroundColor: cat.color }}
+                    />
+                  </Link>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
       </section>
