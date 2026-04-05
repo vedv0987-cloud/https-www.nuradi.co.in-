@@ -320,7 +320,7 @@ export const TOOLS: Tool[] = [
     icon: "📉",
     estimatedTime: "1 min",
     usageCount: "new",
-    status: "coming-soon",
+    status: "live",
     isNew: true,
   },
   {
