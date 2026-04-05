@@ -59,7 +59,6 @@ const FEATURES_LINKS = [
   { href: "/exercises", label: "Exercise & Yoga Library" },
   { href: "/blog", label: "Health Blog" },
   { href: "/journal", label: "Symptom Diary" },
-  { href: "/deals", label: "Deals & Recommendations" },
   { href: "/chat", label: "HealthBot AI" },
 ];
 
