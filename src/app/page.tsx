@@ -38,6 +38,7 @@ import { buttonVariants } from "@/components/ui/button";
 import { WhyTrustUs } from "@/components/why-trust-us";
 import { NewsletterSignup } from "@/components/newsletter-signup";
 import { RecommendedReads } from "@/components/recommended-reads";
+import { HomepageNewsSection } from "@/components/homepage/HomepageNewsSection";
 import { DISEASE_CATEGORIES } from "@/data/disease-categories";
 
 // Rotating hero text with smooth word cycling
@@ -431,6 +432,9 @@ export default function HomePage() {
           </motion.div>
         </div>
       </section>
+
+      {/* ═══════ LIVE HEALTH NEWS + WIDGETS ═══════ */}
+      <HomepageNewsSection />
 
       {/* ═══════ HEALTH TOOLS GRID ═══════ */}
       <section className="max-w-[1600px] mx-auto px-4 sm:px-6">

@@ -191,3 +191,12 @@ export function getRandomFacts(count: number, category?: string): HealthFact[] {
 export function getRandomFact(category?: string): HealthFact {
   return getRandomFacts(1, category)[0];
 }
+
+// Date-keyed so the homepage shows the same fact all day, rotates daily
+export function getTodaysFact(): HealthFact {
+  const dayOfYear = Math.floor(
+    (Date.now() - new Date(new Date().getFullYear(), 0, 0).getTime()) /
+      (1000 * 60 * 60 * 24)
+  );
+  return HEALTH_FACTS[dayOfYear % HEALTH_FACTS.length];
+}
