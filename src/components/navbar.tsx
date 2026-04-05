@@ -24,6 +24,7 @@ const WELLNESS_LINKS = [
 ];
 
 const TOOL_LINKS = [
+  { href: "/tools", label: "🧰 All 34 Tools" },
   { href: "/tools/bmi", label: "BMI & Body Metrics" },
   { href: "/tools/biological-age", label: "Biological Age Calculator" },
   { href: "/tools/sleep-score", label: "Sleep Score" },

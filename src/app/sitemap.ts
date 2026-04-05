@@ -8,6 +8,7 @@ import { DISEASE_CATEGORIES } from "@/data/disease-categories";
 import diseasesData from "@/data/diseases.json";
 import { ARTICLES } from "@/data/articles";
 import { INFOGRAPHICS } from "@/data/infographics-data";
+import { TOOLS } from "@/lib/tools-registry";
 
 const BASE_URL = "https://www.nuradi.co.in";
 const diseases = diseasesData as { slug: string }[];
@@ -34,7 +35,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/affiliate-disclosure`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE_URL}/terms`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/tools`, changeFrequency: "weekly", priority: 0.9 },
   ];
+
+  const toolPages: MetadataRoute.Sitemap = TOOLS.map((t) => ({
+    url: `${BASE_URL}/tools/${t.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: t.status === "live" ? 0.7 : 0.4,
+  }));
 
   const blogPages: MetadataRoute.Sitemap = ARTICLES.map((a) => ({
     url: `${BASE_URL}/blog/${a.slug}`,
@@ -99,6 +107,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...staticPages,
     ...blogPages,
     ...infographicPages,
+    ...toolPages,
     ...categoryPages,
     ...channelPages,
     ...diseasePages,
