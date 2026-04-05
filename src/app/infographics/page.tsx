@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { InfographicCard } from "@/components/infographic-card";
+import Link from "next/link";
 import { INFOGRAPHICS } from "@/data/infographics-data";
 import { PremiumGate } from "@/components/premium-gate";
 
@@ -133,7 +134,9 @@ export default function InfographicsPage() {
         {filtered.length > 0 ? (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
             {filtered.map((data, i) => (
-              <InfographicCard key={data.id} data={data} index={i} />
+              <Link key={data.id} href={`/infographics/${data.id}`} className="block hover:scale-[1.02] transition-transform">
+                <InfographicCard data={data} index={i} />
+              </Link>
             ))}
           </div>
         ) : (

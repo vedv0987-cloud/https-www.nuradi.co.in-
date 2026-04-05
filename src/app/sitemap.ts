@@ -7,6 +7,7 @@ import { CATEGORY_META, Category } from "@/types";
 import { DISEASE_CATEGORIES } from "@/data/disease-categories";
 import diseasesData from "@/data/diseases.json";
 import { ARTICLES } from "@/data/articles";
+import { INFOGRAPHICS } from "@/data/infographics-data";
 
 const BASE_URL = "https://www.nuradi.co.in";
 const diseases = diseasesData as { slug: string }[];
@@ -40,6 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${BASE_URL}/blog/${a.slug}`,
     changeFrequency: "monthly" as const,
     priority: 0.7,
+  }));
+
+  const infographicPages: MetadataRoute.Sitemap = INFOGRAPHICS.map((i) => ({
+    url: `${BASE_URL}/infographics/${i.id}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
   }));
 
 
@@ -92,6 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPages,
     ...blogPages,
+    ...infographicPages,
     ...categoryPages,
     ...channelPages,
     ...diseasePages,
