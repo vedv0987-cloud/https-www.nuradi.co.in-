@@ -6,6 +6,7 @@ import { LEARNING_PATHS } from "@/data/learning-paths";
 import { CATEGORY_META, Category } from "@/types";
 import { DISEASE_CATEGORIES } from "@/data/disease-categories";
 import diseasesData from "@/data/diseases.json";
+import { ARTICLES } from "@/data/articles";
 
 const BASE_URL = "https://www.nuradi.co.in";
 const diseases = diseasesData as { slug: string }[];
@@ -25,7 +26,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/daily-dose`, changeFrequency: "daily", priority: 0.6 },
     { url: `${BASE_URL}/ai-insights`, changeFrequency: "weekly", priority: 0.6 },
     { url: `${BASE_URL}/news`, changeFrequency: "daily", priority: 0.6 },
+    { url: `${BASE_URL}/blog`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${BASE_URL}/infographics`, changeFrequency: "weekly", priority: 0.8 },
+    { url: `${BASE_URL}/pricing`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${BASE_URL}/deals`, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${BASE_URL}/contact`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/affiliate-disclosure`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/terms`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${BASE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
   ];
+
+  const blogPages: MetadataRoute.Sitemap = ARTICLES.map((a) => ({
+    url: `${BASE_URL}/blog/${a.slug}`,
+    changeFrequency: "monthly" as const,
+    priority: 0.7,
+  }));
+
 
   const videoPages: MetadataRoute.Sitemap = videos.map((v) => ({
     url: `${BASE_URL}/video/${v.id}`,
@@ -75,6 +91,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...blogPages,
     ...categoryPages,
     ...channelPages,
     ...diseasePages,
