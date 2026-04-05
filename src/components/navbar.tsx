@@ -61,6 +61,7 @@ const FEATURES_LINKS = [
   { href: "/journal", label: "Symptom Diary" },
   { href: "/deals", label: "Deals & Recommendations" },
   { href: "/pricing", label: "Pricing" },
+  { href: "/chat", label: "HealthBot AI" },
 ];
 
 const NAV_ITEMS = [
@@ -182,7 +183,7 @@ export function Navbar() {
           <div className="max-w-[1400px] mx-auto px-6 py-8">
             <div className="flex items-center justify-between mb-6 border-b pb-4">
               <h3 className="text-lg font-bold text-[#1a1a1a]">Features</h3>
-              <span className="text-xs font-semibold text-gray-500">13 tools & guides</span>
+              <span className="text-xs font-semibold text-gray-500">14 tools & guides</span>
             </div>
             <div className="grid grid-cols-4 gap-x-10 gap-y-3">
               {FEATURES_LINKS.map((item) => (
