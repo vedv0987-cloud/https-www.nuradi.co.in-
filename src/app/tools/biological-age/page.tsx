@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo, useCallback } from "react";
+import { PremiumGate } from "@/components/premium-gate";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -1014,6 +1015,7 @@ export default function BiologicalAgePage() {
   /* ---------- Main render ---------- */
 
   return (
+    <PremiumGate feature="Biological Age Calculator" description="Discover your true biological age based on 25+ lifestyle, diet, sleep, and health factors. Get personalized tips to slow down aging.">
     <div className="min-h-screen bg-gray-950 text-white">
       {/* Header */}
       <div className="bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 px-4 pb-16 pt-12 text-center">
@@ -1144,5 +1146,6 @@ export default function BiologicalAgePage() {
         </p>
       </div>
     </div>
+    </PremiumGate>
   );
 }

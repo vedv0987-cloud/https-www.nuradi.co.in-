@@ -40,10 +40,15 @@ export function HealthChat({ isWidget = false }: { isWidget?: boolean }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [copiedId, setCopiedId] = useState<string | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const messagesContainerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    // Scroll only the messages container — not the whole page
+    const container = messagesContainerRef.current;
+    if (container) {
+      container.scrollTop = container.scrollHeight;
+    }
   }, [messages, isSearching]);
 
   const sendMessage = async (text?: string) => {
@@ -176,7 +181,7 @@ export function HealthChat({ isWidget = false }: { isWidget?: boolean }) {
   return (
     <div className={cn("flex flex-col bg-white", isWidget ? "h-full" : "h-[calc(100vh-120px)]")}>
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto p-4 space-y-4">
+      <div ref={messagesContainerRef} className="flex-1 overflow-y-auto p-4 space-y-4 overscroll-contain">
         {messages.length === 0 && (
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center py-8">
             <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-[#1a1a1a] flex items-center justify-center">

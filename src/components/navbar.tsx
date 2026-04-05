@@ -60,7 +60,6 @@ const FEATURES_LINKS = [
   { href: "/blog", label: "Health Blog" },
   { href: "/journal", label: "Symptom Diary" },
   { href: "/deals", label: "Deals & Recommendations" },
-  { href: "/pricing", label: "Pricing" },
   { href: "/chat", label: "HealthBot AI" },
 ];
 
@@ -183,7 +182,7 @@ export function Navbar() {
           <div className="max-w-[1400px] mx-auto px-6 py-8">
             <div className="flex items-center justify-between mb-6 border-b pb-4">
               <h3 className="text-lg font-bold text-[#1a1a1a]">Features</h3>
-              <span className="text-xs font-semibold text-gray-500">14 tools & guides</span>
+              <span className="text-xs font-semibold text-gray-500">13 tools & guides</span>
             </div>
             <div className="grid grid-cols-4 gap-x-10 gap-y-3">
               {FEATURES_LINKS.map((item) => (
@@ -256,6 +255,13 @@ export function Navbar() {
               </button>
             ))}
 
+            <Link
+              href="/pricing"
+              className="px-5 py-2 text-[16px] font-bold tracking-[-0.01em] text-amber-300 hover:text-amber-200 transition-colors flex items-center gap-1.5"
+            >
+              Pricing
+              <span className="text-[9px] font-black uppercase tracking-wider bg-amber-400 text-[#1a1a1a] px-1.5 py-0.5 rounded">Pro</span>
+            </Link>
             <Link
               href="/about"
               className="px-5 py-2 text-[16px] font-bold tracking-[-0.01em] text-white/90 hover:text-white transition-colors"

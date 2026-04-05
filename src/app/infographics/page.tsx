@@ -9,6 +9,7 @@ import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 import { InfographicCard } from "@/components/infographic-card";
 import { INFOGRAPHICS } from "@/data/infographics-data";
+import { PremiumGate } from "@/components/premium-gate";
 
 const CATEGORIES = [
   { key: "all", label: "All", color: "#1a1a1a" },
@@ -55,6 +56,11 @@ export default function InfographicsPage() {
   }, [activeCategory, query]);
 
   return (
+    <PremiumGate
+      feature="120 Disease Infographics"
+      description="Access all 120 beautifully designed disease tip cards covering every major condition. Save them, share them, learn from them."
+      showPreview={true}
+    >
     <div className="min-h-screen bg-gradient-to-b from-purple-50/30 to-background dark:from-purple-950/10">
       {/* Header */}
       <div className="max-w-[1600px] mx-auto px-4 sm:px-6 pt-8 pb-4">
@@ -149,5 +155,6 @@ export default function InfographicsPage() {
         )}
       </div>
     </div>
+    </PremiumGate>
   );
 }

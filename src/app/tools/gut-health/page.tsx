@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
+import { PremiumGate } from "@/components/premium-gate";
 import {
   Apple,
   ArrowRight,
@@ -416,6 +417,7 @@ export default function GutHealthPage() {
   };
 
   return (
+    <PremiumGate feature="Gut Health Score" description="Get a comprehensive assessment of your digestive health with personalized Indian food recommendations and tips.">
     <div className="min-h-screen bg-gradient-to-b from-emerald-950/10 to-background">
       {/* Header */}
       <div className="max-w-[1000px] mx-auto px-4 sm:px-6 pt-8 pb-4">
@@ -1067,5 +1069,6 @@ export default function GutHealthPage() {
         )}
       </div>
     </div>
+    </PremiumGate>
   );
 }
