@@ -56,6 +56,10 @@ const FEATURES_LINKS = [
   { href: "/pregnancy", label: "Pregnancy Tracker" },
   { href: "/vaccination", label: "Vaccination Schedule" },
   { href: "/infographics", label: "Disease Infographics" },
+  { href: "/exercises", label: "Exercise & Yoga Library" },
+  { href: "/blog", label: "Health Blog" },
+  { href: "/journal", label: "Symptom Diary" },
+  { href: "/hospitals", label: "Hospital Finder" },
 ];
 
 const NAV_ITEMS = [
@@ -81,6 +85,10 @@ const MOBILE_ALL = [
   { href: "/pregnancy", label: "Pregnancy Tracker" },
   { href: "/vaccination", label: "Vaccination Schedule" },
   { href: "/infographics", label: "Infographics" },
+  { href: "/exercises", label: "Exercises" },
+  { href: "/blog", label: "Blog" },
+  { href: "/journal", label: "Symptom Diary" },
+  { href: "/hospitals", label: "Hospitals" },
   { href: "/about", label: "About" },
 ];
 
@@ -171,11 +179,12 @@ export function Navbar() {
         );
       case "features":
         return (
-          <div className="max-w-[1200px] mx-auto px-6 py-8">
+          <div className="max-w-[1400px] mx-auto px-6 py-8">
             <div className="flex items-center justify-between mb-6 border-b pb-4">
               <h3 className="text-lg font-bold text-[#1a1a1a]">Features</h3>
+              <span className="text-xs font-semibold text-gray-500">12 tools & guides</span>
             </div>
-            <div className="grid grid-cols-3 gap-x-12 gap-y-3">
+            <div className="grid grid-cols-4 gap-x-10 gap-y-3">
               {FEATURES_LINKS.map((item) => (
                 <Link key={item.href} href={item.href} onClick={() => setOpenDropdown(null)} className="text-sm text-[#333] hover:text-teal-700 transition-colors py-1">
                   {item.label}

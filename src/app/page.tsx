@@ -585,46 +585,61 @@ export default function HomePage() {
         </motion.div>
       </section>
 
-      {/* ═══════ QUICK LINKS ═══════ */}
+      {/* ═══════ EXPLORE MORE — QUICK LINKS ═══════ */}
       <section className="max-w-[1600px] mx-auto px-4 sm:px-6">
-        <div className="grid sm:grid-cols-3 gap-4">
-          <Link
-            href="/explore"
-            className="group flex items-center gap-4 p-6 rounded-2xl bg-[#f5f5f5] hover:shadow-lg transition-shadow border"
-          >
-            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center flex-shrink-0">
-              <Play className="w-6 h-6 text-white" />
-            </div>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex items-center justify-between mb-10">
             <div>
-              <h3 className="font-bold">Health Videos</h3>
-              <p className="text-xs text-muted-foreground mt-0.5">1,000+ expert videos from verified creators</p>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-xs font-semibold mb-3">
+                <Sparkles className="w-3 h-3" />
+                Explore More
+              </div>
+              <h2 className="text-3xl sm:text-4xl font-black tracking-tight">Everything You Need</h2>
+              <p className="text-muted-foreground text-sm mt-2">Videos, guides, exercises, and tools — all in one place</p>
             </div>
-          </Link>
-          <Link
-            href="/infographics"
-            className="group flex items-center gap-4 p-6 rounded-2xl bg-[#f5f5f5] hover:shadow-lg transition-shadow border"
-          >
-            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center flex-shrink-0">
-              <BookOpen className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h3 className="font-bold">Health Infographics</h3>
-              <p className="text-xs text-muted-foreground mt-0.5">120 disease tip cards with actionable advice</p>
-            </div>
-          </Link>
-          <Link
-            href="/symptom-checker"
-            className="group flex items-center gap-4 p-6 rounded-2xl bg-[#f5f5f5] hover:shadow-lg transition-shadow border"
-          >
-            <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center flex-shrink-0">
-              <Stethoscope className="w-6 h-6 text-white" />
-            </div>
-            <div>
-              <h3 className="font-bold">Symptom Checker</h3>
-              <p className="text-xs text-muted-foreground mt-0.5">Find the right doctor for your symptoms</p>
-            </div>
-          </Link>
-        </div>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { href: "/explore", icon: Play, title: "Health Videos", desc: "1,000+ expert videos from verified creators" },
+              { href: "/infographics", icon: BookOpen, title: "Health Infographics", desc: "120 disease tip cards with actionable advice" },
+              { href: "/symptom-checker", icon: Stethoscope, title: "Symptom Checker", desc: "Find the right doctor for your symptoms" },
+              { href: "/exercises", icon: HeartPulse, title: "Exercise Library", desc: "40 workouts: strength, cardio, yoga & more" },
+              { href: "/blog", icon: BookOpen, title: "Health Blog", desc: "20+ articles on wellness, nutrition, fitness" },
+              { href: "/hospitals", icon: Shield, title: "Hospital Finder", desc: "30+ top Indian hospitals with contact info" },
+            ].map((item, i) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.href}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.05 }}
+                  whileHover={{ y: -4 }}
+                >
+                  <Link
+                    href={item.href}
+                    className="group flex items-center gap-4 p-6 rounded-2xl bg-white border-2 border-gray-100 hover:border-[#1a1a1a] transition-all duration-300"
+                  >
+                    <div className="w-14 h-14 rounded-xl bg-[#1a1a1a] flex items-center justify-center flex-shrink-0 group-hover:rotate-6 transition-transform">
+                      <Icon className="w-6 h-6 text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <h3 className="font-bold text-[#1a1a1a] group-hover:translate-x-0.5 transition-transform">{item.title}</h3>
+                      <p className="text-xs text-muted-foreground mt-0.5 line-clamp-1">{item.desc}</p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-gray-300 group-hover:text-[#1a1a1a] group-hover:translate-x-1 transition-all flex-shrink-0" />
+                  </Link>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
       </section>
 
       {/* ═══════ RECOMMENDED READS ═══════ */}
