@@ -37,6 +37,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/privacy`, changeFrequency: "yearly", priority: 0.3 },
     { url: `${BASE_URL}/tools`, changeFrequency: "weekly", priority: 0.9 },
     { url: `${BASE_URL}/health-news`, changeFrequency: "hourly", priority: 0.8 },
+    { url: `${BASE_URL}/onboarding`, changeFrequency: "yearly", priority: 0.5 },
+    { url: `${BASE_URL}/dashboard`, changeFrequency: "monthly", priority: 0.5 },
   ];
 
   const toolPages: MetadataRoute.Sitemap = TOOLS.map((t) => ({
