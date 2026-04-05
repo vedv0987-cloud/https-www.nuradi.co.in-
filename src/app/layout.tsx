@@ -9,6 +9,7 @@ import { ChatWidget } from "@/components/chat-widget";
 import AdSenseScript from "@/components/ads/AdSenseScript";
 import { Analytics } from "@vercel/analytics/next";
 import { organizationSchema } from "@/lib/schema";
+import { PwaInstall } from "@/components/pwa-install";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -76,6 +77,7 @@ export default function RootLayout({
           <Footer />
           <ChatWidget />
         </ThemeProvider>
+        <PwaInstall />
         <Analytics />
       </body>
     </html>
