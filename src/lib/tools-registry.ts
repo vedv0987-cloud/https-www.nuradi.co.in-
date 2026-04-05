@@ -413,6 +413,17 @@ export const TOOLS: Tool[] = [
     status: "live",
     isNew: true,
   },
+  {
+    slug: "prescription-decoder",
+    name: "Prescription Decoder",
+    description: "Decode 100+ medical abbreviations (OD, BD, PC, SOS, etc.)",
+    category: "disease-risk",
+    icon: "📝",
+    estimatedTime: "20 sec",
+    usageCount: "new",
+    status: "live",
+    isNew: true,
+  },
 ];
 
 export function getToolBySlug(slug: string): Tool | undefined {
