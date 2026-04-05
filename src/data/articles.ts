@@ -272,7 +272,7 @@ export const ARTICLES: Article[] = [
       "**Weight gain targets.** Normal BMI: 11–16 kg total. Underweight: 13–18 kg. Overweight: 7–11 kg. Gaining too little or too much both carry risks for baby. Track monthly, not daily.",
     ],
     category: "Nutrition", readTime: "8 min read", date: "February 14, 2026", author: "Dr. Kavita Desai",
-    img: "https://images.unsplash.com/photo-1519566657253-67ceabd4b5c0?w=1200&q=80",
+    img: "https://images.unsplash.com/photo-1584515933487-779824d29309?w=1200&q=80",
   },
   {
     id: 16, slug: "read-food-labels-india",
