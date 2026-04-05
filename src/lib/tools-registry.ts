@@ -399,7 +399,7 @@ export const TOOLS: Tool[] = [
     icon: "💧",
     estimatedTime: "5 sec",
     usageCount: "new",
-    status: "coming-soon",
+    status: "live",
     isNew: true,
   },
   {
