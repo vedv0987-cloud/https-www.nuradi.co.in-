@@ -1,21 +1,27 @@
-// Cashfree Payment Gateway integration for NuradiHealth Pro
+// Cashfree Payment Gateway integration for NuradiHealth
 // Docs: https://www.cashfree.com/docs/api-reference/payments/latest/orders
 //
-// Setup (user must do):
+// Setup:
 // 1. Sign up at https://merchant.cashfree.com
-// 2. Get App ID + Secret Key (test or prod)
+// 2. Get App ID + Secret Key
 // 3. Add to .env.local:
 //    CASHFREE_APP_ID=<app_id>
 //    CASHFREE_SECRET_KEY=<secret_key>
 //    CASHFREE_ENV=TEST (or PROD)
 
+export type Tier = "free" | "pro" | "premium";
+
 export interface SubscriptionPlan {
   id: string;
+  tier: Tier;
   name: string;
-  price: number;            // in paisa (₹1499 = 149900)
+  price: number;                  // in paisa (₹1 = 100 paisa)
   displayPrice: string;
+  originalPrice?: number;          // crossed-out MRP
+  originalDisplayPrice?: string;
+  discountBadge?: string;          // e.g. "49% OFF"
   period: "monthly" | "yearly";
-  durationDays: number;     // subscription length
+  durationDays: number;
   features: string[];
   popular?: boolean;
   savings?: string;
@@ -24,24 +30,26 @@ export interface SubscriptionPlan {
 export const PLANS: SubscriptionPlan[] = [
   {
     id: "free",
+    tier: "free",
     name: "Free",
     price: 0,
     displayPrice: "₹0",
     period: "monthly",
     durationDays: 0,
     features: [
-      "Browse all 1,000+ videos",
-      "Basic health tools (BMI, Breathing)",
+      "Browse 1,000+ videos",
+      "Basic tools (BMI, Breathing)",
+      "HealthBot AI (10 messages/day)",
       "Browse categories & channels",
       "Weekly newsletter",
-      "Limited HealthBot AI (10/day)",
     ],
   },
   {
     id: "pro_monthly",
+    tier: "pro",
     name: "Pro Monthly",
-    price: 149900,            // ₹1,499
-    displayPrice: "₹1,499",
+    price: 99900,                   // ₹999
+    displayPrice: "₹999",
     period: "monthly",
     durationDays: 30,
     popular: true,
@@ -52,7 +60,8 @@ export const PLANS: SubscriptionPlan[] = [
       "Progress tracking & streaks",
       "Completion certificates",
       "Ad-free experience",
-      "Advanced health tools",
+      "All advanced tools (Biological Age, Gut Health, Sleep Score)",
+      "Mood & Stress Tracker",
       "Daily Dose (personalized)",
       "Bookmark & notes on videos",
       "Priority email support",
@@ -60,25 +69,70 @@ export const PLANS: SubscriptionPlan[] = [
   },
   {
     id: "pro_yearly",
+    tier: "pro",
     name: "Pro Annual",
-    price: 1499900,           // ₹14,999
-    displayPrice: "₹14,999",
+    price: 999900,                  // ₹9,999
+    displayPrice: "₹9,999",
+    originalPrice: 1960000,         // ₹19,600
+    originalDisplayPrice: "₹19,600",
+    discountBadge: "49% OFF",
     period: "yearly",
     durationDays: 365,
-    savings: "Save ₹2,989/year",
+    savings: "Save ₹9,601",
     features: [
       "Everything in Pro Monthly",
-      "16% cheaper than monthly",
+      "Best value — save ₹9,601",
       "Priority access to new features",
       "Exclusive health reports",
-      "1-on-1 consultation credits (2/year)",
-      "Annual health review",
+      "Annual health review (basic)",
+    ],
+  },
+  {
+    id: "premium_monthly",
+    tier: "premium",
+    name: "Premium Monthly",
+    price: 299900,                  // ₹2,999
+    displayPrice: "₹2,999",
+    period: "monthly",
+    durationDays: 30,
+    features: [
+      "Everything in Pro",
+      "HealthBot AI priority queue (faster responses)",
+      "Disease Infographics full suite (downloadable HD PDFs)",
+      "VIP support (12-hour response SLA)",
+      "Early access to beta features",
+    ],
+  },
+  {
+    id: "premium_yearly",
+    tier: "premium",
+    name: "Premium Annual",
+    price: 2999900,                 // ₹29,999
+    displayPrice: "₹29,999",
+    originalPrice: 5899900,         // ₹58,999
+    originalDisplayPrice: "₹58,999",
+    discountBadge: "49% OFF",
+    period: "yearly",
+    durationDays: 365,
+    savings: "Save ₹29,000",
+    features: [
+      "Everything in Premium Monthly",
+      "4 one-on-one doctor consultations (per year)",
+      "Enhanced Annual Health Review (comprehensive)",
+      "Quarterly personal health reports",
+      "Best value — save ₹29,000",
     ],
   },
 ];
 
 export function getPlanById(id: string): SubscriptionPlan | undefined {
   return PLANS.find((p) => p.id === id);
+}
+
+/** Tier hierarchy check: returns true if userTier has access to requiredTier's features */
+export function tierMeetsRequirement(userTier: Tier, requiredTier: Tier): boolean {
+  const rank: Record<Tier, number> = { free: 0, pro: 1, premium: 2 };
+  return rank[userTier] >= rank[requiredTier];
 }
 
 // ------------ CLIENT-SIDE CHECKOUT FLOW ------------
@@ -88,6 +142,7 @@ interface CashfreeCheckoutOptions {
   userEmail: string;
   userName?: string;
   userPhone?: string;
+  couponCode?: string;
   onFailure: (error: Error) => void;
 }
 
@@ -116,21 +171,17 @@ function loadCashfreeSDK(): Promise<boolean> {
   });
 }
 
-/**
- * Start Cashfree checkout flow for a subscription plan.
- * Creates order server-side, then opens Cashfree Drop hosted checkout.
- */
 export async function startCashfreeCheckout({
   plan,
   userEmail,
   userName,
   userPhone,
+  couponCode,
   onFailure,
 }: CashfreeCheckoutOptions) {
-  if (plan.id === "free") return;
+  if (plan.tier === "free") return;
 
   try {
-    // Step 1: Create order on our server
     const res = await fetch("/api/cashfree/checkout", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -139,6 +190,7 @@ export async function startCashfreeCheckout({
         email: userEmail,
         name: userName,
         phone: userPhone,
+        couponCode,
       }),
     });
 
@@ -148,21 +200,18 @@ export async function startCashfreeCheckout({
       return;
     }
 
-    // Step 2: Persist email + orderId locally so success page can use them
     try {
       localStorage.setItem("nuradi_checkout_email", userEmail);
       localStorage.setItem("nuradi_checkout_order_id", data.orderId);
       localStorage.setItem("nuradi_checkout_plan", plan.id);
     } catch {}
 
-    // Step 3: Load Cashfree Drop SDK
     const loaded = await loadCashfreeSDK();
     if (!loaded || !window.Cashfree) {
       onFailure(new Error("Failed to load payment SDK"));
       return;
     }
 
-    // Step 4: Open Cashfree hosted checkout
     const mode = data.env === "PROD" ? "production" : "sandbox";
     const cashfree = window.Cashfree({ mode });
     const result = await cashfree.checkout({
@@ -173,7 +222,6 @@ export async function startCashfreeCheckout({
     if (result.error) {
       onFailure(new Error(result.error.message));
     }
-    // On success, Cashfree redirects to return_url automatically (_self)
   } catch (err) {
     onFailure(err instanceof Error ? err : new Error("Checkout failed"));
   }

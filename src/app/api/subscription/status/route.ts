@@ -11,7 +11,7 @@ export async function GET(req: NextRequest) {
   try {
     const { data, error } = await supabaseAdmin
       .from("subscriptions")
-      .select("plan_id, status, expires_at, activated_at")
+      .select("plan_id, tier, status, expires_at, activated_at")
       .eq("email", email)
       .eq("status", "active")
       .order("activated_at", { ascending: false })
@@ -38,9 +38,11 @@ export async function GET(req: NextRequest) {
       });
     }
 
-    const plan = data.plan_id === "pro_yearly" ? "yearly" : "monthly";
+    const plan = data.plan_id.endsWith("_yearly") ? "yearly" : "monthly";
+    const tier = data.tier || (data.plan_id.startsWith("premium_") ? "premium" : "pro");
     return NextResponse.json({
       isPro: true,
+      tier,
       plan,
       planId: data.plan_id,
       expiresAt: data.expires_at,

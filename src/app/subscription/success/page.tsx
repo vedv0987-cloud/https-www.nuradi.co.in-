@@ -33,8 +33,10 @@ function SuccessContent() {
       .then((r) => r.json())
       .then((data) => {
         if (data.success && data.plan) {
-          const planKey = data.plan === "pro_yearly" ? "yearly" : "monthly";
+          const planKey = (data.period === "yearly" || data.plan.endsWith("_yearly")) ? "yearly" : "monthly";
+          const tier = data.tier || (data.plan.startsWith("premium_") ? "premium" : "pro");
           activateProFromServer({
+            tier,
             plan: planKey,
             email: data.email,
             expiresAt: data.expiresAt,

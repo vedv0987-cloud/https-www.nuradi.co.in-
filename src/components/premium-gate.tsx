@@ -2,23 +2,26 @@
 
 import { ReactNode } from "react";
 import Link from "next/link";
-import { Lock, Sparkles, Check } from "lucide-react";
+import { Lock, Sparkles, Check, Crown } from "lucide-react";
 import { useSubscription } from "@/lib/subscription";
+import type { Tier } from "@/lib/cashfree";
 
 interface PremiumGateProps {
   children: ReactNode;
-  feature: string;                  // Name of the feature being gated
-  description?: string;              // Optional short description
-  showPreview?: boolean;             // Show blurred content behind overlay
+  feature: string;
+  description?: string;
+  showPreview?: boolean;
+  requiredTier?: "pro" | "premium";
 }
 
 export function PremiumGate({
   children,
   feature,
-  description = "Upgrade to Pro to unlock this and all premium features.",
+  description,
   showPreview = true,
+  requiredTier = "pro",
 }: PremiumGateProps) {
-  const { isPro, isLoading } = useSubscription();
+  const { isLoading, meetsTier, isDev } = useSubscription();
 
   if (isLoading) {
     return (
@@ -28,40 +31,76 @@ export function PremiumGate({
     );
   }
 
-  if (isPro) return <>{children}</>;
+  if (meetsTier(requiredTier as Tier)) {
+    // If dev mode is active, show a subtle dev badge in the top-right corner
+    if (isDev) {
+      return (
+        <div className="relative">
+          <div className="absolute top-4 right-4 z-50 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider shadow-sm pointer-events-none">
+            <Sparkles className="w-2.5 h-2.5" />
+            Dev Mode
+          </div>
+          {children}
+        </div>
+      );
+    }
+    return <>{children}</>;
+  }
+
+  const tierName = requiredTier === "premium" ? "Premium" : "Pro";
+  const tierColor = requiredTier === "premium" ? "amber" : "gray";
+  const defaultDesc =
+    requiredTier === "premium"
+      ? "Upgrade to Premium for exclusive features including 1-on-1 doctor consultations."
+      : "Upgrade to Pro to unlock this and all premium features.";
+
+  const proFeatures = [
+    "Unlimited HealthBot AI",
+    "120 Disease Infographics",
+    "All Premium Tools",
+    "Structured Learning Paths",
+    "Ad-free experience",
+  ];
+
+  const premiumFeatures = [
+    "Everything in Pro",
+    "4 Doctor Consultations/year",
+    "HealthBot Priority Queue",
+    "Full Infographics HD PDFs",
+    "Enhanced Annual Review",
+  ];
+
+  const features = requiredTier === "premium" ? premiumFeatures : proFeatures;
+  const startingPrice = requiredTier === "premium" ? "₹2,999/month" : "₹999/month";
 
   return (
     <div className="relative min-h-[600px]">
-      {/* Blurred preview */}
       {showPreview && (
         <div className="pointer-events-none select-none opacity-40 blur-md max-h-[600px] overflow-hidden">
           {children}
         </div>
       )}
 
-      {/* Premium overlay */}
       <div className={showPreview ? "absolute inset-0 flex items-center justify-center px-4" : "flex items-center justify-center px-4 py-16"}>
         <div className="max-w-md w-full bg-white border-2 border-[#1a1a1a] rounded-3xl p-8 text-center shadow-2xl">
           <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-[#1a1a1a] flex items-center justify-center">
-            <Lock className="w-7 h-7 text-white" strokeWidth={2.5} />
+            {requiredTier === "premium" ? (
+              <Crown className="w-7 h-7 text-amber-400" strokeWidth={2.5} />
+            ) : (
+              <Lock className="w-7 h-7 text-white" strokeWidth={2.5} />
+            )}
           </div>
 
-          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100 text-amber-800 text-[10px] font-bold uppercase tracking-wider mb-4">
+          <div className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-${tierColor}-100 text-${tierColor}-800 text-[10px] font-bold uppercase tracking-wider mb-4`}>
             <Sparkles className="w-3 h-3" />
-            Pro Feature
+            {tierName} Feature
           </div>
 
           <h2 className="text-2xl font-black tracking-tight mb-2">{feature}</h2>
-          <p className="text-sm text-gray-600 mb-6 leading-relaxed">{description}</p>
+          <p className="text-sm text-gray-600 mb-6 leading-relaxed">{description || defaultDesc}</p>
 
           <div className="space-y-2 mb-6 text-left bg-gray-50 rounded-xl p-4">
-            {[
-              "Unlimited HealthBot AI",
-              "120 Disease Infographics",
-              "All Premium Tools",
-              "Structured Learning Paths",
-              "Ad-free experience",
-            ].map((item) => (
+            {features.map((item) => (
               <div key={item} className="flex items-center gap-2 text-sm">
                 <Check className="w-4 h-4 text-emerald-600 flex-shrink-0" strokeWidth={3} />
                 <span className="text-gray-700">{item}</span>
@@ -74,7 +113,7 @@ export function PremiumGate({
               href="/pricing"
               className="flex-1 px-6 py-3 bg-[#1a1a1a] text-white rounded-full text-sm font-bold hover:bg-black transition-colors"
             >
-              Upgrade to Pro \u2192
+              Upgrade to {tierName} →
             </Link>
             <Link
               href="/pricing"
@@ -85,7 +124,7 @@ export function PremiumGate({
           </div>
 
           <p className="text-[11px] text-gray-400 mt-4">
-            Starting at \u20B91,499/month \u00B7 7-day money-back guarantee
+            Starting at {startingPrice} · 49% off yearly plans · Use code NuradiHealth25
           </p>
         </div>
       </div>
@@ -93,12 +132,20 @@ export function PremiumGate({
   );
 }
 
-/** Small "Pro" badge for nav items / feature titles */
 export function ProBadge({ className = "" }: { className?: string }) {
   return (
     <span className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-amber-100 text-amber-800 ${className}`}>
       <Sparkles className="w-2.5 h-2.5" />
       Pro
+    </span>
+  );
+}
+
+export function PremiumBadge({ className = "" }: { className?: string }) {
+  return (
+    <span className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[9px] font-bold uppercase tracking-wider bg-gradient-to-r from-amber-400 to-orange-400 text-white ${className}`}>
+      <Crown className="w-2.5 h-2.5" />
+      Premium
     </span>
   );
 }

@@ -95,6 +95,8 @@ export async function POST(req: NextRequest) {
       success: true,
       plan: plan.id,
       planName: plan.name,
+      tier: plan.tier,
+      period: plan.period,
       email: subscription.email,
       expiresAt: expiresAt.toISOString(),
     });

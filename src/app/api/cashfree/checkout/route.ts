@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { customAlphabet } from "nanoid";
 import { supabaseAdmin } from "@/lib/supabase";
 import { getPlanById } from "@/lib/cashfree";
+import { validateCoupon } from "@/lib/coupons";
 
 const CF_APP_ID = process.env.CASHFREE_APP_ID;
 const CF_SECRET = process.env.CASHFREE_SECRET_KEY;
@@ -26,6 +27,7 @@ export async function POST(req: NextRequest) {
     const planId = String(body.planId || "");
     const name = String(body.name || "").trim() || email.split("@")[0];
     const phone = String(body.phone || "").trim() || "9999999999";
+    const couponCode = String(body.couponCode || "").trim();
 
     if (!EMAIL_REGEX.test(email)) {
       return NextResponse.json({ error: "Valid email required" }, { status: 400 });
@@ -34,6 +36,20 @@ export async function POST(req: NextRequest) {
     const plan = getPlanById(planId);
     if (!plan || plan.id === "free") {
       return NextResponse.json({ error: "Invalid plan" }, { status: 400 });
+    }
+
+    // Apply coupon if provided
+    let finalPrice = plan.price;
+    let appliedCouponCode: string | null = null;
+    let discountAmount = 0;
+
+    if (couponCode) {
+      const couponValidation = validateCoupon(couponCode);
+      if (couponValidation.valid && couponValidation.code) {
+        finalPrice = Math.round(plan.price * (1 - couponValidation.discount));
+        appliedCouponCode = couponValidation.code;
+        discountAmount = plan.price - finalPrice;
+      }
     }
 
     // Generate unique order ID
@@ -53,7 +69,7 @@ export async function POST(req: NextRequest) {
       },
       body: JSON.stringify({
         order_id: orderId,
-        order_amount: plan.price / 100, // Cashfree expects rupees, not paisa
+        order_amount: finalPrice / 100, // Cashfree expects rupees, not paisa
         order_currency: "INR",
         customer_details: {
           customer_id: customerId,
@@ -86,10 +102,13 @@ export async function POST(req: NextRequest) {
     const { error: dbError } = await supabaseAdmin.from("subscriptions").insert({
       email,
       plan_id: plan.id,
+      tier: plan.tier,
       status: "pending",
       cashfree_order_id: orderId,
-      amount: plan.price,
+      amount: finalPrice,
       currency: "INR",
+      coupon_code: appliedCouponCode,
+      discount_amount: discountAmount,
     });
 
     if (dbError) {
