@@ -7,6 +7,7 @@ import { TrustBar } from "@/components/trust-bar";
 import { Footer } from "@/components/footer";
 import { ChatWidget } from "@/components/chat-widget";
 import AdSenseScript from "@/components/ads/AdSenseScript";
+import { Analytics } from "@vercel/analytics/next";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -70,6 +71,7 @@ export default function RootLayout({
           <Footer />
           <ChatWidget />
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
