@@ -1,5 +1,5 @@
 // lib/razorpay.ts
-// Razorpay integration helper for HealthEduTV Pro subscriptions
+// Razorpay integration helper for NuradiHealth Pro subscriptions
 //
 // Setup:
 // 1. Sign up at https://dashboard.razorpay.com
@@ -139,7 +139,7 @@ export async function openRazorpayCheckout({
     key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
     amount: plan.price,
     currency: 'INR',
-    name: 'HealthEduTV',
+    name: 'NuradiHealth',
     description: `${plan.name} Subscription`,
     order_id: orderData.orderId,
     prefill: {

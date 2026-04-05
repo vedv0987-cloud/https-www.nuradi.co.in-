@@ -6,6 +6,7 @@ import { Navbar } from "@/components/navbar";
 import { TrustBar } from "@/components/trust-bar";
 import { Footer } from "@/components/footer";
 import { ChatWidget } from "@/components/chat-widget";
+import AdSenseScript from "@/components/ads/AdSenseScript";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -59,6 +60,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <AdSenseScript />
       </head>
       <body className="min-h-full flex flex-col">
         <ThemeProvider>

@@ -34,7 +34,7 @@ export default function AffiliateDisclosure({ variant = 'footer' }: AffiliateDis
       >
         <strong>Affiliate Disclosure:</strong> Some links on this page are affiliate links. If you
         purchase through these links, we may earn a small commission at no additional cost to you.
-        This helps us keep HealthEduTV free and running.{' '}
+        This helps us keep NuradiHealth free and running.{' '}
         <a href="/affiliate-disclosure" style={{ color: '#666', textDecoration: 'underline' }}>
           Full disclosure
         </a>
@@ -48,7 +48,7 @@ export default function AffiliateDisclosure({ variant = 'footer' }: AffiliateDis
       <h1 style={{ fontSize: 28, fontWeight: 700, marginBottom: 24 }}>Affiliate Disclosure</h1>
 
       <p>
-        HealthEduTV (nuradi.co.in) is a participant in several affiliate programs. This means that
+        NuradiHealth (nuradi.co.in) is a participant in several affiliate programs. This means that
         some of the links on our website are affiliate links — when you click on them and make a
         purchase, we may receive a small commission at no additional cost to you.
       </p>
@@ -69,7 +69,7 @@ export default function AffiliateDisclosure({ variant = 'footer' }: AffiliateDis
 
       <h2 style={{ fontSize: 20, fontWeight: 600, marginTop: 28 }}>Medical Disclaimer</h2>
       <p>
-        HealthEduTV provides curated health education content for informational purposes only. The
+        NuradiHealth provides curated health education content for informational purposes only. The
         content on this website is not intended to be a substitute for professional medical advice,
         diagnosis, or treatment. Always seek the advice of your physician or other qualified health
         provider with any questions you may have regarding a medical condition.
