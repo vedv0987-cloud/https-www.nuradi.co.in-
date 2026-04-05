@@ -36,7 +36,7 @@ export default function BlogPage() {
     <div className="min-h-screen bg-white text-black">
       {/* Header */}
       <header className="border-b border-black/10">
-        <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-6 py-12 sm:px-8 lg:px-12">
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -57,7 +57,7 @@ export default function BlogPage() {
         </div>
       </header>
 
-      <main className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
+      <main className="mx-auto max-w-7xl px-6 py-8 sm:px-8 lg:px-12">
         {/* Search */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}
@@ -103,7 +103,7 @@ export default function BlogPage() {
             No articles found. Try a different search or category.
           </p>
         ) : (
-          <div className="grid gap-8 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
             {filtered.map((article, i) => (
               <motion.div
                 key={article.id}
@@ -120,7 +120,7 @@ export default function BlogPage() {
                         alt={article.title}
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
-                        sizes="(max-width: 640px) 100vw, 50vw"
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       />
                       {/* Category Badge */}
                       <Badge className="absolute left-3 top-3 bg-black text-white hover:bg-black/80">
