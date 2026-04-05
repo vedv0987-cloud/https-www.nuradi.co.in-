@@ -3,6 +3,8 @@
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Send, Loader2, ThumbsUp, ThumbsDown, Copy, Check, Search, Bot } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { cn } from "@/lib/utils";
 
 interface Source {
@@ -217,12 +219,48 @@ export function HealthChat({ isWidget = false }: { isWidget?: boolean }) {
                   <div className="w-8 h-8 rounded-full bg-[#1a1a1a] flex items-center justify-center flex-shrink-0 mt-1">
                     <Bot className="w-4 h-4 text-white" />
                   </div>
-                  <div className="max-w-[85%] flex-1">
+                  <div className="flex-1 min-w-0">
                     <div className="bg-gray-50 border border-gray-100 rounded-2xl rounded-bl-sm px-4 py-3">
-                      <div className="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">
-                        {msg.content}
+                      <div className="text-sm text-gray-800 leading-relaxed">
+                        <ReactMarkdown
+                          remarkPlugins={[remarkGfm]}
+                          components={{
+                            h1: ({ children }) => <h1 className="text-lg font-bold text-[#1a1a1a] mt-4 mb-2 first:mt-0">{children}</h1>,
+                            h2: ({ children }) => <h2 className="text-base font-bold text-[#1a1a1a] mt-4 mb-2 first:mt-0">{children}</h2>,
+                            h3: ({ children }) => <h3 className="text-sm font-bold text-[#1a1a1a] mt-3 mb-1.5 first:mt-0">{children}</h3>,
+                            p: ({ children }) => <p className="mb-2 last:mb-0 leading-relaxed">{children}</p>,
+                            ul: ({ children }) => <ul className="mb-2 space-y-1.5 list-disc pl-5">{children}</ul>,
+                            ol: ({ children }) => <ol className="mb-2 space-y-1.5 list-decimal pl-5">{children}</ol>,
+                            li: ({ children }) => <li className="leading-relaxed pl-1">{children}</li>,
+                            strong: ({ children }) => <strong className="font-bold text-[#1a1a1a]">{children}</strong>,
+                            em: ({ children }) => <em className="italic">{children}</em>,
+                            blockquote: ({ children }) => (
+                              <blockquote className="border-l-4 border-amber-400 bg-amber-50 px-3 py-2 my-2 rounded-r text-[13px] text-gray-700">
+                                {children}
+                              </blockquote>
+                            ),
+                            hr: () => <hr className="my-3 border-gray-200" />,
+                            a: ({ href, children }) => (
+                              <a href={href} target="_blank" rel="noopener noreferrer" className="text-blue-600 underline hover:text-blue-800">
+                                {children}
+                              </a>
+                            ),
+                            code: ({ children }) => (
+                              <code className="bg-gray-100 text-[#1a1a1a] px-1.5 py-0.5 rounded text-[12px] font-mono">{children}</code>
+                            ),
+                            table: ({ children }) => (
+                              <div className="overflow-x-auto my-2">
+                                <table className="min-w-full text-[12px] border-collapse">{children}</table>
+                              </div>
+                            ),
+                            th: ({ children }) => <th className="border border-gray-200 px-2 py-1 bg-gray-100 font-bold text-left">{children}</th>,
+                            td: ({ children }) => <td className="border border-gray-200 px-2 py-1">{children}</td>,
+                          }}
+                        >
+                          {msg.content}
+                        </ReactMarkdown>
                         {msg.isStreaming && (
-                          <span className="inline-block w-1.5 h-4 bg-[#1a1a1a] animate-pulse ml-0.5" />
+                          <span className="inline-block w-1.5 h-4 bg-[#1a1a1a] animate-pulse ml-0.5 align-middle" />
                         )}
                       </div>
                     </div>
