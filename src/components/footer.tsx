@@ -8,6 +8,8 @@ const FOOTER_LINKS = {
   Platform: [
     { href: "/explore", label: "Explore" },
     { href: "/channels", label: "Channels" },
+    { href: "/health-az", label: "Health A-Z" },
+    { href: "/pricing", label: "Pricing" },
     { href: "/about", label: "About" },
   ],
   Categories: [
@@ -16,10 +18,11 @@ const FOOTER_LINKS = {
     { href: "/category/nutrition", label: "Nutrition" },
     { href: "/category/mental-health", label: "Mental Health" },
   ],
-  More: [
-    { href: "/category/medical", label: "Medical Education" },
-    { href: "/category/science", label: "Science" },
-    { href: "/category/personal-dev", label: "Personal Development" },
+  Legal: [
+    { href: "/terms", label: "Terms & Conditions" },
+    { href: "/refund-policy", label: "Cancellation & Refund" },
+    { href: "/affiliate-disclosure", label: "Affiliate Disclosure" },
+    { href: "/contact", label: "Contact Us" },
   ],
 };
 
@@ -67,12 +70,16 @@ export function Footer() {
         <Separator className="my-8" />
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+          <div className="text-xs text-muted-foreground text-center sm:text-left">
+            <p>
+              &copy; {new Date().getFullYear()} NuradiHealth \u00B7 Operated by VEDPRAKASH SHYAMCHARAN VISHWAKARMA
+            </p>
+            <p className="mt-1">
+              All videos belong to their respective YouTube creators.
+            </p>
+          </div>
           <p className="text-xs text-muted-foreground">
-            &copy; {new Date().getFullYear()} NuradiHealth. All videos belong to
-            their respective YouTube creators.
-          </p>
-          <p className="text-xs text-muted-foreground flex items-center gap-1">
-            Built by NuradiHealth
+            Mumbai, MH, India \u00B7 <a href="mailto:vedv0987@gmail.com" className="hover:text-foreground transition-colors">vedv0987@gmail.com</a>
           </p>
         </div>
       </div>

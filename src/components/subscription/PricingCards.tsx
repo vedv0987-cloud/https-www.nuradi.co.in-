@@ -1,31 +1,37 @@
 "use client";
 
 import { useState } from "react";
-import { Check, Sparkles, Zap } from "lucide-react";
-import { PLANS, SubscriptionPlan, startStripeCheckout } from "@/lib/stripe";
+import { Check, Sparkles, Zap, X, Lock } from "lucide-react";
+import { PLANS, SubscriptionPlan, startCashfreeCheckout } from "@/lib/cashfree";
 import { cn } from "@/lib/utils";
 
 export default function PricingCards() {
   const [loading, setLoading] = useState<string | null>(null);
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
   const [error, setError] = useState("");
+  const [modalPlan, setModalPlan] = useState<SubscriptionPlan | null>(null);
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const handleSubscribe = async (plan: SubscriptionPlan) => {
+  const openCheckoutModal = (plan: SubscriptionPlan) => {
     if (plan.id === "free") return;
+    setModalPlan(plan);
+    setError("");
+  };
 
-    setLoading(plan.id);
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!modalPlan) return;
+
+    setLoading(modalPlan.id);
     setError("");
 
-    const userEmail = prompt("Enter your email to subscribe:") || "";
-    if (!userEmail || !userEmail.includes("@")) {
-      setLoading(null);
-      setError("Valid email required");
-      return;
-    }
-
-    await startStripeCheckout({
-      plan,
-      userEmail,
+    await startCashfreeCheckout({
+      plan: modalPlan,
+      userEmail: email.trim().toLowerCase(),
+      userName: name.trim() || undefined,
+      userPhone: phone.trim() || undefined,
       onFailure: (err) => {
         setLoading(null);
         setError(err.message || "Checkout failed. Please try again.");
@@ -137,7 +143,7 @@ export default function PricingCards() {
             </ul>
 
             <button
-              onClick={() => handleSubscribe(plan)}
+              onClick={() => openCheckoutModal(plan)}
               disabled={plan.id === "free" || loading === plan.id}
               className={cn(
                 "w-full py-3.5 rounded-full text-sm font-bold transition-all disabled:opacity-50 disabled:cursor-not-allowed",
@@ -159,7 +165,7 @@ export default function PricingCards() {
       </div>
 
       <div className="text-center mt-10 text-xs text-gray-400 space-y-1">
-        <p>Secure payment via Stripe \u00B7 Cancel anytime \u00B7 7-day money-back guarantee</p>
+        <p>Secure payment via Cashfree (UPI \u00B7 cards \u00B7 netbanking \u00B7 wallets) \u00B7 Cancel anytime</p>
       </div>
 
       {/* Feature Comparison Table */}
@@ -218,11 +224,11 @@ export default function PricingCards() {
           </div>
           <div className="p-5 bg-gray-50 rounded-2xl">
             <h4 className="font-bold text-sm mb-1">What payment methods are accepted?</h4>
-            <p className="text-xs text-gray-600 leading-relaxed">All major credit/debit cards, UPI, net banking, and wallets via Stripe.</p>
+            <p className="text-xs text-gray-600 leading-relaxed">UPI, all major credit/debit cards, net banking, and wallets via Cashfree.</p>
           </div>
           <div className="p-5 bg-gray-50 rounded-2xl">
             <h4 className="font-bold text-sm mb-1">Is my payment secure?</h4>
-            <p className="text-xs text-gray-600 leading-relaxed">Absolutely. All payments are processed by Stripe \u2014 PCI DSS Level 1 certified.</p>
+            <p className="text-xs text-gray-600 leading-relaxed">Absolutely. All payments are processed by Cashfree Payments \u2014 PCI DSS Level 1 certified.</p>
           </div>
           <div className="p-5 bg-gray-50 rounded-2xl">
             <h4 className="font-bold text-sm mb-1">Will there be a free trial?</h4>
@@ -230,6 +236,90 @@ export default function PricingCards() {
           </div>
         </div>
       </div>
+
+      {/* Checkout Modal */}
+      {modalPlan && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center px-4 bg-black/60 backdrop-blur-sm" onClick={() => !loading && setModalPlan(null)}>
+          <div
+            className="bg-white rounded-3xl max-w-md w-full p-8 shadow-2xl relative"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button
+              onClick={() => !loading && setModalPlan(null)}
+              className="absolute top-4 right-4 w-8 h-8 rounded-full hover:bg-gray-100 flex items-center justify-center text-gray-500"
+              disabled={!!loading}
+            >
+              <X className="w-4 h-4" />
+            </button>
+
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gray-100 text-gray-700 text-[10px] font-bold uppercase tracking-wider mb-3">
+              <Lock className="w-3 h-3" />
+              Secure Checkout
+            </div>
+            <h3 className="text-2xl font-black tracking-tight mb-1">{modalPlan.name}</h3>
+            <p className="text-3xl font-black text-[#1a1a1a] mb-6">
+              {modalPlan.displayPrice}
+              <span className="text-sm font-normal text-gray-400 ml-1">
+                /{modalPlan.period === "monthly" ? "month" : "year"}
+              </span>
+            </p>
+
+            <form onSubmit={handleSubscribe} className="space-y-3">
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1.5">Email *</label>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:border-[#1a1a1a] focus:bg-white outline-none transition-colors"
+                  disabled={!!loading}
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1.5">Name</label>
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  placeholder="Full name"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:border-[#1a1a1a] focus:bg-white outline-none transition-colors"
+                  disabled={!!loading}
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-bold text-gray-700 mb-1.5">Phone (for payment)</label>
+                <input
+                  type="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  placeholder="10-digit mobile"
+                  className="w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:border-[#1a1a1a] focus:bg-white outline-none transition-colors"
+                  disabled={!!loading}
+                />
+              </div>
+
+              {error && (
+                <p className="text-xs text-red-600 bg-red-50 border border-red-200 px-3 py-2 rounded-lg">{error}</p>
+              )}
+
+              <button
+                type="submit"
+                disabled={!email.includes("@") || !!loading}
+                className="w-full py-3.5 bg-[#1a1a1a] text-white rounded-full text-sm font-bold hover:bg-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? "Redirecting to payment..." : "Proceed to Payment \u2192"}
+              </button>
+
+              <p className="text-[10px] text-gray-400 text-center leading-relaxed">
+                You&apos;ll be redirected to Cashfree&apos;s secure payment page.<br />
+                Pay with UPI, cards, netbanking, or wallets.
+              </p>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
