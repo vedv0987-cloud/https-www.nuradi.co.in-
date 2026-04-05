@@ -45,7 +45,7 @@ const VIDEO_LINKS = [
   { href: "/learning-paths", label: "Learning Paths" },
   { href: "/daily-dose", label: "Daily Dose" },
   { href: "/ai-insights", label: "AI Insights" },
-  { href: "/news", label: "Health News" },
+  { href: "/health-news", label: "📰 Health News (Live)" },
 ];
 
 const FEATURES_LINKS = [
