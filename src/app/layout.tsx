@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer";
 import { ChatWidget } from "@/components/chat-widget";
 import AdSenseScript from "@/components/ads/AdSenseScript";
 import { Analytics } from "@vercel/analytics/next";
+import { SmoothScroll } from "@/components/smooth-scroll";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -64,6 +65,7 @@ export default function RootLayout({
         <AdSenseScript />
       </head>
       <body className="min-h-full flex flex-col">
+        <SmoothScroll />
         <ThemeProvider>
           <Navbar />
           <TrustBar />
