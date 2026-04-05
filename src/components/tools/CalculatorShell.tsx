@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowLeft } from "lucide-react";
 import { getRelatedTools, getToolBySlug } from "@/lib/tools-registry";
+import { webApplicationSchema } from "@/lib/schema";
 
 interface Props {
   slug: string;
@@ -22,9 +23,19 @@ export function CalculatorShell({
 }: Props) {
   const tool = getToolBySlug(slug);
   const related = getRelatedTools(slug);
+  const schema = webApplicationSchema({
+    name: title,
+    description,
+    slug,
+    category: tool?.category,
+  });
 
   return (
     <div className="min-h-screen bg-background">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
       <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         <Link
           href="/tools"

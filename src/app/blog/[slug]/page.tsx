@@ -4,6 +4,8 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { Clock, Calendar, ArrowLeft, ArrowRight, Share2 } from "lucide-react";
 import { ARTICLES } from "@/data/articles";
+import { SchemaMarkup } from "@/components/schema-markup";
+import { medicalWebPageSchema, articleSchema } from "@/lib/schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -52,7 +54,31 @@ export default async function BlogDetailPage({ params }: Props) {
     .filter((a) => a.category === article.category && a.slug !== slug)
     .slice(0, 3);
 
+  // Convert date string to ISO (articles use "March 4, 2026" format)
+  const publishedIso = new Date(article.date).toISOString();
+  const schemaData = [
+    medicalWebPageSchema({
+      title: article.title,
+      excerpt: article.excerpt,
+      author: article.author,
+      published: publishedIso,
+      slug: article.slug,
+      image: article.img,
+      category: article.category,
+    }),
+    articleSchema({
+      title: article.title,
+      excerpt: article.excerpt,
+      author: article.author,
+      published: publishedIso,
+      slug: article.slug,
+      image: article.img,
+    }),
+  ];
+
   return (
+    <>
+      <SchemaMarkup data={schemaData} />
     <article className="max-w-[1100px] mx-auto px-4 sm:px-6 py-12">
       {/* Back link */}
       <Link
@@ -219,5 +245,6 @@ export default async function BlogDetailPage({ params }: Props) {
         </section>
       )}
     </article>
+    </>
   );
 }

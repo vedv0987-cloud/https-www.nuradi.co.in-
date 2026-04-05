@@ -5,6 +5,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { INFOGRAPHICS } from "@/data/infographics-data";
 import { InfographicCard } from "@/components/infographic-card";
 import { InfographicShareButtons } from "@/components/infographic-share-buttons";
+import { SchemaMarkup } from "@/components/schema-markup";
+import { medicalConditionSchema, faqPageSchema } from "@/lib/schema";
 
 const BASE_URL = "https://www.nuradi.co.in";
 
@@ -66,8 +68,24 @@ export default async function InfographicDetailPage({
 
   const shareUrl = `${BASE_URL}/infographics/${id}`;
 
+  const schemaData = [
+    medicalConditionSchema({
+      disease: item.disease,
+      category: item.categoryLabel,
+      tips: item.tips,
+      id: item.id,
+    }),
+    faqPageSchema(
+      item.tips.map((t) => ({
+        q: `What's a key tip for ${item.disease}?`,
+        a: t.text,
+      }))
+    ),
+  ];
+
   return (
     <div className="min-h-screen bg-white text-black">
+      <SchemaMarkup data={schemaData} />
       <div className="mx-auto max-w-5xl px-6 py-8 sm:px-8 lg:px-12">
         <Link
           href="/infographics"

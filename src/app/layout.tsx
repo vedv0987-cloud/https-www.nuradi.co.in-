@@ -8,6 +8,7 @@ import { Footer } from "@/components/footer";
 import { ChatWidget } from "@/components/chat-widget";
 import AdSenseScript from "@/components/ads/AdSenseScript";
 import { Analytics } from "@vercel/analytics/next";
+import { organizationSchema } from "@/lib/schema";
 
 const jakarta = Plus_Jakarta_Sans({
   variable: "--font-sans",
@@ -60,6 +61,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
         />
         <AdSenseScript />
       </head>
