@@ -234,12 +234,12 @@ export const TOOLS: Tool[] = [
   {
     slug: "vitamin-check",
     name: "Vitamin Deficiency Checker",
-    description: "30 symptoms → likely deficiencies + foods.",
+    description: "26 symptoms → likely deficiencies + foods.",
     category: "disease-risk",
     icon: "💊",
     estimatedTime: "2 min",
     usageCount: "new",
-    status: "coming-soon",
+    status: "live",
     isNew: true,
   },
 
