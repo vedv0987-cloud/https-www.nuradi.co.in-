@@ -55,7 +55,7 @@ export default function AffiliateDisclosure({ variant = 'footer' }: AffiliateDis
 
       <h2 style={{ fontSize: 20, fontWeight: 600, marginTop: 28 }}>Programs We Participate In</h2>
       <p>
-        We are affiliated with Amazon Associates (India), Headspace, MyProtein, Fitbit, and other
+        We are affiliated with Tata 1mg, Amazon Associates (India), Headspace, MyProtein, and other
         health and wellness brands. Each program has its own commission structure and terms.
       </p>
 
