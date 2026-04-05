@@ -180,6 +180,42 @@ export function medicalConditionSchema(item: {
   };
 }
 
+export function medicalSignOrSymptomSchema(item: {
+  name: string;
+  slug: string;
+  description: string;
+  bodyArea: string;
+  causes: { name: string; description: string }[];
+  possibleTests: string[];
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "MedicalSignOrSymptom",
+    name: item.name,
+    url: `${SITE_URL}/symptoms/${item.slug}`,
+    description: item.description,
+    inLanguage: "en-IN",
+    associatedAnatomy: {
+      "@type": "AnatomicalStructure",
+      name: item.bodyArea,
+    },
+    cause: item.causes.map((c) => ({
+      "@type": "MedicalCause",
+      name: c.name,
+      description: c.description,
+    })),
+    possibleTreatment: item.possibleTests.map((t) => ({
+      "@type": "MedicalTest",
+      name: t,
+    })),
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      url: SITE_URL,
+    },
+  };
+}
+
 export function collectionPageSchema(args: {
   name: string;
   description: string;
